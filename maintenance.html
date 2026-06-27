@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Manpower & Upkeep | Swades Property Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #030712; color: #cbd5e1; overflow-x: hidden; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        
+        /* Advanced Scroll & Switch Transitions */
+        .reveal-on-scroll { opacity: 0; transform: translateY(35px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal-on-scroll.is-revealed { opacity: 1; transform: translateY(0); }
+
+        /* Light Card Hover (For the 15 Maintenance Grid Vectors) */
+        .maintenance-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid #e2e8f0; background-color: #f8fafc; }
+        .maintenance-card:hover { transform: translateY(-8px); border-color: #f59e0b; background-color: #ffffff; box-shadow: 0 25px 35px -10px rgba(245, 158, 11, 0.22); }
+    </style>
+</head>
+<body class="antialiased flex flex-col justify-between min-h-screen">
+
+    <header class="sticky top-0 z-50 bg-[#030712]/95 backdrop-blur-md border-b border-amber-500/10">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-xl shadow-lg">S</div>
+                <div>
+                    <span class="block font-luxury font-bold text-xl text-white tracking-wider leading-none">SWADES</span>
+                    <span class="text-[9px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-slate-300">
+                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="hover:text-amber-500 transition-colors">Services</a>
+                <a href="maintenance.html" class="text-amber-500 transition-colors">Maintenance</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <a href="consultation.html" class="hidden sm:block bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-slate-950 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded transition-all shadow-lg text-center">Consultation</a>
+                <button class="menu-trigger-btn text-white hover:text-amber-500 flex items-center gap-2 bg-slate-900 px-3 py-2 rounded border border-slate-800 cursor-pointer">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400 hidden sm:inline">Menu</span>
+                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden"></div>
+    <div id="sidebar-drawer" class="fixed top-0 right-0 h-full w-full max-w-sm bg-slate-900 text-white z-50 shadow-2xl translate-x-full transition-transform duration-300 p-8 flex flex-col justify-between border-l border-slate-800">
+        <div>
+            <div class="flex justify-between items-center mb-12">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-amber-600 rounded flex items-center justify-center text-slate-950 font-bold text-xl font-luxury">S</div>
+                    <span class="font-luxury font-bold text-xl tracking-wider text-white">SWADES</span>
+                </div>
+                <button id="close-sidebar-btn" class="text-slate-400 hover:text-white text-2xl cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <nav class="space-y-5 text-sm font-bold tracking-widest uppercase font-luxury flex flex-col">
+                <a href="index.html" class="text-slate-400 hover:text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="text-slate-400 hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="text-slate-400 hover:text-amber-500 transition-colors">Services</a>
+                <a href="maintenance.html" class="text-amber-500 transition-colors"><i class="fa-solid fa-screwdriver-wrench text-xs mr-2 text-amber-500"></i> Maintenance</a>
+                <a href="luxury-outdoor.html" class="text-slate-400 hover:text-amber-500 transition-colors"><i class="fa-solid fa-tree text-xs mr-2 text-amber-500"></i> Luxury Outdoor</a>
+                <a href="gallery.html" class="text-slate-400 hover:text-amber-500 transition-colors">Gallery</a>
+                <a href="reviews.html" class="text-slate-400 hover:text-amber-500 transition-colors">Client Reviews</a>
+                <a href="faq.html" class="text-slate-400 hover:text-amber-500 transition-colors">FAQ</a>
+                <a href="careers.html" class="text-slate-400 hover:text-amber-500 transition-colors">Careers</a>
+            </nav>
+        </div>
+        <a href="consultation.html" class="w-full bg-amber-600 hover:bg-amber-500 text-slate-950 text-center font-bold text-xs uppercase tracking-widest py-4 rounded transition-colors shadow-lg">Schedule Consultation</a>
+    </div>
+
+    <section class="relative w-full py-24 bg-cover bg-center bg-no-repeat text-center border-b border-slate-900/80" 
+             style="background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.96)), url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=2000&q=80');">
+        <div class="container mx-auto px-6 max-w-4xl reveal-on-scroll space-y-4">
+            <span class="text-amber-500 text-xs md:text-sm font-bold uppercase tracking-[0.3em] block">Operational Care</span>
+            <h1 class="font-luxury text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-wide leading-tight">
+                Premium Manpower & <span class="text-amber-500">Property Upkeep</span>
+            </h1>
+            <p class="text-slate-300 text-base md:text-lg font-light max-w-2xl mx-auto leading-relaxed">
+                Immaculate preservation of residential environments, structural mechanics, and private grounds handled by certified, background-verified domestic custodians.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 container mx-auto max-w-5xl text-center space-y-12">
+        <div class="reveal-on-scroll space-y-3 max-w-2xl mx-auto">
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block">Visual Transformation</span>
+            <h2 class="font-luxury text-4xl sm:text-5xl font-bold text-white">Immaculate Restoration Standards</h2>
+            <p class="text-slate-400 text-sm md:text-base font-light leading-relaxed">
+                Witness how our deep crystallization and structural recovery taskforce restores aging architectural facades and neglected interiors back to pristine, move-in standards.
+            </p>
+        </div>
+
+        <div class="reveal-on-scroll relative rounded-3xl overflow-hidden shadow-2xl border border-slate-800 max-w-4xl mx-auto group">
+            <div class="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-transparent to-blue-500/10 z-10 pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2">
+                <div class="relative h-72 sm:h-96 bg-slate-950 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80" alt="Neglected Architectural Core Before" class="w-full h-full object-cover opacity-75 filter contrast-125">
+                    <span class="absolute bottom-4 left-4 bg-slate-950/90 text-amber-500 border border-slate-800 font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-lg z-20 shadow">Before Restoration Audit</span>
+                </div>
+                <div class="relative h-72 sm:h-96 bg-slate-900 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Immaculate Move-in Condition After" class="w-full h-full object-cover">
+                    <span class="absolute bottom-4 right-4 bg-amber-500 text-slate-950 font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-lg z-20 shadow">Swades Move-In Standard</span>
+                </div>
+            </div>
+
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-950 border-2 border-amber-500 text-amber-500 flex items-center justify-center text-xs font-bold z-30 shadow-2xl tracking-tighter">
+                <i class="fa-solid fa-chevron-left pr-0.5"></i><i class="fa-solid fa-chevron-right pl-0.5"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-[#060913] border-t border-slate-900/90 px-6">
+        <div class="container mx-auto max-w-7xl text-center mb-20 reveal-on-scroll space-y-4">
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block">Vertical Solutions</span>
+            <h2 class="font-luxury text-4xl sm:text-5xl md:text-6xl font-bold text-white">Comprehensive Infrastructure Upkeep</h2>
+            <p class="text-slate-400 text-base md:text-lg font-light max-w-2xl mx-auto">
+                Standardized domestic property and structural care vectors deployed under absolute quality control loops.
+            </p>
+        </div>
+
+        <div class="container mx-auto max-w-7xl grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+            
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">D</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Deep Cleaning Services</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Intensive sanitization passes across hard-to-reach common areas, architectural tiling, common common windows, and high-contact utility access points.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">D</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Daily Cleaning</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Premium housekeeping execution parameters maintaining immaculate living comfort, dust-free surfaces, and pristine floors for luxury private layouts.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">M</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Monthly Cleaning</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Scheduled intensive sanitization walkthroughs eliminating stubborn scale, hard-water mineral lines, exterior cobwebs, and deep architectural grime.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">P</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Pest Control</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Eco-friendly, human-safe barrier treatments guarding residential structures and timber installations against subterranean termites, rodents, and wood borers.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">P</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Painting Works</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Flawless elastomeric weather-shield exterior repainting, interior luxury emulsion coats, damp-proofing sealing, and minor masonry leveling passes.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">P</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Plumbing</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Preventative hydro-testing, high-pressure booster pump calibrations, automated sensor valve replacements, and absolute zero-leak pipe fixes.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">E</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Electrical Works</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Complete three-phase load balancing, smart distribution panel upgrades, common-area automation audits, and 24/7 wire fire-hazard isolation loops.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">F</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Flooring & Polishing</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Master Italian marble crystallization passes, industrial diamond buffing for outdoor granite, hardwood lacquer recovery, and vitrified tile deep-cleaning.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">I</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Interior Designing</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Bespoke interior layout overhauls, custom lighting matrices, acoustic wall paneling integrations, and complete aesthetic modernization blueprints.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">F</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Furniture Works</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Custom teakwood casework detailing, premium upholstery restoration, outdoor weather-resistant wicker repairs, and structural carpentry fixes.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">A</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">AC Installation & Service</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Centralized VRV / HVAC duct microbial sanitization, chemical hydro-jet split AC deep cleaning, condenser health checks, and precision gas top-ups.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">G</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Gardening & Plantation</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Resort-grade landscape curation, automated timer drip irrigation setups, seasonal exotic flora planting, vertical living walls, and topsoil grading.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">B</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Broadband Setup</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        High-speed dedicated optical fiber routing, enterprise-grade mesh Wi-Fi dead-zone eliminations, secure IoT network firewalls, and server racks.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">V</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Vastu Consultant</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Traditional Vastu Shastra structural geometry compliance auditing, non-destructive remedial architectural adjustments, and harmonious layout alignments.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="maintenance-card rounded-3xl p-8 shadow-xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500/20 text-amber-600 rounded-2xl flex items-center justify-center font-luxury font-bold text-xl mb-6 border border-amber-500/30">A</div>
+                    <h4 class="text-slate-900 font-luxury font-bold text-xl mb-2.5">Architect Services</h4>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Complete civil structural stability evaluations, 3D spatial layout CAD blueprints, municipal building permission liaison, and turnkey contractor oversight.
+                    </p>
+                </div>
+                <a href="consultation.html" class="text-amber-700 hover:text-amber-500 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+                    <span>Schedule Dispatch</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-32 bg-[#f8fafc] text-slate-900 border-t border-slate-200 px-6">
+        <div class="container mx-auto max-w-7xl grid lg:grid-cols-12 gap-16 items-center">
+            
+            <div class="lg:col-span-7 space-y-8 text-left reveal-on-scroll">
+                <div class="space-y-3">
+                    <span class="text-amber-600 text-xs font-bold uppercase tracking-[0.25em] block">Uncompromising SLA</span>
+                    <h2 class="font-luxury text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 leading-tight">
+                        Vetted Manpower & Quality Standards
+                    </h2>
+                </div>
+
+                <p class="text-slate-600 text-base md:text-lg font-normal leading-relaxed">
+                    Swades strictly enforces institutional quality control across all staffing deployments. We recognize that opening your private home requires absolute trust.
+                </p>
+
+                <div class="space-y-5 text-sm md:text-base font-semibold text-slate-800">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-circle-check text-amber-600 text-lg mt-0.5"></i>
+                        <span><strong>Forensic Identity Screening:</strong> All deployed ground technicians undergo verified criminal history, address validation, and state police background checks.</span>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-circle-check text-amber-600 text-lg mt-0.5"></i>
+                        <span><strong>Industrial-Grade Mechanization:</strong> Technicians arrive equipped with heavy-duty mechanical scrubbers, hydro-jets, and non-toxic imported chemical solutions.</span>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-circle-check text-amber-600 text-lg mt-0.5"></i>
+                        <span><strong>Direct Digital Attendance:</strong> Track staff entry timestamps, task completion checklists, and supervisor sign-offs directly inside your encrypted mobile portal.</span>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <a href="consultation.html" class="inline-block bg-slate-900 hover:bg-amber-600 hover:text-slate-950 text-white font-bold text-xs uppercase tracking-widest px-10 py-5 rounded-full shadow-xl transition-all transform hover:scale-105">
+                        Request Manpower Allocation Framework
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 reveal-on-scroll">
+                <div class="relative max-w-md mx-auto lg:max-w-none">
+                    <div class="absolute -inset-2 bg-amber-500/20 rounded-3xl blur-xl transform rotate-1"></div>
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80" alt="Vetted Professional Cleaning Window Shutters" class="relative rounded-3xl shadow-2xl border border-slate-200 w-full object-cover z-10">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-[#02050c] text-slate-400 text-xs pt-20 pb-10 border-t border-slate-900">
+        <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            
+            <div class="md:col-span-4 space-y-4 text-left">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-xl">S</div>
+                    <div>
+                        <span class="block font-luxury font-bold text-base text-white tracking-wider leading-none">SWADES</span>
+                        <span class="text-[8px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                    </div>
+                </div>
+                <p class="text-slate-500 text-xs font-light leading-relaxed">
+                    Empowering property owners and international NRIs with absolute structural security, legal integrity, and elite preventative property maintenance across the greater Hyderabad region.
+                </p>
+                <div class="flex space-x-3 pt-2">
+                    <a href="#" class="w-8 h-8 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 space-y-4 text-left">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Navigation</h4>
+                <nav class="flex flex-col space-y-2 text-slate-400 text-xs font-medium">
+                    <a href="index.html" class="hover:text-amber-500 transition-colors">Home Page</a>
+                    <a href="about.html" class="hover:text-amber-500 transition-colors">Corporate Story</a>
+                    <a href="services.html" class="hover:text-amber-500 transition-colors">Core Portfolios</a>
+                    <a href="maintenance.html" class="text-amber-500 transition-colors">Maintenance</a>
+                    <a href="consultation.html" class="hover:text-amber-500 transition-colors">Consultation</a>
+                </nav>
+            </div>
+
+            <div class="md:col-span-3 space-y-4 text-left text-slate-400 text-xs">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Headquarters</h4>
+                <p class="leading-relaxed font-light text-slate-400">
+                    <strong>Swades Corporate Office</strong><br>
+                    Villa No. 546, Patancheru ORR Exit 3,<br>
+                    Hyderabad, Telangana – 502319
+                </p>
+                <div class="pt-2 space-y-1 text-xs">
+                    <p><strong class="text-slate-300">Swaroop Chavali:</strong> +91 70667 80736</p>
+                    <p><strong class="text-slate-300">Sasikanth Nelli:</strong> +91 81434 84202</p>
+                    <p><strong class="text-slate-300">Email:</strong> relations@swadespm.com</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-3 space-y-4 text-left">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Global Briefing</h4>
+                <p class="text-slate-400 text-xs font-light">Subscribe to seasonal market reports on Hyderabad yields.</p>
+                <form class="flex w-full items-center shadow-lg" onsubmit="event.preventDefault(); alert('Briefing channel secured.');">
+                    <input type="email" placeholder="nri@estate.com" required class="bg-slate-900 border border-slate-800 rounded-l-lg p-3 text-xs w-full text-white focus:outline-none focus:border-amber-500">
+                    <button type="submit" class="bg-amber-600 hover:bg-amber-500 text-slate-950 px-4 py-3 rounded-r-lg font-bold transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+                <div class="bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2.5 text-[10px] text-amber-400 flex items-center gap-2.5 font-semibold tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                    24/7 NRI EMERGENCY RESPONSE ACTIVE
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container mx-auto px-6 max-w-7xl border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-4 sm:space-y-0 font-medium">
+            <p>&copy; 2026 Swades Property Management Services. All Rights Reserved.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-amber-500 transition-colors">Privacy Protocol</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">SLA Terms</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">NRI Vetting</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">Compliance Code</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-8 right-8 z-[99] flex items-center gap-3 bg-slate-950/95 border border-slate-800 p-2 pr-4 rounded-full shadow-2xl animate-bounce">
+        <a href="https://wa.me/917066780736" target="_blank" class="w-12 h-12 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center text-2xl transition-colors shadow-lg">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <span class="text-xs font-bold uppercase tracking-wider text-white hidden sm:inline">Elite Concierge Online</span>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Intersection Observer for scroll animations
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('is-revealed');
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => scrollObserver.observe(el));
+
+            // Native Sidebar Drawer Engine
+            const overlay = document.getElementById("sidebar-overlay");
+            const drawer = document.getElementById("sidebar-drawer");
+            const triggerBtn = document.querySelector(".menu-trigger-btn");
+            const closeBtn = document.getElementById("close-sidebar-btn");
+
+            if (triggerBtn && overlay && drawer) {
+                triggerBtn.addEventListener("click", () => {
+                    overlay.classList.remove("hidden");
+                    setTimeout(() => drawer.classList.remove("translate-x-full"), 10);
+                });
+            }
+
+            const closeDrawer = () => {
+                drawer.classList.add("translate-x-full");
+                setTimeout(() => overlay.classList.add("hidden"), 300);
+            };
+
+            if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+            if (overlay) overlay.addEventListener("click", closeDrawer);
+        });
+    </script>
+    
+    <script src="script.js"></script>
+
+    <!-- ================= ELITE ORBITAL CURSOR ================= -->
+    <div id="luxury-aura" class="fixed top-0 left-0 -ml-[18px] -mt-[18px] w-9 h-9 rounded-full border border-amber-500/40 bg-amber-500/5 pointer-events-none z-[99999] hidden md:block transition-colors duration-300 will-change-transform"></div>
+    <div id="luxury-dot" class="fixed top-0 left-0 -ml-[4px] -mt-[4px] w-2 h-2 rounded-full bg-amber-400 pointer-events-none z-[99999] hidden md:block will-change-transform"></div>
+
+    <script>
+        (function() {
+            // 1. Safety Kill-Switch: Do not run on mobile touchscreens
+            if (window.matchMedia("(pointer: coarse)").matches) return;
+
+            const aura = document.getElementById('luxury-aura');
+            const dot = document.getElementById('luxury-dot');
+            
+            if (!aura || !dot) return;
+
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let auraX = mouseX;
+            let auraY = mouseY;
+            let isHovering = false;
+
+            // Track mouse instantly
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+            });
+
+            // LERP Engine: Smoothly drag the aura behind the dot
+            function renderAura() {
+                auraX += (mouseX - auraX) * 0.21; // 0.14 is the "weight" of the drag
+                auraY += (mouseY - auraY) * 0.21;
+
+                const scale = isHovering ? 'scale(1.6)' : 'scale(1)';
+                aura.style.transform = `translate3d(${auraX}px, ${auraY}px, 0) ${scale}`;
+
+                requestAnimationFrame(renderAura);
+            }
+            renderAura();
+
+            // Magnetic Expansion on clickable items
+            const attachMagneticSensors = () => {
+                const interactives = document.querySelectorAll('a, button, input, [onclick], .luxury-card, .job-card, .accordion-card');
+                
+                interactives.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        isHovering = true;
+                        aura.classList.add('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.add('opacity-30');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        isHovering = false;
+                        aura.classList.remove('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.remove('opacity-30');
+                    });
+                });
+            };
+
+            attachMagneticSensors();
+
+            // If JavaScript opens a modal or new drawer, re-scan the page for new buttons
+            const domObserver = new MutationObserver(attachMagneticSensors);
+            domObserver.observe(document.body, { childList: true, subtree: true });
+        })();
+    </script>
+</body>
+</html>

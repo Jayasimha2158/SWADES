@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Portfolios | Swades Property & Lifestyle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #030712; color: #cbd5e1; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        
+        .reveal-on-scroll { opacity: 0; transform: translateY(35px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal-on-scroll.is-revealed { opacity: 1; transform: translateY(0); }
+        
+        .fade-panel { animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-active {
+            background-color: #fef3c7 !important; /* Amber 100 */
+            color: #b45309 !important;          /* Amber 700 */
+            font-weight: 700 !important;
+            border-right: 3px solid #d97706 !important;
+        }
+
+        aside::-webkit-scrollbar { width: 4px; }
+        aside::-webkit-scrollbar-track { background: transparent; }
+        aside::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 9999px; }
+        aside::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+    </style>
+</head>
+<body class="antialiased flex flex-col justify-between min-h-screen">
+
+    <header class="sticky top-0 z-50 bg-[#030712]/95 backdrop-blur-md border-b border-amber-500/10">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-xl shadow-lg">S</div>
+                <div>
+                    <span class="block font-luxury font-bold text-xl text-white tracking-wider leading-none">SWADES</span>
+                    <span class="text-[9px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-slate-300">
+                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="text-amber-500 transition-colors">Services</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <a href="consultation.html" class="hidden sm:block bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-slate-950 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded transition-all shadow-lg text-center">Consultation</a>
+                <button class="menu-trigger-btn text-white hover:text-amber-500 flex items-center gap-2 bg-slate-900 px-3 py-2 rounded border border-slate-800 cursor-pointer">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400 hidden sm:inline">Menu</span>
+                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden"></div>
+    <div id="sidebar-drawer" class="fixed top-0 right-0 h-full w-full max-w-sm bg-slate-900 text-white z-50 shadow-2xl translate-x-full transition-transform duration-300 p-8 flex flex-col justify-between border-l border-slate-800">
+        <div>
+            <div class="flex justify-between items-center mb-12">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-amber-600 rounded flex items-center justify-center text-slate-950 font-bold text-xl font-luxury">S</div>
+                    <span class="font-luxury font-bold text-xl tracking-wider text-white">SWADES</span>
+                </div>
+                <button id="close-sidebar-btn" class="text-slate-400 hover:text-white text-2xl cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <nav class="space-y-5 text-sm font-bold tracking-widest uppercase font-luxury flex flex-col">
+                <a href="index.html" class="text-slate-400 hover:text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="text-slate-400 hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="text-amber-500 transition-colors">Services</a>
+                <a href="maintenance.html" class="text-slate-400 hover:text-amber-500 pt-4 border-t border-slate-800 transition-colors"><i class="fa-solid fa-screwdriver-wrench text-xs mr-2 text-amber-500"></i> Maintenance</a>
+                <a href="luxury-outdoor.html" class="text-slate-400 hover:text-amber-500 transition-colors"><i class="fa-solid fa-tree text-xs mr-2 text-amber-500"></i> Luxury Outdoor</a>
+                <a href="gallery.html" class="text-slate-400 hover:text-amber-500 transition-colors">Gallery</a>
+                <a href="reviews.html" class="text-slate-400 hover:text-amber-500 transition-colors">Client Reviews</a>
+                <a href="faq.html" class="text-slate-400 hover:text-amber-500 transition-colors">FAQ</a>
+                <a href="careers.html" class="text-slate-400 hover:text-amber-500 transition-colors">Careers</a>
+            </nav>
+        </div>
+        <a href="consultation.html" class="w-full bg-amber-600 hover:bg-amber-500 text-slate-950 text-center font-bold text-xs uppercase tracking-widest py-4 rounded transition-colors shadow-lg">Schedule Consultation</a>
+    </div>
+
+    <section class="relative w-full min-h-[500px] flex items-center justify-center text-center bg-cover bg-center bg-no-repeat border-b border-slate-900 overflow-hidden" 
+             style="background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.95)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80');">
+        <div class="container mx-auto px-6 py-20 relative z-10 max-w-4xl reveal-on-scroll space-y-4">
+            <span class="text-amber-500 text-xs md:text-sm font-bold uppercase tracking-[0.3em] block">Exclusive Solutions</span>
+            <h1 class="font-luxury text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-wide leading-tight">
+                Elite Property & <span class="text-amber-500">Asset Custodian</span> Services
+            </h1>
+            <p class="text-slate-300 text-base md:text-lg font-light max-w-2xl mx-auto leading-relaxed">
+                Browse our 12 specialized property management and monitoring vectors. Curated for international standard assets.
+            </p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-20 max-w-7xl grid lg:grid-cols-12 gap-10 items-start relative">
+        
+        <aside class="lg:col-span-4 bg-white rounded-3xl p-7 shadow-2xl border border-slate-200 lg:sticky lg:top-28 self-start max-h-[calc(100vh-7rem)] overflow-y-auto reveal-on-scroll z-30">
+            <h3 class="font-luxury text-2xl font-bold text-amber-700 mb-6 px-3">Portfolio Index</h3>
+            <nav id="index-list" class="space-y-1.5 text-slate-700 text-xs md:text-sm font-medium">
+                </nav>
+        </aside>
+
+        <section class="lg:col-span-8 bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200 reveal-on-scroll min-h-[800px]">
+            <div id="service-card-render" class="transition-all duration-300">
+                </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#02050c] text-slate-400 text-xs pt-20 pb-10 border-t border-slate-900 mt-16">
+        <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            
+            <div class="md:col-span-4 space-y-4 text-left">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-xl">S</div>
+                    <div>
+                        <span class="block font-luxury font-bold text-base text-white tracking-wider leading-none">SWADES</span>
+                        <span class="text-[8px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                    </div>
+                </div>
+                <p class="text-slate-500 text-xs font-light leading-relaxed">
+                    Empowering property owners and international NRIs with absolute structural security, legal integrity, and elite preventative property maintenance across the greater Hyderabad region.
+                </p>
+            </div>
+
+            <div class="md:col-span-2 space-y-4 text-left">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Navigation</h4>
+                <nav class="flex flex-col space-y-2 text-slate-400 text-xs font-medium">
+                    <a href="index.html" class="hover:text-amber-500 transition-colors">Home Page</a>
+                    <a href="about.html" class="hover:text-amber-500 transition-colors">Corporate Story</a>
+                    <a href="services.html" class="text-amber-500 transition-colors">Core Portfolios</a>
+                    <a href="gallery.html" class="hover:text-amber-500 transition-colors">Projects Gallery</a>
+                    <a href="consultation.html" class="hover:text-amber-500 transition-colors">Consultation</a>
+                </nav>
+            </div>
+
+            <div class="md:col-span-3 space-y-4 text-left text-slate-400 text-xs">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Headquarters</h4>
+                <p class="leading-relaxed font-light text-slate-400">
+                    <strong>Swades Corporate Office</strong><br>
+                    Villa No. 546, Patancheru ORR Exit 3,<br>
+                    Hyderabad, Telangana – 502319
+                </p>
+                <div class="pt-2 space-y-1 text-xs">
+                    <p><strong class="text-slate-300">Swaroop Chavali:</strong> +91 70667 80736</p>
+                    <p><strong class="text-slate-300">Sasikanth Nelli:</strong> +91 81434 84202</p>
+                    <p><strong class="text-slate-300">Email:</strong> relations@swadespm.com</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-3 space-y-4 text-left">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Global Briefing</h4>
+                <p class="text-slate-400 text-xs font-light">Subscribe to seasonal market reports on Hyderabad yields.</p>
+                <form class="flex w-full items-center shadow-lg" onsubmit="event.preventDefault(); alert('Briefing channel secured.');">
+                    <input type="email" placeholder="nri@estate.com" required class="bg-slate-900 border border-slate-800 rounded-l-lg p-3 text-xs w-full text-white focus:outline-none focus:border-amber-500">
+                    <button type="submit" class="bg-amber-600 hover:bg-amber-500 text-slate-950 px-4 py-3 rounded-r-lg font-bold transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="container mx-auto px-6 max-w-7xl border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-4 sm:space-y-0 font-medium">
+            <p>&copy; 2026 Swades Property Management Services. All Rights Reserved.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-amber-500 transition-colors">Privacy Protocol</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">SLA Terms</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">NRI Vetting</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-8 right-8 z-[99] flex items-center gap-3 bg-slate-950/95 border border-slate-800 p-2 pr-4 rounded-full shadow-2xl animate-bounce">
+        <a href="https://wa.me/917066780736" target="_blank" class="w-12 h-12 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center text-2xl transition-colors shadow-lg">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <span class="text-xs font-bold uppercase tracking-wider text-white hidden sm:inline">Elite Concierge Online</span>
+    </div>
+
+    <script>
+        const servicesDatabase = [
+            {
+                id: "nri",
+                title: "NRI Property Management",
+                tagImg: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80",
+                overview: "Our flagship service caters to non-resident Indians seeking absolute peace of mind. We act as your local physical custodians with biometric reports, property updates, and full compliance handling.",
+                deliverables: [
+                    "Bi-weekly physical status check-ups", "Custom digital portal with real-time photographs",
+                    "Legal boundary audits and tax handling", "Exclusive virtual concierge point of contact"
+                ],
+                benefits: [
+                    "Absolute security against encroachments", "No stress of dealing with local property queries",
+                    "Seamless rental monetization", "Premium asset valuation preservation"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "Initial physical", d: "Initial physical & legal audit" },
+                    { p: "PHASE 02", t: "Inventory documentation", d: "Inventory documentation & photo capture" },
+                    { p: "PHASE 03", t: "Digital portal activation", d: "Digital asset portal activation" },
+                    { p: "PHASE 04", t: "Routine inspections", d: "Routine inspections & maintenance reporting" }
+                ]
+            },
+            {
+                id: "residential",
+                title: "Residential Property Management",
+                tagImg: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+                overview: "Total environmental and structural supervision engineered for luxury independent villas, premium duplexes, and gated community residences across Western Hyderabad.",
+                deliverables: [
+                    "Preventative MEP & AC deep-servicing", "24/7 plumbing & electrical taskforce access",
+                    "Overhead tank sanitization protocols", "On-site domestic staff identity verification"
+                ],
+                benefits: [
+                    "Zero sudden breakdown panics", "Extended lifespan of luxury HVAC units",
+                    "Pristine exterior facade preservation", "Optimized monthly utility billing"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "MEP Baseline Audit", d: "Testing electrical loads & water pressures" },
+                    { p: "PHASE 02", t: "Vendor Calibration", d: "Assigning dedicated ground technicians" },
+                    { p: "PHASE 03", t: "SLA Calendar Sync", d: "Automated quarterly servicing scheduling" },
+                    { p: "PHASE 04", t: "Active Custodianship", d: "Monthly living-comfort status check-ins" }
+                ]
+            },
+            {
+                id: "commercial",
+                title: "Commercial Space Management",
+                tagImg: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+                overview: "Maximizing commercial yields while insulating corporate landowners from tenant disputes, statutory municipal defaults, and infrastructural degradation.",
+                deliverables: [
+                    "Corporate lease draft auditing", "Monthly CAM billings & rental collections",
+                    "Annual municipal fire safety certifications", "Common-area security & CCTV health checks"
+                ],
+                benefits: [
+                    "Uninterrupted passive yield flow", "Strict corporate tenant compliance",
+                    "Zero municipal penalty liabilities", "High-tier commercial capital appreciation"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "Lease Vetting", d: "Auditing existing tenant agreements" },
+                    { p: "PHASE 02", t: "CAM Restructuring", d: "Standardizing utility billing loops" },
+                    { p: "PHASE 03", t: "Safety Compliance", d: "Securing municipal fire & lift approvals" },
+                    { p: "PHASE 04", t: "Yield Custody", d: "Real-time monthly rent remittance logs" }
+                ]
+            },
+            {
+                id: "rental",
+                title: "Rental Property Management",
+                tagImg: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
+                overview: "An uncompromised end-to-end leasing vector. We transition your empty holdings into steady, high-yielding financial assets occupied by elite corporate citizens.",
+                deliverables: [
+                    "Professional wide-angle staging photography", "Executive corporate tenant matchmaking",
+                    "Move-in / Move-out structural damage audits", "Escrow-backed security deposit management"
+                ],
+                benefits: [
+                    "Minimizing inter-lease vacancy windows", "Strict background-vetted occupants",
+                    "Zero late-night tenant repair calls", "Guaranteed asset return condition"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "Asset Staging", d: "Deep cleaning & premium visual capture" },
+                    { p: "PHASE 02", t: "Corporate Listing", d: "Broadcasting to top MNC relocation desks" },
+                    { p: "PHASE 03", t: "Tenant Vetting", d: "Financial & criminal background screening" },
+                    { p: "PHASE 04", t: "Key Handover", d: "Executing registered lease & inventory sign-off" }
+                ]
+            },
+            {
+                id: "tenant-search",
+                title: "Tenant Search & Verification",
+                tagImg: "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=1200&q=80",
+                overview: "Protecting your asset's structural dignity by applying rigorous, bank-grade forensic background screening to all prospective residential or commercial applicants.",
+                deliverables: [
+                    "Employer HR verification checks", "Equifax / CIBIL credit score screening",
+                    "Previous landlord behavioral references", "Official state police verification filing"
+                ],
+                benefits: [
+                    "Eliminating squatting & eviction risks", "Guaranteed timely rental capacity",
+                    "Peaceful neighborhood integration", "Full statutory legal compliance"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "Application Intake", d: "Collecting standardized identity dossiers" },
+                    { p: "PHASE 02", t: "Forensic Check", d: "Running financial & criminal data checks" },
+                    { p: "PHASE 03", t: "Police Protocol", d: "Submitting local law enforcement dossiers" },
+                    { p: "PHASE 04", t: "Greenlight Report", d: "Issuing formal risk-assessment clearance" }
+                ]
+            },
+            {
+                id: "vacant-monitoring",
+                title: "Vacant Property Monitoring",
+                tagImg: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
+                overview: "A specialized defensive protocol for unoccupied luxury homes and locked apartments, preventing the rapid onset of mold, pest colonization, and structural decay.",
+                deliverables: [
+                    "Bi-weekly physical interior airing sessions", "Monsoon seepage & micro-leak mapping",
+                    "Pest & termite colony perimeter checks", "Post-storm structural integrity audits"
+                ],
+                benefits: [
+                    "Preventing expensive stale-air wood rot", "Immediate detection of pipe bursts",
+                    "Ready-to-live freshness at all times", "Insulating against illegal subletting"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "Lockdown Audit", d: "Checking all exterior latches & window seals" },
+                    { p: "PHASE 02", t: "Schedule Airing", d: "Deploying staff for bi-weekly ventilation" },
+                    { p: "PHASE 03", t: "Monsoon Defense", d: "Applying preventative sealant check-ups" },
+                    { p: "PHASE 04", t: "Portal Updates", d: "Uploading wide-angle room photo logs" }
+                ]
+            },
+            {
+                id: "open-land",
+                title: "Open Land Maintenance",
+                tagImg: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
+                overview: "Deploying heavy ground taskforces to secure, demarcate, and clear open plots and agricultural acreage against the severe threat of urban land grabbing.",
+                deliverables: [
+                    "Physical boundary stone geocoding", "Quarterly heavy brush & weed clearing",
+                    "Barbed wire or precast compound fencing", "Prominent legal 'No Trespassing' signage"
+                ],
+                benefits: [
+                    "Absolute legal boundary insulation", "Clear aerial satellite visibility",
+                    "Eliminating snake & pest breeding grounds", "High-liquidity sales presentation"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "Surveyor Sync", d: "Matching physical bounds to title maps" },
+                    { p: "PHASE 02", t: "JCB Clearance", d: "Clearing dense wild brush & debris" },
+                    { p: "PHASE 03", t: "Perimeter Lock", d: "Erecting robust precast concrete pillars" },
+                    { p: "PHASE 04", t: "Drone Audit", d: "Capturing quarterly aerial proof video" }
+                ]
+            },
+            {
+                id: "security",
+                title: "Property Security & Surveillance",
+                tagImg: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1200&q=80",
+                overview: "Deploying enterprise-tier electronic overwatch arrays and physical security personnel to maintain absolute situational awareness across your perimeter.",
+                deliverables: [
+                    "Solar-powered IP CCTV cloud arrays", "Motion-activated perimeter floodlighting",
+                    "Deployment of licensed day/night guards", "24/7 central dispatch breach alerts"
+                ],
+                benefits: [
+                    "Real-time visual feed on your mobile", "Total deterrence of unauthorized entry",
+                    "Encrypted cloud off-site video backup", "Immediate physical response taskforce"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "Vulnerability Map", d: "Identifying blind spots along perimeter" },
+                    { p: "PHASE 02", t: "Hardware Setup", d: "Installing weather-proof 4K night cameras" },
+                    { p: "PHASE 03", t: "Network Secure", d: "Connecting encrypted cellular data streams" },
+                    { p: "PHASE 04", t: "Command Active", d: "Initiating 24/7 automated motion logging" }
+                ]
+            },
+            {
+                id: "sales-reg",
+                title: "Property Sales & Registrations",
+                tagImg: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
+                overview: "A highly discreet, elite brokerage vector for liquidating premium real estate holdings at peak market valuations without public listing fatigue.",
+                deliverables: [
+                    "Certified architectural valuation reports", "Targeted marketing to HNWI buyer networks",
+                    "Complete negotiation & term structuring", "End-to-end local sub-registrar representation"
+                ],
+                benefits: [
+                    "Realizing top-percentile market rates", "Total shielding from unsolicited broker calls",
+                    "Secure, white-money escrow routing", "Zero physical travel required by owner"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "Valuation Benchmark", d: "Analyzing hyper-local transaction registries" },
+                    { p: "PHASE 02", t: "Private Dossier", d: "Creating high-end digital sales memorandums" },
+                    { p: "PHASE 03", t: "Bidding Lock", d: "Vetting buyer financial liquidity loops" },
+                    { p: "PHASE 04", t: "Deed Execution", d: "Completing biometric registration sign-offs" }
+                ]
+            },
+            {
+                id: "documentation",
+                title: "Documentation & Registration Support",
+                tagImg: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80",
+                overview: "Untangling complex municipal red tape. Our specialized legal taskforce secures, updates, and rectifies vital land ownership records across Telangana.",
+                deliverables: [
+                    "Dharani portal mutation corrections", "Encumbrance Certificate (EC) extraction",
+                    "Certified copy retrieval of lost sale deeds", "Legal heir & succession certificate filing"
+                ],
+                benefits: [
+                    "Flawless, marketable title ownership", "Insulation against bureaucratic delays",
+                    "Resolved legacy paperwork discrepancies", "Absolute legal peace of mind"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "Archive Audit", d: "Cross-referencing 30-year link documents" },
+                    { p: "PHASE 02", t: "Dossier Prep", d: "Drafting sworn affidavits & stamp papers" },
+                    { p: "PHASE 03", t: "Municipal Filing", d: "Navigating local MRO & collectorate desks" },
+                    { p: "PHASE 04", t: "Secure Delivery", d: "Handing over physical laminated clean titles" }
+                ]
+            },
+            {
+                id: "high-rise",
+                title: "High-Rise Apartment Management",
+                tagImg: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+                overview: "Bespoke interior and structural management designed specifically for ultra-luxury high-rise condominiums in the Financial District and Kokapet corridors.",
+                deliverables: [
+                    "Automated smart-home automation check-ups", "Centralized VRV / AC duct sanitization",
+                    "Balcony glass & high-altitude seal checks", "Direct representation in society meetings"
+                ],
+                benefits: [
+                    "Pristine luxury living standards maintained", "Protection against high-floor wind seepage",
+                    "Zero missed maintenance bill penalties", "Complete alignment with society bylaws"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "Unit Onboarding", d: "Logging all internal premium appliances" },
+                    { p: "PHASE 02", t: "MEP Calibration", d: "Testing high-pressure water & gas valves" },
+                    { p: "PHASE 03", t: "Society Sync", d: "Establishing direct billing & proxy authority" },
+                    { p: "PHASE 04", t: "Quarterly Audit", d: "Executing deep interior preventative care" }
+                ]
+            },
+            {
+                id: "turnkey",
+                title: "Turnkey Asset Restoration",
+                tagImg: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1200&q=80",
+                overview: "Complete structural rehabilitation and premium cosmetic upgrading for aging properties, transforming dated structures into modern, high-value luxury spaces.",
+                deliverables: [
+                    "Structural civil engineering reinforcement", "Complete bathroom & kitchen modernization",
+                    "Premium vitrified flooring replacement", "Exterior weather-shield elastomeric painting"
+                ],
+                benefits: [
+                    "Massive immediate valuation spike", "Modernized plumbing & electrical safety",
+                    "High-end contemporary market appeal", "Zero headache of managing local laborers"
+                ],
+                phases: [
+                    { p: "PHASE 01", t: "3D CAD Blueprint", d: "Designing modern spatial workflows" },
+                    { p: "PHASE 02", t: "Civil Strip-Down", d: "Safely dismantling obsolete structural core" },
+                    { p: "PHASE 03", t: "Premium Build", d: "Deploying master carpenters & masons" },
+                    { p: "PHASE 04", t: "Pristine Handover", d: "Executing final deep-clean & quality sign-off" }
+                ]
+            }
+        ];
+
+        function renderIndexNavigation(activeIndex) {
+            const container = document.getElementById('index-list');
+            container.innerHTML = ''; 
+
+            servicesDatabase.forEach((srv, index) => {
+                const isCurrent = index === activeIndex;
+                const navItem = document.createElement('a');
+                navItem.href = `javascript:void(0);`;
+                navItem.className = `block px-5 py-3.5 rounded-xl transition-all duration-200 flex justify-between items-center cursor-pointer ${
+                    isCurrent 
+                    ? 'tab-active shadow-md' 
+                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950 font-semibold'
+                }`;
+
+                navItem.innerHTML = `
+                    <span class="truncate pr-2">${srv.title}</span>
+                    <i class="fa-solid ${isCurrent ? 'fa-arrow-right text-amber-700' : 'fa-chevron-right text-slate-400 text-xs'}"></i>
+                `;
+
+                navItem.onclick = () => activateServiceVector(index);
+                container.appendChild(navItem);
+            });
+        }
+
+        function activateServiceVector(index) {
+            const data = servicesDatabase[index];
+            const renderBox = document.getElementById('service-card-render');
+
+            renderBox.classList.remove('fade-panel');
+            void renderBox.offsetWidth; 
+            renderBox.classList.add('fade-panel');
+
+            renderBox.innerHTML = `
+                <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
+                    <img src="${data.tagImg}" alt="${data.title}" class="w-full h-full object-cover opacity-55 transform scale-105 transition-transform duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 sm:left-12 z-10 space-y-1">
+                        <span class="text-amber-400 text-[10px] font-bold tracking-[0.25em] uppercase block">Elite Standard</span>
+                        <h2 class="font-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-wide">${data.title}</h2>
+                    </div>
+                </div>
+
+                <div class="p-8 sm:p-12 space-y-12 text-left">
+                    <div class="space-y-3">
+                        <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Strategic Overview</h4>
+                        <p class="text-slate-700 font-normal leading-relaxed text-base sm:text-lg">${data.overview}</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Core Deliverables</h4>
+                        <div class="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm font-semibold text-slate-800">
+                            ${data.deliverables.map(item => `
+                                <div class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-50 border border-slate-100">
+                                    <i class="fa-solid fa-check text-amber-600 shrink-0"></i>
+                                    <span>${item}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Investor Benefits</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            ${data.benefits.map((ben, i) => `
+                                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex flex-col justify-between space-y-2 shadow-sm hover:border-amber-500 transition-colors">
+                                    <div class="w-8 h-8 rounded-lg bg-amber-700 text-white font-bold text-xs flex items-center justify-center shadow">
+                                        0${i+1}
+                                    </div>
+                                    <p class="text-xs font-semibold text-slate-800 leading-snug">${ben}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Deployment Timeline</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-2 border-t border-slate-100">
+                            ${data.phases.map((ph, i) => `
+                                <div class="space-y-1.5 relative border-l-2 border-amber-500/30 pl-3 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-3">
+                                    <span class="text-[10px] font-bold tracking-widest uppercase text-amber-600 block">${ph.p}</span>
+                                    <h5 class="font-bold text-slate-950 text-xs sm:text-sm leading-tight">${ph.t}</h5>
+                                    <p class="text-xs text-slate-500 font-light leading-snug">${ph.d}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-amber-500/10 to-amber-600/5 border border-amber-500/20 rounded-2xl p-8 text-center space-y-4 shadow-inner">
+                        <h4 class="font-luxury text-xl sm:text-2xl font-bold text-amber-900">Request Strategy for this Asset Type</h4>
+                        <p class="text-slate-700 text-xs sm:text-sm max-w-md mx-auto font-normal">Consult Swaroop Chavali and Sasikanth Nelli to tailor an SLA deployment plan for your property.</p>
+                        <div class="pt-2">
+                            <a href="consultation.html" class="inline-block bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-full shadow-xl transition-all transform hover:scale-105">
+                                Deploy Strategy Framework
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            `;
+
+            renderIndexNavigation(index);
+
+            if (window.innerWidth < 1024) {
+                const targetEl = document.querySelector('main');
+                const headerOffset = 80;
+                const elementPosition = targetEl.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('is-revealed');
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => scrollObserver.observe(el));
+            activateServiceVector(0);
+
+            // ====================================================================
+            // BULLETPROOF NATIVE SIDEBAR TRIGGER ENGINE (Immune to broken scripts)
+            // ====================================================================
+            const overlay = document.getElementById("sidebar-overlay");
+            const drawer = document.getElementById("sidebar-drawer");
+            const triggerBtn = document.querySelector(".menu-trigger-btn");
+            const closeBtn = document.getElementById("close-sidebar-btn");
+
+            if (triggerBtn && overlay && drawer) {
+                triggerBtn.addEventListener("click", () => {
+                    overlay.classList.remove("hidden");
+                    setTimeout(() => drawer.classList.remove("translate-x-full"), 10);
+                });
+            }
+
+            const closeDrawer = () => {
+                drawer.classList.add("translate-x-full");
+                setTimeout(() => overlay.classList.add("hidden"), 300);
+            };
+
+            if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+            if (overlay) overlay.addEventListener("click", closeDrawer);
+        });
+    </script>
+    
+    <script src="script.js"></script>
+
+    <!-- ================= ELITE ORBITAL CURSOR ================= -->
+    <div id="luxury-aura" class="fixed top-0 left-0 -ml-[18px] -mt-[18px] w-9 h-9 rounded-full border border-amber-500/40 bg-amber-500/5 pointer-events-none z-[99999] hidden md:block transition-colors duration-300 will-change-transform"></div>
+    <div id="luxury-dot" class="fixed top-0 left-0 -ml-[4px] -mt-[4px] w-2 h-2 rounded-full bg-amber-400 pointer-events-none z-[99999] hidden md:block will-change-transform"></div>
+
+    <script>
+        (function() {
+            // 1. Safety Kill-Switch: Do not run on mobile touchscreens
+            if (window.matchMedia("(pointer: coarse)").matches) return;
+
+            const aura = document.getElementById('luxury-aura');
+            const dot = document.getElementById('luxury-dot');
+            
+            if (!aura || !dot) return;
+
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let auraX = mouseX;
+            let auraY = mouseY;
+            let isHovering = false;
+
+            // Track mouse instantly
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+            });
+
+            // LERP Engine: Smoothly drag the aura behind the dot
+            function renderAura() {
+                auraX += (mouseX - auraX) * 0.21; // 0.14 is the "weight" of the drag
+                auraY += (mouseY - auraY) * 0.14;
+
+                const scale = isHovering ? 'scale(1.6)' : 'scale(1)';
+                aura.style.transform = `translate3d(${auraX}px, ${auraY}px, 0) ${scale}`;
+
+                requestAnimationFrame(renderAura);
+            }
+            renderAura();
+
+            // Magnetic Expansion on clickable items
+            const attachMagneticSensors = () => {
+                const interactives = document.querySelectorAll('a, button, input, [onclick], .luxury-card, .job-card, .accordion-card');
+                
+                interactives.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        isHovering = true;
+                        aura.classList.add('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.add('opacity-30');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        isHovering = false;
+                        aura.classList.remove('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.remove('opacity-30');
+                    });
+                });
+            };
+
+            attachMagneticSensors();
+
+            // If JavaScript opens a modal or new drawer, re-scan the page for new buttons
+            const domObserver = new MutationObserver(attachMagneticSensors);
+            domObserver.observe(document.body, { childList: true, subtree: true });
+        })();
+    </script>
+</body>
+</html>

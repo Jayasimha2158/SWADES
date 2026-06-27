@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swades Signature Gallery | Visual Proof of Excellence</title>
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #030712; color: #cbd5e1; overflow-x: hidden; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        
+        /* Smooth Scroll Reveal Engine */
+        .reveal-on-scroll { opacity: 0; transform: translateY(35px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal-on-scroll.is-revealed { opacity: 1; transform: translateY(0); }
+
+        /* Dark Card Hover Transformations */
+        .interactive-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .interactive-card:hover { transform: translateY(-10px); border-color: rgba(245, 158, 11, 0.8); background-color: #0b0f19; box-shadow: 0 20px 35px -10px rgba(0,0,0,0.7); }
+
+        /* Custom Map Embed Mockup Container */
+        .map-container { background: radial-gradient(circle, #1e293b 0%, #0f172a 100%); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="antialiased flex flex-col justify-between min-h-screen">
+
+    <!-- ================= GLOBAL NAVBAR ================= -->
+    <header class="sticky top-0 z-50 bg-[#030712]/95 backdrop-blur-md border-b border-amber-500/10">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center max-w-7xl">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-xl shadow-lg">S</div>
+                <div>
+                    <span class="block font-luxury font-bold text-xl text-white tracking-wider leading-none">SWADES</span>
+                    <span class="text-[9px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-slate-300">
+                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="hover:text-amber-500 transition-colors">Services</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <a href="consultation.html" class="hidden sm:block bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-slate-950 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded transition-all shadow-lg text-center">Consultation</a>
+                <button class="menu-trigger-btn text-white hover:text-amber-500 flex items-center gap-2 bg-slate-900 px-3 py-2 rounded border border-slate-800 cursor-pointer transition-colors">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400 hidden sm:inline">Menu</span>
+                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= SIDEBAR NAVIGATION DRAWER ================= -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden transition-opacity duration-300 opacity-0"></div>
+    <div id="sidebar-drawer" class="fixed top-0 right-0 h-full w-full max-w-sm bg-[#090D1A] text-white z-50 shadow-2xl translate-x-full transition-transform duration-300 p-8 flex flex-col justify-between border-l border-slate-800">
+        <div>
+            <div class="flex justify-between items-center mb-10 pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-amber-500 rounded flex items-center justify-center text-slate-950 font-bold text-base font-luxury">S</div>
+                    <span class="font-luxury font-bold text-lg tracking-widest text-white">SWADES</span>
+                </div>
+                <button id="close-sidebar-btn" class="text-slate-500 hover:text-white text-xl cursor-pointer p-1 transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <nav class="space-y-4 text-xs font-semibold tracking-[0.18em] uppercase flex flex-col text-slate-300">
+                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="hover:text-amber-500 transition-colors">Services</a>
+                
+                <div class="border-b border-slate-800/80 my-2"></div>
+                
+                <a href="maintenance.html" class="hover:text-amber-500 transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-screwdriver-wrench text-amber-500 text-sm w-4"></i>
+                    <span>Maintenance</span>
+                </a>
+                <a href="luxury-outdoor.html" class="hover:text-amber-500 transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-umbrella-beach text-amber-500 text-sm w-4"></i>
+                    <span>Luxury Outdoor</span>
+                </a>
+                <!-- ACTIVE PAGE HIGHLIGHT -->
+                <a href="gallery.html" class="text-amber-500 font-bold">Gallery</a>
+                <a href="reviews.html" class="hover:text-amber-500 transition-colors">Client Reviews</a>
+                <a href="faq.html" class="hover:text-amber-500 transition-colors">FAQ</a>
+                <a href="careers.html" class="hover:text-amber-500 transition-colors">Careers</a>
+            </nav>
+        </div>
+        
+        <div class="pt-6">
+            <a href="consultation.html" class="block w-full bg-amber-500 hover:bg-amber-400 text-slate-950 text-center font-bold text-xs uppercase tracking-widest py-4 rounded transition-all shadow-lg">
+                Schedule Consultation
+            </a>
+        </div>
+    </div>
+
+    <!-- ================= REFINED GALLERY HERO ================= -->
+    <section class="relative w-full min-h-[55vh] flex items-center justify-center text-center bg-cover bg-center bg-no-repeat border-b border-slate-900" 
+             style="background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.96)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=80');">
+        <div class="container mx-auto px-6 py-16 relative z-10 max-w-3xl reveal-on-scroll space-y-4">
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.3em] block">Visual Proof</span>
+            <h1 class="font-luxury text-4xl sm:text-6xl font-bold text-white tracking-wide">
+                The Swades <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Signature Gallery</span>
+            </h1>
+            <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed max-w-xl mx-auto">
+                A testament to structural absolute security, custom-engineered outdoor setups, and immaculate interior design and maintenance.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= MAIN CONTENT (MIDNIGHT SLATE CANVAS) ================= -->
+    <main class="py-20 px-6 container mx-auto max-w-7xl flex-grow">
+        
+        <!-- 
+            ====================================================================
+            INTERACTIVE JAVASCRIPT FILTER BAR (Verbatim to Mockup)
+            ==================================================================== 
+        -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-6 mb-16 text-xs font-bold uppercase tracking-widest text-slate-400 reveal-on-scroll">
+            <button class="filter-btn px-6 py-2.5 rounded-full bg-amber-500 text-slate-950 transition-all cursor-pointer shadow-lg active" data-filter="all">All</button>
+            <button class="filter-btn px-6 py-2.5 rounded-full hover:text-white transition-all cursor-pointer" data-filter="villas">Villas</button>
+            <button class="filter-btn px-6 py-2.5 rounded-full hover:text-white transition-all cursor-pointer" data-filter="commercial">Commercial</button>
+            <button class="filter-btn px-6 py-2.5 rounded-full hover:text-white transition-all cursor-pointer" data-filter="interiors">Interiors</button>
+            <button class="filter-btn px-6 py-2.5 rounded-full hover:text-white transition-all cursor-pointer" data-filter="outdoor">Outdoor Luxury</button>
+            <button class="filter-btn px-6 py-2.5 rounded-full hover:text-white transition-all cursor-pointer" data-filter="maintenance">Maintenance</button>
+        </div>
+
+        <!-- 
+            ====================================================================
+            THE MASTER 8-CARD TAXONOMY GRID
+            ==================================================================== 
+        -->
+        <div id="gallery-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+            
+            <!-- CARD 1: Prestige Estate Manor -->
+            <div class="gallery-item interactive-card bg-[#0b0f19] rounded-3xl overflow-hidden flex flex-col reveal-on-scroll group" data-category="villas">
+                <div class="relative h-64 overflow-hidden bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Prestige Estate Manor Kokapet" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-8 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-amber-500 block mb-1">Villas</span>
+                        <h4 class="font-luxury text-xl font-bold text-white">Prestige Estate Manor</h4>
+                        <p class="text-slate-400 text-xs font-light mt-2 leading-relaxed">
+                            Complete structural protection and estate coordination in Kokapet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2: Apex Tech Square -->
+            <div class="gallery-item interactive-card bg-[#0b0f19] rounded-3xl overflow-hidden flex flex-col reveal-on-scroll group" data-category="commercial" style="transition-delay: 75ms;">
+                <div class="relative h-64 overflow-hidden bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Apex Tech Square Madhapur" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-8 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-amber-500 block mb-1">Commercial</span>
+                        <h4 class="font-luxury text-xl font-bold text-white">Apex Tech Square</h4>
+                        <p class="text-slate-400 text-xs font-light mt-2 leading-relaxed">
+                            Mechanical, electrical and elevator systems facility management in Madhapur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3: The Onyx Penthouse Suite -->
+            <div class="gallery-item interactive-card bg-[#0b0f19] rounded-3xl overflow-hidden flex flex-col reveal-on-scroll group" data-category="interiors" style="transition-delay: 150ms;">
+                <div class="relative h-64 overflow-hidden bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="The Onyx Penthouse Suite" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-8 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-amber-500 block mb-1">Interiors</span>
+                        <h4 class="font-luxury text-xl font-bold text-white">The Onyx Penthouse Suite</h4>
+                        <p class="text-slate-400 text-xs font-light mt-2 leading-relaxed">
+                            Teak casework, smart lighting, and marble crystallization polishing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4: Cascading Infinity Pool -->
+            <div class="gallery-item interactive-card bg-[#0b0f19] rounded-3xl overflow-hidden flex flex-col reveal-on-scroll group" data-category="outdoor">
+                <div class="relative h-64 overflow-hidden bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80" alt="Cascading Infinity Pool Patancheru" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-8 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-amber-500 block mb-1">Outdoor Luxury</span>
+                        <h4 class="font-luxury text-xl font-bold text-white">Cascading Infinity Pool</h4>
+                        <p class="text-slate-400 text-xs font-light mt-2 leading-relaxed">
+                            Custom perimeter infinity edge and landscape design in Patancheru.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 5: Deep Restoration Cleanse -->
+            <div class="gallery-item interactive-card bg-[#0b0f19] rounded-3xl overflow-hidden flex flex-col reveal-on-scroll group" data-category="maintenance" style="transition-delay: 75ms;">
+                <div class="relative h-64 overflow-hidden bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80" alt="Deep Restoration Cleanse Maintenance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-8 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-amber-500 block mb-1">Maintenance</span>
+                        <h4 class="font-luxury text-xl font-bold text-white">Deep Restoration Cleanse</h4>
+                        <p class="text-slate-400 text-xs font-light mt-2 leading-relaxed">
+                            Deep pressure washing, sanitization, and marble restoration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 6: Minimalist Modern Oasis -->
+            <div class="gallery-item interactive-card bg-[#0b0f19] rounded-3xl overflow-hidden flex flex-col reveal-on-scroll group" data-category="villas" style="transition-delay: 150ms;">
+                <div class="relative h-64 overflow-hidden bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Minimalist Modern Oasis Narsingi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-8 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-amber-500 block mb-1">Villas</span>
+                        <h4 class="font-luxury text-xl font-bold text-white">Minimalist Modern Oasis</h4>
+                        <p class="text-slate-400 text-xs font-light mt-2 leading-relaxed">
+                            Vacant villa monitoring and camera surveillance integration in Narsingi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 7: Private Cinema Lounge -->
+            <div class="gallery-item interactive-card bg-[#0b0f19] rounded-3xl overflow-hidden flex flex-col reveal-on-scroll group" data-category="outdoor">
+                <div class="relative h-64 overflow-hidden bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80" alt="Private Cinema Lounge" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-8 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-amber-500 block mb-1">Outdoor Luxury</span>
+                        <h4 class="font-luxury text-xl font-bold text-white">Private Cinema Lounge</h4>
+                        <p class="text-slate-400 text-xs font-light mt-2 leading-relaxed">
+                            Premium Atmos 9.2 theater setup with motorized leather recliners.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 8: Luxury Executive Boardroom -->
+            <div class="gallery-item interactive-card bg-[#0b0f19] rounded-3xl overflow-hidden flex flex-col reveal-on-scroll group" data-category="interiors" style="transition-delay: 75ms;">
+                <div class="relative h-64 overflow-hidden bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=800&q=80" alt="Luxury Executive Boardroom" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-8 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-amber-500 block mb-1">Interiors</span>
+                        <h4 class="font-luxury text-xl font-bold text-white">Luxury Executive Boardroom</h4>
+                        <p class="text-slate-400 text-xs font-light mt-2 leading-relaxed">
+                            Bespoke acoustic paneling and high-speed enterprise broadband setup.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= MASTER FOOTER WITH CUSTOM RED ALERT ================= -->
+    <footer class="bg-[#02050c] text-slate-400 text-xs pt-16 pb-10 border-t border-slate-900">
+        <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-10 mb-14 text-left">
+            
+            <div class="md:col-span-3 space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-lg">S</div>
+                    <div>
+                        <span class="block font-luxury font-bold text-sm text-white tracking-wider leading-none">SWADES</span>
+                        <span class="text-[8px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                    </div>
+                </div>
+                <p class="text-slate-500 text-xs font-light leading-relaxed">
+                    Empowering property owners and international NRIs with absolute structural security, legal integrity, and elite preventative property maintenance across the greater Hyderabad region.
+                </p>
+                <div class="flex space-x-2.5 pt-1">
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 space-y-3">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Navigation</h4>
+                <nav class="flex flex-col space-y-1.5 text-slate-400 text-xs font-medium">
+                    <a href="index.html" class="hover:text-amber-500 transition-colors">Home Page</a>
+                    <a href="about.html" class="hover:text-amber-500 transition-colors">Corporate Story</a>
+                    <a href="services.html" class="hover:text-amber-500 transition-colors">Core Portfolios</a>
+                    <a href="maintenance.html" class="hover:text-amber-500 transition-colors">Manpower Services</a>
+                    <a href="luxury-outdoor.html" class="hover:text-amber-500 transition-colors">Luxury Showcase</a>
+                    <a href="gallery.html" class="text-amber-500 transition-colors font-semibold">Projects Gallery</a>
+                    <a href="careers.html" class="hover:text-amber-500 transition-colors">Careers & Recruitment</a>
+                </nav>
+            </div>
+
+            <!-- CUSTOM COL 3: Headquarters + Red Emergency Badge -->
+            <div class="md:col-span-3 space-y-3 text-slate-400 text-xs">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Headquarters</h4>
+                <p class="leading-relaxed font-light text-slate-400">
+                    <strong>Swades Corporate Office</strong><br>
+                    Villa No. 546, Patancheru ORR Exit 3,<br>
+                    Hyderabad, Telangana – 502319
+                </p>
+                <div class="pt-1 space-y-1 text-xs">
+                    <p><strong class="text-slate-300">Swaroop Chavali:</strong> +91 70667 80736</p>
+                    <p><strong class="text-slate-300">Sasikanth Nelli:</strong> +91 81434 84202</p>
+                    <p><strong class="text-slate-300">Email:</strong> relations@swadespm.com</p>
+                </div>
+                
+                <!-- RED ALERT CONTAINER VERBATIM TO MOCKUP -->
+                <div class="pt-2">
+                    <div class="inline-flex items-center gap-2.5 bg-[#170a0e] border border-red-500/40 px-3.5 py-2 rounded text-[10px] font-bold tracking-wider text-red-500 uppercase">
+                        <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
+                        <span>24/7 NRI Emergency Response Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CUSTOM COL 4: Briefing + Mock Google Map embed -->
+            <div class="md:col-span-4 space-y-3">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Global Briefing</h4>
+                <p class="text-slate-400 text-xs font-light">Subscribe to our seasonal market reports on Hyderabad real estate yields.</p>
+                <form class="flex w-full items-center shadow-lg mb-4" onsubmit="event.preventDefault(); alert('Briefing channel secured.');">
+                    <input type="email" placeholder="nri@estate.com" required class="bg-slate-900 border border-slate-800 rounded-l p-2.5 text-xs w-full text-white focus:outline-none focus:border-amber-500">
+                    <button type="submit" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-3 py-2.5 rounded-r font-bold transition-colors"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                
+                <!-- Google Maps Container Graphic -->
+                <div class="map-container rounded-lg p-2.5 flex items-center justify-between text-slate-400 text-[10px]">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-amber-500"></i>
+                        <span>Patancheru ORR Exit 3 bounds</span>
+                    </div>
+                    <span class="text-slate-500">Google Maps Active</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container mx-auto px-6 max-w-7xl border-t border-slate-900 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-3 sm:space-y-0 font-medium">
+            <p>&copy; 2026 Swades Property Management Services. All Rights Reserved.</p>
+            <div class="flex space-x-5">
+                <a href="#" class="hover:text-amber-500 transition-colors">Privacy Protocol</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">SLA Terms</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">NRI Vetting</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">Compliance Code</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CUSTOM WHATSAPP BUTTON WITH "ELITE CONCIERGE ONLINE" PILL -->
+    <div class="fixed bottom-8 right-8 z-[99] flex items-center gap-3">
+        <div class="bg-slate-950 border border-slate-800 px-3.5 py-1.5 rounded-full shadow-2xl text-[10px] font-bold uppercase tracking-widest text-slate-200 hidden md:block">
+            Elite Concierge Online
+        </div>
+        <a href="https://wa.me/917066780736" target="_blank" class="w-12 h-12 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center text-2xl transition-colors shadow-lg animate-bounce">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- COMBINED JAVASCRIPT: Reveal Observer + Menu Drawer + Category Sorter -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Scroll Reveal Engine
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(element => {
+                scrollObserver.observe(element);
+            });
+
+            // 2. Menu Drawer Controller
+            const overlay = document.getElementById("sidebar-overlay");
+            const drawer = document.getElementById("sidebar-drawer");
+            const triggerBtn = document.querySelector(".menu-trigger-btn");
+            const closeBtn = document.getElementById("close-sidebar-btn");
+
+            if (triggerBtn && overlay && drawer) {
+                triggerBtn.addEventListener("click", () => {
+                    overlay.classList.remove("hidden");
+                    setTimeout(() => {
+                        overlay.classList.remove("opacity-0");
+                        drawer.classList.remove("translate-x-full");
+                    }, 10);
+                });
+            }
+
+            const closeDrawer = () => {
+                drawer.classList.add("translate-x-full");
+                overlay.classList.add("opacity-0");
+                setTimeout(() => overlay.classList.add("hidden"), 300);
+            };
+
+            if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+            if (overlay) overlay.addEventListener("click", closeDrawer);
+
+            // 3. Live Category Sorter Engine
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Reset Active states
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-amber-500', 'text-slate-950', 'shadow-lg', 'active');
+                        btn.classList.add('hover:text-white');
+                    });
+                    
+                    // Activate clicked button
+                    button.classList.add('bg-amber-500', 'text-slate-950', 'shadow-lg', 'active');
+                    button.classList.remove('hover:text-white');
+
+                    const selectedFilter = button.getAttribute('data-filter');
+
+                    // Filter Logic
+                    galleryItems.forEach(item => {
+                        item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.95)';
+
+                        setTimeout(() => {
+                            if (selectedFilter === 'all' || item.getAttribute('data-category') === selectedFilter) {
+                                item.style.display = 'flex';
+                                setTimeout(() => {
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'scale(1)';
+                                }, 50);
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }, 250);
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- ================= ELITE ORBITAL CURSOR ================= -->
+    <div id="luxury-aura" class="fixed top-0 left-0 -ml-[18px] -mt-[18px] w-9 h-9 rounded-full border border-amber-500/40 bg-amber-500/5 pointer-events-none z-[99999] hidden md:block transition-colors duration-300 will-change-transform"></div>
+    <div id="luxury-dot" class="fixed top-0 left-0 -ml-[4px] -mt-[4px] w-2 h-2 rounded-full bg-amber-400 pointer-events-none z-[99999] hidden md:block will-change-transform"></div>
+
+    <script>
+        (function() {
+            // 1. Safety Kill-Switch: Do not run on mobile touchscreens
+            if (window.matchMedia("(pointer: coarse)").matches) return;
+
+            const aura = document.getElementById('luxury-aura');
+            const dot = document.getElementById('luxury-dot');
+            
+            if (!aura || !dot) return;
+
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let auraX = mouseX;
+            let auraY = mouseY;
+            let isHovering = false;
+
+            // Track mouse instantly
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+            });
+
+            // LERP Engine: Smoothly drag the aura behind the dot
+            function renderAura() {
+                auraX += (mouseX - auraX) * 0.21; // 0.14 is the "weight" of the drag
+                auraY += (mouseY - auraY) * 0.21;
+
+                const scale = isHovering ? 'scale(1.6)' : 'scale(1)';
+                aura.style.transform = `translate3d(${auraX}px, ${auraY}px, 0) ${scale}`;
+
+                requestAnimationFrame(renderAura);
+            }
+            renderAura();
+
+            // Magnetic Expansion on clickable items
+            const attachMagneticSensors = () => {
+                const interactives = document.querySelectorAll('a, button, input, [onclick], .luxury-card, .job-card, .accordion-card');
+                
+                interactives.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        isHovering = true;
+                        aura.classList.add('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.add('opacity-30');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        isHovering = false;
+                        aura.classList.remove('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.remove('opacity-30');
+                    });
+                });
+            };
+
+            attachMagneticSensors();
+
+            // If JavaScript opens a modal or new drawer, re-scan the page for new buttons
+            const domObserver = new MutationObserver(attachMagneticSensors);
+            domObserver.observe(document.body, { childList: true, subtree: true });
+        })();
+    </script>
+</body>
+</html>

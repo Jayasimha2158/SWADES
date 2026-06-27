@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swades Property & Lifestyle | Complete Property Management Solutions</title>
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #030712; color: #cbd5e1; overflow-x: hidden; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        
+        /* Advanced Animations & Hover Transformations */
+        .reveal-on-scroll { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal-on-scroll.is-revealed { opacity: 1; transform: translateY(0); }
+        
+        /* Dark Card Hover */
+        .interactive-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .interactive-card:hover { transform: translateY(-10px); border-color: rgba(245, 158, 11, 0.8); background-color: #0b0f19; box-shadow: 0 20px 30px -10px rgba(0,0,0,0.6); }
+
+        /* Light Card Hover (For Portfolio Vectors on Home Page) */
+        .interactive-light-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid #e2e8f0; background-color: #f8fafc; }
+        .interactive-light-card:hover { transform: translateY(-10px); border-color: #f59e0b; background-color: #ffffff; box-shadow: 0 25px 35px -10px rgba(245, 158, 11, 0.25); }
+    </style>
+</head>
+<body class="antialiased flex flex-col justify-between min-h-screen">
+
+    <!-- GLOBAL NAVBAR HEADER -->
+    <header class="sticky top-0 z-50 bg-[#030712]/95 backdrop-blur-md border-b border-amber-500/10">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-xl shadow-lg">S</div>
+                <div>
+                    <span class="block font-luxury font-bold text-xl text-white tracking-wider leading-none">SWADES</span>
+                    <span class="text-[9px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-slate-300">
+                <a href="index.html" class="text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="hover:text-amber-500 transition-colors">Services</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <a href="consultation.html" class="hidden sm:block bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-slate-950 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded transition-all shadow-lg text-center">Consultation</a>
+                <button class="menu-trigger-btn text-white hover:text-amber-500 flex items-center gap-2 bg-slate-900 px-3 py-2 rounded border border-slate-800 cursor-pointer transition-colors">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400 hidden sm:inline">Menu</span>
+                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- UPDATED: MASTER SIDEBAR NAVIGATION DRAWER (Verbatim to Screenshot at 2026-06-22 16-12-40.jpg) -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden transition-opacity duration-300 opacity-0"></div>
+    <div id="sidebar-drawer" class="fixed top-0 right-0 h-full w-full max-w-sm bg-[#090D1A] text-white z-50 shadow-2xl translate-x-full transition-transform duration-300 p-8 flex flex-col justify-between border-l border-slate-800">
+        <div>
+            <!-- Drawer Header -->
+            <div class="flex justify-between items-center mb-10 pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-amber-500 rounded flex items-center justify-center text-slate-950 font-bold text-base font-luxury">S</div>
+                    <span class="font-luxury font-bold text-lg tracking-widest text-white">SWADES</span>
+                </div>
+                <button id="close-sidebar-btn" class="text-slate-500 hover:text-white text-xl cursor-pointer p-1 transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <!-- Complete Sitemap List -->
+            <nav class="space-y-4 text-xs font-semibold tracking-[0.18em] uppercase flex flex-col text-slate-300">
+                <a href="index.html" class="text-amber-500 font-bold transition-colors">Home</a>
+                <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="hover:text-amber-500 transition-colors">Services</a>
+                
+                <!-- Divider Line -->
+                <div class="border-b border-slate-800/80 my-2"></div>
+                
+                <a href="maintenance.html" class="hover:text-amber-500 transition-colors">
+                    <span>Maintenance</span>
+                </a>
+                <a href="luxury-outdoor.html" class="hover:text-amber-500 transition-colors"></a>
+                    <span>Luxury Outdoor</span>
+                </a>
+                <a href="gallery.html" class="hover:text-amber-500 transition-colors">Gallery</a>
+                <a href="reviews.html" class="hover:text-amber-500 transition-colors">Client Reviews</a>
+                <a href="faq.html" class="hover:text-amber-500 transition-colors">FAQ</a>
+                <a href="careers.html" class="hover:text-amber-500 transition-colors">Careers</a>
+            </nav>
+        </div>
+        
+        <!-- Bottom Solid Button -->
+        <div class="pt-6">
+            <a href="consultation.html" class="block w-full bg-amber-500 hover:bg-amber-400 text-slate-950 text-center font-bold text-xs uppercase tracking-widest py-4 rounded transition-all shadow-lg">
+                Schedule Consultation
+            </a>
+        </div>
+    </div>
+
+    <!-- SECTION 1: REFINED EXECUTIVE HERO SECTION -->
+    <section class="relative w-full min-h-[85vh] flex items-center justify-start text-left bg-cover bg-center bg-no-repeat border-b border-slate-900" 
+             style="background-image: linear-gradient(to right, rgba(3, 7, 18, 0.95) 0%, rgba(3, 7, 18, 0.8) 50%, rgba(3, 7, 18, 0.4) 100%), url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=80');">
+        <div class="container mx-auto px-6 py-20 relative z-10 max-w-7xl reveal-on-scroll">
+            <div class="max-w-4xl space-y-7">
+                <div class="inline-flex items-center gap-3 bg-amber-500/10 border border-amber-500/30 px-4 py-2 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-[0.25em]">Elite Property & Asset Custodian</span>
+                </div>
+                
+                <h1 class="font-luxury text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-wide leading-[1.12]">
+                    Complete Property &<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Lifestyle Management</span> Solutions
+                </h1>
+                
+                <p class="text-slate-300 text-base md:text-xl font-light max-w-2xl leading-relaxed">
+                    At Swades, we simplify property ownership and elevate community living with professional, end-to-end support. Whether you are a remote owner, a resident, or a gated society, we serve as your trusted on-site partner-handling everything from tenant management to daily maintenance.
+                
+                <div class="pt-4 flex flex-wrap items-center gap-4">
+                    <a href="services.html" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs md:text-sm uppercase tracking-widest px-8 py-4 rounded-full transition-all shadow-2xl transform hover:scale-105 flex items-center gap-3">
+                        <span>Core Portfolios</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="about.html" class="bg-slate-900/80 hover:bg-slate-900 text-white border border-slate-700 hover:border-amber-500 font-bold text-xs md:text-sm uppercase tracking-widest px-8 py-4 rounded-full transition-all flex items-center gap-3">
+                        <span>Discover Heritage</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: WELCOME OVERVIEW -->
+    <section class="py-28 px-6 container mx-auto max-w-7xl grid md:grid-cols-12 gap-16 items-center">
+        <div class="md:col-span-7 space-y-6 reveal-on-scroll">
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block">Corporate Heritage</span>
+            <h2 class="font-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+                Welcome to <span class="text-amber-500">Swades</span>,<br>Where Luxury Meets Integrity.
+            </h2>
+            <p class="text-slate-400 text-sm md:text-base font-light leading-relaxed pt-2">
+                Swades Property Management Services was established with a vision to transform property management into a complete community experience. We combine operational expertise, technology- driven processes, and exceptional customer service to create environments where residents feel supported, property owners feel secure, and communities thrive.
+            </p>
+            <p class="text-slate-400 text-sm md:text-base font-light leading-relaxed">
+                Our dedicated team works closely with residents, associations, property owners, and service providers to ensure smooth day-to-day operations while maintaining the highest standards of professionalism and accountability..
+            </p>
+            <div class="pt-4">
+                <a href="about.html" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-white hover:text-amber-500 border-b-2 border-amber-500 pb-2 transition-colors">
+                    <span>Read Corporate Heritage</span> <i class="fa-solid fa-arrow-right ml-3 text-amber-500"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="md:col-span-5 reveal-on-scroll flex justify-center">
+            <div class="relative max-w-md w-full">
+                <div class="absolute -inset-2 bg-amber-500/20 rounded-3xl blur-lg transform -rotate-2"></div>
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Contemporary Hyderabad Luxury Home" class="relative rounded-3xl shadow-2xl border border-slate-800 w-full object-cover z-10">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: IMPACT COUNTER BAR -->
+    <section class="py-16 bg-[#070b14] border-y border-slate-900 px-6">
+        <div class="container mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-4 gap-10 text-center reveal-on-scroll">
+            <div class="space-y-2 border-r border-slate-800/60 last:border-none">
+                <span class="font-luxury text-4xl md:text-5xl font-bold text-amber-500 block">450+</span>
+                <span class="text-xs font-semibold uppercase tracking-widest text-slate-400 block">Properties Managed</span>
+            </div>
+            <div class="space-y-2 border-r border-slate-800/60 last:border-none">
+                <span class="font-luxury text-4xl md:text-5xl font-bold text-amber-500 block">₹2,500<span class="text-2xl">Cr+</span></span>
+                <span class="text-xs font-semibold uppercase tracking-widest text-slate-400 block">Asset Value Custody</span>
+            </div>
+            <div class="space-y-2 border-r border-slate-800/60 last:border-none">
+                <span class="font-luxury text-4xl md:text-5xl font-bold text-amber-500 block">98.7%</span>
+                <span class="text-xs font-semibold uppercase tracking-widest text-slate-400 block">SLA Compliance Rate</span>
+            </div>
+            <div class="space-y-2">
+                <span class="font-luxury text-4xl md:text-5xl font-bold text-amber-500 block">24/7</span>
+                <span class="text-xs font-semibold uppercase tracking-widest text-slate-400 block">NRI Hotline</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: TAILORED MANAGEMENT PORTFOLIOS -->
+    <section class="py-28 px-6 container mx-auto max-w-7xl">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll space-y-3">
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block">Institutional Vectors</span>
+            <h2 class="font-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white">Tailored Management Portfolios</h2>
+            <p class="text-slate-400 text-sm md:text-base font-light">
+                Curated property management and monitoring vectors engineered specifically for international standard real estate holdings.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 text-left">
+            <div class="interactive-light-card p-8 md:p-10 rounded-3xl shadow-2xl flex flex-col justify-between reveal-on-scroll">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center text-slate-950 font-luxury font-bold text-xl mb-6 shadow-md">S</div>
+                    <h3 class="text-slate-900 font-luxury font-bold text-xl mb-3">Property & Financial Management</h3>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Owning property should be rewarding, not stressful. Swades provides comprehensive property administration and financial management services that allow owners to enjoy the benefits of their investment without operational challenges.
+                    </p>
+                    <ul class="space-y-2.5 text-xs md:text-sm font-medium text-slate-700 border-t border-slate-200 pt-5 mb-8">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-600"></i> Property Sales & Marketing Support</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-600"></i> Verified Tenant Acquisition</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-600"></i> Rental Management & Coordination</li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="services.html" class="inline-flex items-center font-bold text-xs uppercase tracking-widest text-amber-700 hover:text-amber-500 transition-colors">
+                        <span>View Portfolio Vector</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="interactive-light-card p-8 md:p-10 rounded-3xl shadow-2xl flex flex-col justify-between reveal-on-scroll" style="transition-delay: 100ms;">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center text-slate-950 font-luxury font-bold text-xl mb-6 shadow-md">S</div>
+                    <h3 class="text-slate-900 font-luxury font-bold text-xl mb-3">Healthcare & Emergency Assistance</h3>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        Safety and well-being are fundamental to every thriving community. Swades offers dedicated healthcare coordination and emergency response services designed to ensure residents receive timely assistance whenever required.
+                    </p>
+                    <ul class="space-y-2.5 text-xs md:text-sm font-medium text-slate-700 border-t border-slate-200 pt-5 mb-8">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-600"></i> Emergency Medical Coordination</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-600"></i> First Aid Assistance</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-600"></i> Telehealth Consultation Access</li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="services.html" class="inline-flex items-center font-bold text-xs uppercase tracking-widest text-amber-700 hover:text-amber-500 transition-colors">
+                        <span>View Portfolio Vector</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="interactive-light-card p-8 md:p-10 rounded-3xl shadow-2xl flex flex-col justify-between reveal-on-scroll" style="transition-delay: 200ms;">
+                <div>
+                    <div class="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center text-slate-950 font-luxury font-bold text-xl mb-6 shadow-md">S</div>
+                    <h3 class="text-slate-900 font-luxury font-bold text-xl mb-3">Manpower & Maintenance Services</h3>
+                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+                        A well-maintained property enhances both resident satisfaction and long-term asset value. Swades provides professional maintenance and manpower services that ensure community infrastructure remains safe, functional, and aesthetically maintained.
+                    </p>
+                    <ul class="space-y-2.5 text-xs md:text-sm font-medium text-slate-700 border-t border-slate-200 pt-5 mb-8">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-600"></i> Housekeeping Services</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-600"></i> Deep Cleaning Solutions</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-600"></i> Electrical Maintenance</li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="services.html" class="inline-flex items-center font-bold text-xs uppercase tracking-widest text-amber-700 hover:text-amber-500 transition-colors">
+                        <span>View Portfolio Vector</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: WHY GLOBAL HNWIs CHOOSE SWADES -->
+    <section class="py-28 bg-[#060913] border-t border-slate-900 px-6">
+        <div class="container mx-auto max-w-7xl grid lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-5 reveal-on-scroll">
+                <div class="relative">
+                    <div class="absolute -inset-2 bg-gradient-to-tr from-amber-500 to-amber-600 rounded-3xl blur opacity-25"></div>
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Swades Premium Asset Inspection" class="relative rounded-3xl shadow-2xl border border-slate-800 w-full object-cover">
+                </div>
+            </div>
+            
+            <div class="lg:col-span-7 space-y-10 reveal-on-scroll">
+                <div class="space-y-3">
+                    <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block">Elite Excellence</span>
+                    <h2 class="font-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+                        Why Global HNWIs Choose Swades
+                    </h2>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex gap-5 items-start group">
+                        <div class="w-10 h-10 shrink-0 bg-amber-500/10 border border-amber-500/20 text-amber-500 rounded-xl flex items-center justify-center font-luxury font-bold text-lg group-hover:bg-amber-500 group-hover:text-slate-950 transition-all shadow-lg">01</div>
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white">Dedicated On-Site Support</h4>
+                            <p class="text-slate-400 text-xs md:text-sm font-light leading-relaxed">
+                                A professional customer care presence within the community ensures faster issue resolution and personalized resident assistance.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-5 items-start group">
+                        <div class="w-10 h-10 shrink-0 bg-amber-500/10 border border-amber-500/20 text-amber-500 rounded-xl flex items-center justify-center font-luxury font-bold text-lg group-hover:bg-amber-500 group-hover:text-slate-950 transition-all shadow-lg">02</div>
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white">24/7 Emergency Response</h4>
+                            <p class="text-slate-400 text-xs md:text-sm font-light leading-relaxed">
+                                Immediate support and escalation for medical, utility, maintenance, and safety-related emergencies.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-5 items-start group">
+                        <div class="w-10 h-10 shrink-0 bg-amber-500/10 border border-amber-500/20 text-amber-500 rounded-xl flex items-center justify-center font-luxury font-bold text-lg group-hover:bg-amber-500 group-hover:text-slate-950 transition-all shadow-lg">03</div>
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white">Trusted Service Networkc</h4>
+                            <p class="text-slate-400 text-xs md:text-sm font-light leading-relaxed">
+                                Access to verified professionals across maintenance, cleaning, healthcare, logistics, and home improvement services
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: MANAGED HIGH-VALUE HOLDINGS SHOWCASE -->
+    <section class="py-28 px-6 container mx-auto max-w-7xl space-y-16">
+        <div class="text-center max-w-3xl mx-auto reveal-on-scroll space-y-3">
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block">Asset Showcase</span>
+            <h2 class="font-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white">Managed High-Value Holdings</h2>
+            <p class="text-slate-400 text-sm md:text-base font-light">
+                A curated look into the elite private estates, commercial parks, and luxury villas currently protected under our standard custody frameworks.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="interactive-card bg-[#0b0f19] rounded-3xl overflow-hidden flex flex-col reveal-on-scroll group">
+                <div class="relative h-64 overflow-hidden">
+                    <span class="absolute top-4 right-4 bg-amber-500 text-slate-950 font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full z-10 shadow-lg">Active SLA</span>
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="The Victoria Villa West Hyderabad" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-7 flex-1 flex flex-col justify-between space-y-4 text-left">
+                    <div>
+                        <span class="text-[11px] uppercase tracking-widest font-bold text-amber-500 block mb-1">West Hyderabad</span>
+                        <h4 class="font-luxury text-xl font-bold text-white">The Victoria Villa</h4>
+                        <p class="text-slate-400 text-xs font-light mt-2 leading-relaxed">
+                            Preventative structural upkeep, landscaping maintenance, and bi-weekly geo-fenced physical perimeter checks for an active NRI custodian.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex justify-between items-center text-xs text-slate-400">
+                        <span>Custody: <strong>3 Years</strong></span>
+                        <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Verified</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-card bg-[#0b0f19] rounded-3xl overflow-hidden flex flex-col reveal-on-scroll group" style="transition-delay: 100ms;">
+                <div class="relative h-64 overflow-hidden">
+                    <span class="absolute top-4 right-4 bg-amber-500 text-slate-950 font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full z-10 shadow-lg">Preventative Upkeep</span>
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Solitaire Park Bounds Financial District" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-7 flex-1 flex flex-col justify-between space-y-4 text-left">
+                    <div>
+                        <span class="text-[11px] uppercase tracking-widest font-bold text-amber-500 block mb-1">Financial District</span>
+                        <h4 class="font-luxury text-xl font-bold text-white">Solitaire Park Bounds</h4>
+                        <p class="text-slate-400 text-xs font-light mt-2 leading-relaxed">
+                            Full mechanical and electrical taskforce deployment, automated HVAC monitoring loops, and complete domestic staffing oversight.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex justify-between items-center text-xs text-slate-400">
+                        <span>Custody: <strong>Ongoing</strong></span>
+                        <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Verified</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-card bg-[#0b0f19] rounded-3xl overflow-hidden flex flex-col reveal-on-scroll group" style="transition-delay: 200ms;">
+                <div class="relative h-64 overflow-hidden">
+                    <span class="absolute top-4 right-4 bg-amber-500 text-slate-950 font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full z-10 shadow-lg">Yield Management</span>
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Vanguard Commercial Towers HITEC City" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-7 flex-1 flex flex-col justify-between space-y-4 text-left">
+                    <div>
+                        <span class="text-[11px] uppercase tracking-widest font-bold text-amber-500 block mb-1">HITEC City</span>
+                        <h4 class="font-luxury text-xl font-bold text-white">Vanguard Commercial</h4>
+                        <p class="text-slate-400 text-xs font-light mt-2 leading-relaxed">
+                            High-yield commercial lease auditing, structural safety protocol certifications, and corporate tenant conflict resolution matrices.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex justify-between items-center text-xs text-slate-400">
+                        <span>Custody: <strong>5 Years</strong></span>
+                        <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Verified</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center pt-6">
+            <a href="gallery.html" class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-white hover:text-amber-500 bg-slate-900 border border-slate-800 px-7 py-3.5 rounded-full transition-all">
+                <span>View Full Asset Gallery</span> <i class="fa-solid fa-arrow-right text-amber-500"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 7: TESTIMONIAL PROTOCOL -->
+    <section class="py-24 bg-[#050812] border-t border-slate-900 px-6">
+        <div class="container mx-auto max-w-4xl text-center space-y-10 reveal-on-scroll">
+            <div class="space-y-2">
+                <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block">Client Protocol</span>
+                <h2 class="font-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white">What Our Clients Say</h2>
+            </div>
+
+            <div class="bg-[#0b0f19] border border-slate-800/80 rounded-3xl p-10 md:p-14 relative interactive-card shadow-2xl">
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center text-slate-950 text-xl shadow-xl">
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+                
+                <p class="text-slate-200 text-base md:text-xl font-light italic leading-relaxed pt-3 mb-8 font-luxury">
+                    "Living 8,000 miles away in Houston, the anxiety of unverified land in Hyderabad was constant. Swades stepped in and completely locked down our family plot with their physical boundary audits and real-time portal updates. Absolute peace of mind."
+                </p>
+
+                <div class="flex flex-col items-center justify-center space-y-1.5 border-t border-slate-800/80 pt-5">
+                    <div class="w-10 h-10 bg-slate-800 rounded-full border border-amber-500/40 flex items-center justify-center text-amber-500 font-bold text-sm">VP</div>
+                    <h4 class="text-white font-bold text-sm tracking-wide">Dr. Vikram Paruchuri</h4>
+                    <span class="text-amber-500 text-[11px] uppercase tracking-widest font-semibold">Cardiologist & NRI Investor, Texas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: PRE-FOOTER CTA BANNER -->
+    <section class="relative w-full min-h-[400px] flex items-center justify-center text-center bg-cover bg-center bg-no-repeat border-t border-slate-900" 
+             style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95), rgba(11, 15, 25, 0.85)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80');">
+        <div class="w-full max-w-4xl mx-auto px-6 py-16 flex flex-col items-center justify-center relative z-10 reveal-on-scroll space-y-5">
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.3em] block">Secure Your Holdings</span>
+            <h2 class="font-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-wide leading-tight max-w-3xl">
+                Let Us Safeguard Your Luxury Assets in Hyderabad
+            </h2>
+            <p class="text-slate-300 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed">
+                Speak directly with managing founders Swaroop Chavali and Sasikanth Nelli to construct a bulletproof custody protocol tailored to your real estate portfolio.
+            </p>
+            <div class="pt-3 flex flex-wrap justify-center gap-4">
+                <a href="consultation.html" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-full transition-all shadow-2xl transform hover:scale-105">
+                    Schedule NRI Session
+                </a>
+                <a href="https://wa.me/917066780736" class="bg-transparent hover:bg-slate-900 text-white border border-slate-700 hover:border-amber-500 font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-full transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i> <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GLOBAL HIGH-DENSITY FOUR-COLUMN FOOTER -->
+    <footer class="bg-[#02050c] text-slate-400 text-xs pt-16 pb-10 border-t border-slate-900">
+        <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-10 mb-14">
+            
+            <div class="md:col-span-4 space-y-3 text-left">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-lg">S</div>
+                    <div>
+                        <span class="block font-luxury font-bold text-sm text-white tracking-wider leading-none">SWADES</span>
+                        <span class="text-[8px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                    </div>
+                </div>
+                <p class="text-slate-500 text-xs font-light leading-relaxed">
+                    Empowering property owners and international NRIs with absolute structural security, legal integrity, and elite preventative property maintenance across the greater Hyderabad region.
+                </p>
+                <div class="flex space-x-2.5 pt-1">
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 space-y-3 text-left">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Navigation</h4>
+                <nav class="flex flex-col space-y-1.5 text-slate-400 text-xs font-medium">
+                    <a href="index.html" class="text-amber-500 transition-colors font-semibold">Home Page</a>
+                    <a href="about.html" class="hover:text-amber-500 transition-colors">Corporate Story</a>
+                    <a href="services.html" class="hover:text-amber-500 transition-colors">Core Portfolios</a>
+                    <a href="luxury-outdoor.html" class="hover:text-amber-500 transition-colors">Luxury Showcase</a>
+                    <a href="gallery.html" class="hover:text-amber-500 transition-colors">Projects Gallery</a>
+                    <a href="careers.html" class="hover:text-amber-500 transition-colors">Careers & Recruitment</a>
+                </nav>
+            </div>
+
+            <div class="md:col-span-3 space-y-3 text-left text-slate-400 text-xs">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Headquarters</h4>
+                <p class="leading-relaxed font-light text-slate-400">
+                    <strong>Swades Corporate Office</strong><br>
+                    Villa No. 546, Patancheru ORR Exit 3,<br>
+                    Hyderabad, Telangana – 502319
+                </p>
+                <div class="pt-1 space-y-1 text-xs">
+                    <p><strong class="text-slate-300">Swaroop:</strong> +91 70667 80736</p>
+                    <p><strong class="text-slate-300">Sasikanth:</strong> +91 81434 84202</p>
+                    <p><strong class="text-slate-300">Email:</strong> relations@swades.com</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-3 space-y-3 text-left">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Global Briefing</h4>
+                <p class="text-slate-400 text-xs font-light">Subscribe to market reports on Hyderabad real estate yields.</p>
+                <form class="flex w-full items-center shadow-lg" onsubmit="event.preventDefault(); alert('Briefing channel secured.');">
+                    <input type="email" placeholder="nri@estate.com" required class="bg-slate-900 border border-slate-800 rounded-l-lg p-2.5 text-xs w-full text-white focus:outline-none focus:border-amber-500">
+                    <button type="submit" class="bg-amber-600 hover:bg-amber-500 text-slate-950 px-3 py-2.5 rounded-r-lg font-bold transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="container mx-auto px-6 max-w-7xl border-t border-slate-900 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-3 sm:space-y-0 font-medium">
+            <p>&copy; 2026 Swades Property Management Services. All Rights Reserved.</p>
+            <div class="flex space-x-5">
+                <a href="#" class="hover:text-amber-500 transition-colors">Privacy</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">SLA Terms</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">NRI Vetting</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GLOBAL FIXED WHATSAPP FLOATING BUTTON -->
+    <div class="fixed bottom-8 right-8 z-[99] flex items-center gap-3 bg-slate-950/90 border border-slate-800 p-2 pr-4 rounded-full shadow-2xl animate-bounce">
+        <a href="https://wa.me/917066780736" target="_blank" class="w-12 h-12 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center text-2xl transition-colors shadow-lg">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-300 hidden sm:inline">Live NRI Support</span>
+    </div>
+
+    <!-- COMBINED JAVASCRIPT OBSERVER & DRAWER CONTROLLER -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Scroll Reveal Engine
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(element => {
+                scrollObserver.observe(element);
+            });
+
+            // 2. Mobile Drawer Engine
+            const overlay = document.getElementById("sidebar-overlay");
+            const drawer = document.getElementById("sidebar-drawer");
+            const triggerBtn = document.querySelector(".menu-trigger-btn");
+            const closeBtn = document.getElementById("close-sidebar-btn");
+
+            if (triggerBtn && overlay && drawer) {
+                triggerBtn.addEventListener("click", () => {
+                    overlay.classList.remove("hidden");
+                    setTimeout(() => {
+                        overlay.classList.remove("opacity-0");
+                        drawer.classList.remove("translate-x-full");
+                    }, 10);
+                });
+            }
+
+            const closeDrawer = () => {
+                drawer.classList.add("translate-x-full");
+                overlay.classList.add("opacity-0");
+                setTimeout(() => overlay.classList.add("hidden"), 300);
+            };
+
+            if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+            if (overlay) overlay.addEventListener("click", closeDrawer);
+        });
+    </script>
+    
+    <script src="script.js"></script>
+
+    <!-- ================= ELITE ORBITAL CURSOR ================= -->
+    <div id="luxury-aura" class="fixed top-0 left-0 -ml-[18px] -mt-[18px] w-9 h-9 rounded-full border border-amber-500/40 bg-amber-500/5 pointer-events-none z-[99999] hidden md:block transition-colors duration-300 will-change-transform"></div>
+    <div id="luxury-dot" class="fixed top-0 left-0 -ml-[4px] -mt-[4px] w-2 h-2 rounded-full bg-amber-400 pointer-events-none z-[99999] hidden md:block will-change-transform"></div>
+
+    <script>
+        (function() {
+            // 1. Safety Kill-Switch: Do not run on mobile touchscreens
+            if (window.matchMedia("(pointer: coarse)").matches) return;
+
+            const aura = document.getElementById('luxury-aura');
+            const dot = document.getElementById('luxury-dot');
+            
+            if (!aura || !dot) return;
+
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let auraX = mouseX;
+            let auraY = mouseY;
+            let isHovering = false;
+
+            // Track mouse instantly
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+            });
+
+            // LERP Engine: Smoothly drag the aura behind the dot
+            function renderAura() {
+                auraX += (mouseX - auraX) * 0.21; // 0.14 is the "weight" of the drag
+                auraY += (mouseY - auraY) * 0.21;
+
+                const scale = isHovering ? 'scale(1.6)' : 'scale(1)';
+                aura.style.transform = `translate3d(${auraX}px, ${auraY}px, 0) ${scale}`;
+
+                requestAnimationFrame(renderAura);
+            }
+            renderAura();
+
+            // Magnetic Expansion on clickable items
+            const attachMagneticSensors = () => {
+                const interactives = document.querySelectorAll('a, button, input, [onclick], .luxury-card, .job-card, .accordion-card');
+                
+                interactives.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        isHovering = true;
+                        aura.classList.add('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.add('opacity-30');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        isHovering = false;
+                        aura.classList.remove('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.remove('opacity-30');
+                    });
+                });
+            };
+
+            attachMagneticSensors();
+
+            // If JavaScript opens a modal or new drawer, re-scan the page for new buttons
+            const domObserver = new MutationObserver(attachMagneticSensors);
+            domObserver.observe(document.body, { childList: true, subtree: true });
+        })();
+    </script>
+</body>
+</html>

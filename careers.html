@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swades | Careers & Elite Operational Force</title>
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #030712; color: #cbd5e1; overflow-x: hidden; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        
+        /* Smooth Scroll Reveal Engine */
+        .reveal-on-scroll { opacity: 0; transform: translateY(35px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal-on-scroll.is-revealed { opacity: 1; transform: translateY(0); }
+
+        /* Premium Dark Glass Card Styling */
+        .luxury-card { background-color: #0b0f19; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .luxury-card:hover { transform: translateY(-6px); border-color: rgba(245, 158, 11, 0.4); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.9); }
+        
+        .job-card { background-color: #0b0f19; border: 1px solid rgba(255, 255, 255, 0.07); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .job-card:hover { border-color: #f59e0b; background-color: #0e1422; box-shadow: 0 25px 50px -12px rgba(245, 158, 11, 0.15); transform: translateY(-4px); }
+
+        /* Custom Map Embed Container */
+        .map-container { background: radial-gradient(circle, #1e293b 0%, #0f172a 100%); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="antialiased flex flex-col justify-between min-h-screen">
+
+    <!-- ================= GLOBAL NAVBAR ================= -->
+    <header class="sticky top-0 z-50 bg-[#030712]/95 backdrop-blur-md border-b border-amber-500/10">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center max-w-7xl">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-xl shadow-lg">S</div>
+                <div>
+                    <span class="block font-luxury font-bold text-xl text-white tracking-wider leading-none">SWADES</span>
+                    <span class="text-[9px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-slate-300">
+                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="hover:text-amber-500 transition-colors">Services</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <a href="consultation.html" class="hidden sm:block bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-slate-950 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded transition-all shadow-lg text-center">Consultation</a>
+                <button class="menu-trigger-btn text-white hover:text-amber-500 flex items-center gap-2 bg-slate-900 px-3 py-2 rounded border border-slate-800 cursor-pointer transition-colors">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400 hidden sm:inline">Menu</span>
+                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= SIDEBAR NAVIGATION DRAWER ================= -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden transition-opacity duration-300 opacity-0"></div>
+    <div id="sidebar-drawer" class="fixed top-0 right-0 h-full w-full max-w-sm bg-[#090D1A] text-white z-50 shadow-2xl translate-x-full transition-transform duration-300 p-8 flex flex-col justify-between border-l border-slate-800">
+        <div>
+            <div class="flex justify-between items-center mb-10 pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-amber-500 rounded flex items-center justify-center text-slate-950 font-bold text-base font-luxury">S</div>
+                    <span class="font-luxury font-bold text-lg tracking-widest text-white">SWADES</span>
+                </div>
+                <button id="close-sidebar-btn" class="text-slate-500 hover:text-white text-xl cursor-pointer p-1 transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <nav class="space-y-4 text-xs font-semibold tracking-[0.18em] uppercase flex flex-col text-slate-300">
+                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="hover:text-amber-500 transition-colors">Services</a>
+                
+                <div class="border-b border-slate-800/80 my-2"></div>
+                
+                <a href="maintenance.html" class="hover:text-amber-500 transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-screwdriver-wrench text-amber-500 text-sm w-4"></i>
+                    <span>Maintenance</span>
+                </a>
+                <a href="luxury-outdoor.html" class="hover:text-amber-500 transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-umbrella-beach text-amber-500 text-sm w-4"></i>
+                    <span>Luxury Outdoor</span>
+                </a>
+                <a href="gallery.html" class="hover:text-amber-500 transition-colors">Gallery</a>
+                <a href="reviews.html" class="hover:text-amber-500 transition-colors">Client Reviews</a>
+                <a href="faq.html" class="hover:text-amber-500 transition-colors">FAQ</a>
+                <!-- ACTIVE PAGE HIGHLIGHT -->
+                <a href="careers.html" class="text-amber-500 font-bold">Careers</a>
+            </nav>
+        </div>
+        
+        <div class="pt-6">
+            <a href="consultation.html" class="block w-full bg-amber-500 hover:bg-amber-400 text-slate-950 text-center font-bold text-xs uppercase tracking-widest py-4 rounded transition-all shadow-lg">
+                Schedule Consultation
+            </a>
+        </div>
+    </div>
+
+    <!-- ================= HERO SECTION (VERBATIM TO MOCKUP) ================= -->
+    <section class="relative w-full pt-24 pb-32 flex flex-col items-center justify-center text-center bg-cover bg-center bg-no-repeat border-b border-slate-900/80" 
+             style="background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.88), rgba(3, 7, 18, 0.98)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80');">
+        <div class="container mx-auto px-6 relative z-10 max-w-3xl reveal-on-scroll space-y-4">
+            
+            <span class="text-amber-500 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] block">Work With Swades</span>
+            
+            <h1 class="font-luxury text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-wide leading-tight">
+                Join Our Elite <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Operational Force</span>
+            </h1>
+            
+            <p class="text-slate-300 text-xs sm:text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed">
+                Build a prestigious career in premium estate curation and high-standard client relations. We value absolute integrity, aesthetic precision, and work ethic.
+            </p>
+
+            <!-- Scroll Down Indicator Circle -->
+            <div class="pt-8">
+                <div class="w-10 h-10 rounded-full border border-amber-500/40 flex items-center justify-center mx-auto text-amber-500 animate-bounce">
+                    <i class="fa-solid fa-arrow-down text-xs"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= SECTION 1: WHY SHAPE YOUR CAREER (VERBATIM TO MOCKUP) ================= -->
+    <section class="py-24 container mx-auto px-6 max-w-6xl reveal-on-scroll">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+            <span class="text-amber-500 text-[10px] font-bold uppercase tracking-[0.3em]">Talent Ecosystem</span>
+            <h2 class="font-luxury text-3xl sm:text-4xl font-bold text-white">Why Shape Your Career At Swades</h2>
+            <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                We curate a premium employee ecosystem offering global standards, continuous engineering audits training, and elite corporate culture.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            
+            <!-- Benefit Card 1 -->
+            <div class="luxury-card p-8 rounded-2xl space-y-4">
+                <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 mb-2">
+                    <i class="fa-solid fa-star text-sm"></i>
+                </div>
+                <h3 class="font-luxury text-lg font-bold text-white tracking-wide">Competitive Global Compensation</h3>
+                <p class="text-slate-400 text-xs font-light leading-relaxed">
+                    We provide high-tier industry packages accompanied by annual profit performance bonuses linked to active property asset yields.
+                </p>
+            </div>
+
+            <!-- Benefit Card 2 -->
+            <div class="luxury-card p-8 rounded-2xl space-y-4">
+                <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 mb-2">
+                    <i class="fa-solid fa-shield-halved text-sm"></i>
+                </div>
+                <h3 class="font-luxury text-lg font-bold text-white tracking-wide">Corporate Medical Coverage</h3>
+                <p class="text-slate-400 text-xs font-light leading-relaxed">
+                    Complete high-worth health insurance plans covering primary medical, dental, and dependent parents' health parameters.
+                </p>
+            </div>
+
+            <!-- Benefit Card 3 -->
+            <div class="luxury-card p-8 rounded-2xl space-y-4">
+                <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 mb-2">
+                    <i class="fa-solid fa-chart-line text-sm"></i>
+                </div>
+                <h3 class="font-luxury text-lg font-bold text-white tracking-wide">Clear Professional Growth Paths</h3>
+                <p class="text-slate-400 text-xs font-light leading-relaxed">
+                    Start as estate supervisor and progress to NRI Relationship Director. Your path is defined by SLA milestones and precision audits.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= SECTION 2: ACTIVE VACANCIES BOARD (VERBATIM TO MOCKUP) ================= -->
+    <section class="pb-32 container mx-auto px-6 max-w-7xl reveal-on-scroll">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
+            <span class="text-amber-500 text-[10px] font-bold uppercase tracking-[0.3em]">Careers Board</span>
+            <h2 class="font-luxury text-3xl sm:text-5xl font-bold text-white">Active Vacancies</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left">
+
+            <!-- JOB CARD 1 -->
+            <div class="job-card rounded-2xl p-8 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <span class="text-[9px] font-bold tracking-[0.2em] uppercase text-amber-500 block">Client Services • Full-Time</span>
+                    <h3 class="font-luxury text-xl font-bold text-white leading-snug">Premium Client Relations Executive (NRI Portfolio)</h3>
+                    
+                    <div class="flex items-center gap-2 text-xs font-medium text-slate-300">
+                        <i class="fa-solid fa-location-dot text-amber-500 shrink-0"></i>
+                        <span>Corporate Office (Hyderabad) / Hybrid</span>
+                    </div>
+
+                    <p class="text-slate-300 text-xs font-light leading-relaxed pt-2">
+                        Liaise with our high-profile NRI clientele across North America, Europe, and GCC countries. Manage communication pipelines and coordinate inspections.
+                    </p>
+
+                    <div class="border-t border-slate-800/80 pt-4 space-y-2">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-amber-500 block">Key Requirements:</span>
+                        <ul class="text-slate-400 text-xs space-y-1.5 font-light list-disc pl-4 marker:text-amber-500">
+                            <li>Flawless verbal/written English communication</li>
+                            <li>3+ years in luxury hospitality or premium real estate client handling</li>
+                            <li>Strong understanding of Hyderabad's upscale residential geography</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button onclick="openApplicationModal('Premium Client Relations Executive')" class="w-full bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold text-[11px] uppercase tracking-wider py-3.5 rounded transition-all shadow-lg cursor-pointer text-center">
+                    Apply For This Position
+                </button>
+            </div>
+
+            <!-- JOB CARD 2 -->
+            <div class="job-card rounded-2xl p-8 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <span class="text-[9px] font-bold tracking-[0.2em] uppercase text-amber-500 block">Field Engineering • Full-Time</span>
+                    <h3 class="font-luxury text-xl font-bold text-white leading-snug">Senior Facility Supervisor<br>(Mechanical & MEP)</h3>
+                    
+                    <div class="flex items-center gap-2 text-xs font-medium text-slate-300">
+                        <i class="fa-solid fa-location-dot text-amber-500 shrink-0"></i>
+                        <span>Active Projects Site (Hyderabad)</span>
+                    </div>
+
+                    <p class="text-slate-300 text-xs font-light leading-relaxed pt-2">
+                        Oversee operations, preventative audits, and vendor management across our luxury villa properties and high-rise commercial holdings.
+                    </p>
+
+                    <div class="border-t border-slate-800/80 pt-4 space-y-2">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-amber-500 block">Key Requirements:</span>
+                        <ul class="text-slate-400 text-xs space-y-1.5 font-light list-disc pl-4 marker:text-amber-500">
+                            <li>Degree/Diploma in Mechanical/Electrical Engineering</li>
+                            <li>Experience supervising deep-cleaning, central HVAC systems, and residential lifts</li>
+                            <li>Strict commitment to high-standard execution</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button onclick="openApplicationModal('Senior Facility Supervisor (MEP)')" class="w-full bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold text-[11px] uppercase tracking-wider py-3.5 rounded transition-all shadow-lg cursor-pointer text-center">
+                    Apply For This Position
+                </button>
+            </div>
+
+            <!-- JOB CARD 3 -->
+            <div class="job-card rounded-2xl p-8 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <span class="text-[9px] font-bold tracking-[0.2em] uppercase text-amber-500 block">Legal & Administration • Full-Time</span>
+                    <h3 class="font-luxury text-xl font-bold text-white leading-snug">Estate Legal Liaison Executive<br>&nbsp;</h3>
+                    
+                    <div class="flex items-center gap-2 text-xs font-medium text-slate-300">
+                        <i class="fa-solid fa-location-dot text-amber-500 shrink-0"></i>
+                        <span>Corporate Office (Patancheru) / Field</span>
+                    </div>
+
+                    <p class="text-slate-300 text-xs font-light leading-relaxed pt-2">
+                        Coordinate document searches, Encumbrance Certificate reviews, mutation filings, and property registration processing at government revenue offices.
+                    </p>
+
+                    <div class="border-t border-slate-800/80 pt-4 space-y-2">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-amber-500 block">Key Requirements:</span>
+                        <ul class="text-slate-400 text-xs space-y-1.5 font-light list-disc pl-4 marker:text-amber-500">
+                            <li>Bachelor of Laws (LL.B.) or high administrative experience</li>
+                            <li>Deep knowledge of Telangana state land laws and GHMC tax systems</li>
+                            <li>Liaison capabilities with local administrative portals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button onclick="openApplicationModal('Estate Legal Liaison Executive')" class="w-full bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold text-[11px] uppercase tracking-wider py-3.5 rounded transition-all shadow-lg cursor-pointer text-center">
+                    Apply For This Position
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= INTERACTIVE APPLICATION MODAL (HIDDEN BY DEFAULT) ================= -->
+    <div id="application-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-[#0b0f19] border border-amber-500/30 w-full max-w-lg rounded-3xl p-8 shadow-2xl relative text-left space-y-5">
+            <button onclick="closeApplicationModal()" class="absolute top-6 right-6 text-slate-500 hover:text-white text-xl cursor-pointer transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div>
+                <span class="text-amber-500 text-[10px] font-bold uppercase tracking-[0.2em]">Secure Application Portal</span>
+                <h3 id="modal-job-title" class="font-luxury text-xl font-bold text-white pt-1">Position Name</h3>
+            </div>
+
+            <form onsubmit="submitApplication(event)" class="space-y-4 text-xs font-light">
+                <div>
+                    <label class="block text-slate-300 uppercase tracking-wider text-[10px] font-semibold mb-1.5">Full Name *</label>
+                    <input type="text" required placeholder="e.g. Vikramaditya Sharma" class="w-full bg-[#0e1422] border border-slate-800 rounded-xl p-3 text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-slate-300 uppercase tracking-wider text-[10px] font-semibold mb-1.5">WhatsApp / Mobile *</label>
+                        <input type="tel" required placeholder="+91 98765 43210" class="w-full bg-[#0e1422] border border-slate-800 rounded-xl p-3 text-white focus:outline-none focus:border-amber-500">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 uppercase tracking-wider text-[10px] font-semibold mb-1.5">Email Address *</label>
+                        <input type="email" required placeholder="vikram@domain.com" class="w-full bg-[#0e1422] border border-slate-800 rounded-xl p-3 text-white focus:outline-none focus:border-amber-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-slate-300 uppercase tracking-wider text-[10px] font-semibold mb-1.5">Link to Resume (Google Drive, DropBox, or LinkedIn) *</label>
+                    <input type="url" required placeholder="https://linkedin.com/in/yourprofile" class="w-full bg-[#0e1422] border border-slate-800 rounded-xl p-3 text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold uppercase tracking-widest py-3.5 rounded-xl shadow-lg transition-all cursor-pointer">
+                        Transmit Dossier To HR Desk
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MASTER FOOTER ================= -->
+    <footer class="bg-[#02050c] text-slate-400 text-xs pt-16 pb-10 border-t border-slate-900">
+        <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-10 mb-14 text-left">
+            
+            <div class="md:col-span-3 space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-lg">S</div>
+                    <div>
+                        <span class="block font-luxury font-bold text-sm text-white tracking-wider leading-none">SWADES</span>
+                        <span class="text-[8px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                    </div>
+                </div>
+                <p class="text-slate-500 text-xs font-light leading-relaxed">
+                    Empowering property owners and international NRIs with absolute structural security, legal integrity, and elite preventative property maintenance across the greater Hyderabad region.
+                </p>
+                <div class="flex space-x-2.5 pt-1">
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 space-y-3">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Navigation</h4>
+                <nav class="flex flex-col space-y-1.5 text-slate-400 text-xs font-medium">
+                    <a href="index.html" class="hover:text-amber-500 transition-colors">Home Page</a>
+                    <a href="about.html" class="hover:text-amber-500 transition-colors">Corporate Story</a>
+                    <a href="services.html" class="hover:text-amber-500 transition-colors">Core Portfolios</a>
+                    <a href="maintenance.html" class="hover:text-amber-500 transition-colors">Manpower Services</a>
+                    <a href="luxury-outdoor.html" class="hover:text-amber-500 transition-colors">Luxury Showcase</a>
+                    <a href="gallery.html" class="hover:text-amber-500 transition-colors">Projects Gallery</a>
+                    <a href="careers.html" class="text-amber-500 font-bold">Careers & Recruitment</a>
+                </nav>
+            </div>
+
+            <!-- Headquarters + Red Emergency Badge -->
+            <div class="md:col-span-3 space-y-3 text-slate-400 text-xs">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Headquarters</h4>
+                <p class="leading-relaxed font-light text-slate-400">
+                    <strong>Swades Corporate Office</strong><br>
+                    Villa No. 546, Patancheru ORR Exit 3,<br>
+                    Hyderabad, Telangana – 502319
+                </p>
+                <div class="pt-1 space-y-1 text-xs">
+                    <p><strong class="text-slate-300">Swaroop Chavali:</strong> +91 70667 80736</p>
+                    <p><strong class="text-slate-300">Sasikanth Nelli:</strong> +91 81434 84202</p>
+                    <p><strong class="text-slate-300">Email:</strong> relations@swadespm.com</p>
+                </div>
+                
+                <!-- RED ALERT CONTAINER -->
+                <div class="pt-2">
+                    <div class="inline-flex items-center gap-2.5 bg-[#170a0e] border border-red-500/40 px-3.5 py-2 rounded text-[10px] font-bold tracking-wider text-red-500 uppercase">
+                        <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
+                        <span>24/7 NRI Emergency Response Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Briefing + Mock Google Map embed -->
+            <div class="md:col-span-4 space-y-3">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Global Briefing</h4>
+                <p class="text-slate-400 text-xs font-light">Subscribe to our seasonal market reports on Hyderabad real estate yields.</p>
+                <form class="flex w-full items-center shadow-lg mb-4" onsubmit="event.preventDefault(); alert('Briefing channel secured.');">
+                    <input type="email" placeholder="nri@estate.com" required class="bg-slate-900 border border-slate-800 rounded-l p-2.5 text-xs w-full text-white focus:outline-none focus:border-amber-500">
+                    <button type="submit" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-3 py-2.5 rounded-r font-bold transition-colors"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                
+                <div class="map-container rounded-lg p-2.5 flex items-center justify-between text-slate-400 text-[10px]">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-amber-500"></i>
+                        <span>Patancheru ORR Exit 3 bounds</span>
+                    </div>
+                    <span class="text-slate-500">Google Maps Active</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container mx-auto px-6 max-w-7xl border-t border-slate-900 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-3 sm:space-y-0 font-medium">
+            <p>&copy; 2026 Swades Property Management Services. All Rights Reserved.</p>
+            <div class="flex space-x-5">
+                <a href="#" class="hover:text-amber-500 transition-colors">Privacy Protocol</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">SLA Terms</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">NRI Vetting</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">Compliance Code</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CUSTOM WHATSAPP BUTTON WITH "ELITE CONCIERGE ONLINE" PILL -->
+    <div class="fixed bottom-8 right-8 z-[99] flex items-center gap-3">
+        <div class="bg-slate-950 border border-slate-800 px-3.5 py-1.5 rounded-full shadow-2xl text-[10px] font-bold uppercase tracking-widest text-slate-200 hidden md:block">
+            Elite Concierge Online
+        </div>
+        <a href="https://wa.me/917066780736" target="_blank" class="w-12 h-12 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center text-2xl transition-colors shadow-lg animate-bounce">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Scroll Reveal Engine
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(element => {
+                scrollObserver.observe(element);
+            });
+
+            // 2. Menu Drawer Controller
+            const overlay = document.getElementById("sidebar-overlay");
+            const drawer = document.getElementById("sidebar-drawer");
+            const triggerBtn = document.querySelector(".menu-trigger-btn");
+            const closeBtn = document.getElementById("close-sidebar-btn");
+
+            if (triggerBtn && overlay && drawer) {
+                triggerBtn.addEventListener("click", () => {
+                    overlay.classList.remove("hidden");
+                    setTimeout(() => {
+                        overlay.classList.remove("opacity-0");
+                        drawer.classList.remove("translate-x-full");
+                    }, 10);
+                });
+            }
+
+            const closeDrawer = () => {
+                drawer.classList.add("translate-x-full");
+                overlay.classList.add("opacity-0");
+                setTimeout(() => overlay.classList.add("hidden"), 300);
+            };
+
+            if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+            if (overlay) overlay.addEventListener("click", closeDrawer);
+        });
+
+        // 3. Application Modal Handlers
+        const modalEl = document.getElementById('application-modal');
+        const titleEl = document.getElementById('modal-job-title');
+
+        function openApplicationModal(roleName) {
+            titleEl.textContent = roleName;
+            modalEl.classList.remove('hidden');
+            setTimeout(() => modalEl.classList.remove('opacity-0'), 10);
+        }
+
+        function closeApplicationModal() {
+            modalEl.classList.add('opacity-0');
+            setTimeout(() => modalEl.classList.add('hidden'), 300);
+        }
+
+        function submitApplication(e) {
+            e.preventDefault();
+            const role = titleEl.textContent;
+            alert(`SUCCESS: Application dossier for [ ${role} ] successfully routed to Sasikanth Nelli's recruitment dashboard. We will initiate contact within 48 hours.`);
+            closeApplicationModal();
+            e.target.reset();
+        }
+    </script>
+
+    <!-- ================= ELITE ORBITAL CURSOR ================= -->
+    <div id="luxury-aura" class="fixed top-0 left-0 -ml-[18px] -mt-[18px] w-9 h-9 rounded-full border border-amber-500/40 bg-amber-500/5 pointer-events-none z-[99999] hidden md:block transition-colors duration-300 will-change-transform"></div>
+    <div id="luxury-dot" class="fixed top-0 left-0 -ml-[4px] -mt-[4px] w-2 h-2 rounded-full bg-amber-400 pointer-events-none z-[99999] hidden md:block will-change-transform"></div>
+
+    <script>
+        (function() {
+            // 1. Safety Kill-Switch: Do not run on mobile touchscreens
+            if (window.matchMedia("(pointer: coarse)").matches) return;
+
+            const aura = document.getElementById('luxury-aura');
+            const dot = document.getElementById('luxury-dot');
+            
+            if (!aura || !dot) return;
+
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let auraX = mouseX;
+            let auraY = mouseY;
+            let isHovering = false;
+
+            // Track mouse instantly
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+            });
+
+            // LERP Engine: Smoothly drag the aura behind the dot
+            function renderAura() {
+                auraX += (mouseX - auraX) * 0.21; // 0.14 is the "weight" of the drag
+                auraY += (mouseY - auraY) * 0.21;
+
+                const scale = isHovering ? 'scale(1.6)' : 'scale(1)';
+                aura.style.transform = `translate3d(${auraX}px, ${auraY}px, 0) ${scale}`;
+
+                requestAnimationFrame(renderAura);
+            }
+            renderAura();
+
+            // Magnetic Expansion on clickable items
+            const attachMagneticSensors = () => {
+                const interactives = document.querySelectorAll('a, button, input, [onclick], .luxury-card, .job-card, .accordion-card');
+                
+                interactives.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        isHovering = true;
+                        aura.classList.add('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.add('opacity-30');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        isHovering = false;
+                        aura.classList.remove('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.remove('opacity-30');
+                    });
+                });
+            };
+
+            attachMagneticSensors();
+
+            // If JavaScript opens a modal or new drawer, re-scan the page for new buttons
+            const domObserver = new MutationObserver(attachMagneticSensors);
+            domObserver.observe(document.body, { childList: true, subtree: true });
+        })();
+    </script>
+</body>
+</html>

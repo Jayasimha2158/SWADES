@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swades | Bespoke Outdoor & Luxury Infrastructure</title>
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #030712; color: #cbd5e1; overflow-x: hidden; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        
+        /* Smooth Scroll Reveal Engine */
+        .reveal-on-scroll { opacity: 0; transform: translateY(35px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal-on-scroll.is-revealed { opacity: 1; transform: translateY(0); }
+
+        /* Premium Dark Mode Photo Backlight */
+        .infra-img-wrapper { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(255, 255, 255, 0.07); background-color: #0b0f19; }
+        .infra-img-wrapper:hover { transform: translateY(-6px); border-color: rgba(245, 158, 11, 0.6); box-shadow: 0 25px 45px -15px rgba(245, 158, 11, 0.22); }
+    </style>
+</head>
+<body class="antialiased flex flex-col justify-between min-h-screen">
+
+    <!-- ================= GLOBAL NAVBAR ================= -->
+    <header class="sticky top-0 z-50 bg-[#030712]/95 backdrop-blur-md border-b border-amber-500/10">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center max-w-7xl">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-xl shadow-lg">S</div>
+                <div>
+                    <span class="block font-luxury font-bold text-xl text-white tracking-wider leading-none">SWADES</span>
+                    <span class="text-[9px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-slate-300">
+                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="hover:text-amber-500 transition-colors">Services</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <a href="consultation.html" class="hidden sm:block bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-slate-950 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded transition-all shadow-lg text-center">Consultation</a>
+                <button class="menu-trigger-btn text-white hover:text-amber-500 flex items-center gap-2 bg-slate-900 px-3 py-2 rounded border border-slate-800 cursor-pointer transition-colors">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-slate-400 hidden sm:inline">Menu</span>
+                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= SIDEBAR NAVIGATION DRAWER ================= -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden transition-opacity duration-300 opacity-0"></div>
+    <div id="sidebar-drawer" class="fixed top-0 right-0 h-full w-full max-w-sm bg-[#090D1A] text-white z-50 shadow-2xl translate-x-full transition-transform duration-300 p-8 flex flex-col justify-between border-l border-slate-800">
+        <div>
+            <div class="flex justify-between items-center mb-10 pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-amber-500 rounded flex items-center justify-center text-slate-950 font-bold text-base font-luxury">S</div>
+                    <span class="font-luxury font-bold text-lg tracking-widest text-white">SWADES</span>
+                </div>
+                <button id="close-sidebar-btn" class="text-slate-500 hover:text-white text-xl cursor-pointer p-1 transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <nav class="space-y-4 text-xs font-semibold tracking-[0.18em] uppercase flex flex-col text-slate-300">
+                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="hover:text-amber-500 transition-colors">Services</a>
+                
+                <div class="border-b border-slate-800/80 my-2"></div>
+                
+                <a href="maintenance.html" class="hover:text-amber-500 transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-screwdriver-wrench text-amber-500 text-sm w-4"></i>
+                    <span>Maintenance</span>
+                </a>
+                <a href="luxury-outdoor.html" class="text-amber-500 font-bold flex items-center gap-3">
+                    <i class="fa-solid fa-umbrella-beach text-amber-500 text-sm w-4"></i>
+                    <span>Luxury Outdoor</span>
+                </a>
+                <a href="gallery.html" class="hover:text-amber-500 transition-colors">Gallery</a>
+                <a href="reviews.html" class="hover:text-amber-500 transition-colors">Client Reviews</a>
+                <a href="faq.html" class="hover:text-amber-500 transition-colors">FAQ</a>
+                <a href="careers.html" class="hover:text-amber-500 transition-colors">Careers</a>
+            </nav>
+        </div>
+        
+        <div class="pt-6">
+            <a href="consultation.html" class="block w-full bg-amber-500 hover:bg-amber-400 text-slate-950 text-center font-bold text-xs uppercase tracking-widest py-4 rounded transition-all shadow-lg">
+                Schedule Consultation
+            </a>
+        </div>
+    </div>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative w-full min-h-[60vh] flex items-center justify-center text-center bg-cover bg-center bg-no-repeat border-b border-slate-900" 
+             style="background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.95)), url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=2000&q=80');">
+        <div class="container mx-auto px-6 py-20 relative z-10 max-w-4xl reveal-on-scroll space-y-6">
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.3em] block">Elite Infrastructure</span>
+            <h1 class="font-luxury text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-wide leading-tight">
+                Outdoor & <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Luxury Infrastructure</span> Projects
+            </h1>
+            <p class="text-slate-300 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed">
+                Institutional engineering and NRI-focused landscaping vectors designed for long-term structural integrity, high aesthetic value, and absolute weather resistance.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= MAIN GALLERY (MIDNIGHT SLATE CANVAS) ================= -->
+    <main class="bg-[#030712] text-slate-300 py-28 px-6 flex-grow">
+        <div class="container mx-auto max-w-6xl space-y-32">
+
+            <!-- Gallery Header -->
+            <div class="text-center max-w-2xl mx-auto space-y-3 reveal-on-scroll">
+                <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block">Bespoke Engineering</span>
+                <h2 class="font-luxury text-3xl sm:text-5xl font-bold text-white leading-tight">Bespoke Architectural Engineering</h2>
+                <p class="text-slate-400 text-xs sm:text-sm">A comprehensive view of our custom infrastructure, structural additions, and premium MEP implementation vectors.</p>
+            </div>
+
+            <!-- 01. SWIMMING POOL -->
+            <div class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll border-b border-slate-800/80 pb-20">
+                <div class="md:col-span-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl infra-img-wrapper h-72 sm:h-80 bg-slate-900">
+                        <span class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full z-10">Turnkey Vector</span>
+                        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1000&q=80" alt="Swimming Pool Construction" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:col-span-6 space-y-4 text-left">
+                    <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-amber-500 block">Aquatic Engineering</span>
+                    <h3 class="font-luxury text-2xl sm:text-3xl font-bold text-white">Swimming Pool Construction</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                        End-to-end custom RCC concrete pool builds, overflow infinity wet-edges, and subterranean balancing tanks engineered specifically for Telangana soil mechanics.
+                    </p>
+                    <div class="pt-2 space-y-2">
+                        <span class="text-amber-400 font-bold text-[10px] uppercase tracking-wider block">Technical Specifications</span>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Automated multi-port sand filtration loops</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> UV & Ozone chemical reduction sanitation</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> 10-Year verified structural leak warranty</li>
+                        </ul>
+                    </div>
+                    <a href="consultation.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded transition-all shadow mt-2">
+                        Request Pool Vector
+                    </a>
+                </div>
+            </div>
+
+            <!-- 02. FOUNTAIN CONSTRUCTION -->
+            <div class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll border-b border-slate-800/80 pb-20">
+                <div class="md:col-span-6 space-y-4 text-left md:order-1 order-2">
+                    <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-amber-500 block">Waterscape Systems</span>
+                    <h3 class="font-luxury text-2xl sm:text-3xl font-bold text-white">Fountain Construction</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                        Architectural water focal points, programmable dry-deck plaza geysers, and silent laminar streaming arches designed for luxury driveways and villa entrances.
+                    </p>
+                    <div class="pt-2 space-y-2">
+                        <span class="text-amber-400 font-bold text-[10px] uppercase tracking-wider block">Technical Specifications</span>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Synchronized RGBW subterranean lighting arrays</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Sub-surface acoustic dampening pump chambers</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Wind-mitigated zero-splash mathematical nozzles</li>
+                        </ul>
+                    </div>
+                    <a href="consultation.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded transition-all shadow mt-2">
+                        Request Fountain Vector
+                    </a>
+                </div>
+                <div class="md:col-span-6 md:order-2 order-1">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl infra-img-wrapper h-72 sm:h-80 bg-slate-900">
+                        <span class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full z-10">Gated Hub</span>
+                        <img src="https://images.unsplash.com/photo-1543872084-c7bd3822856f?auto=format&fit=crop&w=1000&q=80" alt="Fountain Construction" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03. JACUZZI INSTALLATION -->
+            <div class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll border-b border-slate-800/80 pb-20">
+                <div class="md:col-span-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl infra-img-wrapper h-72 sm:h-80 bg-slate-900">
+                        <span class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full z-10">Bespoke Acrylic</span>
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80" alt="Jacuzzi Installation" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:col-span-6 space-y-4 text-left">
+                    <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-amber-500 block">Hydrotherapy Vectors</span>
+                    <h3 class="font-luxury text-2xl sm:text-3xl font-bold text-white">Jacuzzi Installation</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                        Commercial-grade and private bespoke hydro-massage hubs cast from reinforced marine-grade acrylic, fitted seamlessly into master bath decks or outdoor gazebos.
+                    </p>
+                    <div class="pt-2 space-y-2">
+                        <span class="text-amber-400 font-bold text-[10px] uppercase tracking-wider block">Technical Specifications</span>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> High-pressure titanium jet manifold integration</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Smart phone synced automated thermal pre-heating</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Ergonomic multi-tier lumbar and calf targeting nodes</li>
+                        </ul>
+                    </div>
+                    <a href="consultation.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded transition-all shadow mt-2">
+                        Request Jacuzzi Vector
+                    </a>
+                </div>
+            </div>
+
+            <!-- 04. HOME THEATRE SETUP -->
+            <div class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll border-b border-slate-800/80 pb-20">
+                <div class="md:col-span-6 space-y-4 text-left md:order-1 order-2">
+                    <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-amber-500 block">Acoustic Engineering</span>
+                    <h3 class="font-luxury text-2xl sm:text-3xl font-bold text-white">Home Theatre Setup</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                        Dedicated private screening rooms designed from raw brickwork up to final acoustic calibration, delivering uncompromised cinematic immersion.
+                    </p>
+                    <div class="pt-2 space-y-2">
+                        <span class="text-amber-400 font-bold text-[10px] uppercase tracking-wider block">Technical Specifications</span>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Custom fabric-wrapped acoustic absorption wall panelling</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Native 4K UHD laser projection arrays</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Automated step-lighting and motorized blackout drapes</li>
+                        </ul>
+                    </div>
+                    <a href="consultation.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded transition-all shadow mt-2">
+                        Request Theatre Vector
+                    </a>
+                </div>
+                <div class="md:col-span-6 md:order-2 order-1">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl infra-img-wrapper h-72 sm:h-80 bg-slate-900">
+                        <span class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full z-10">Dolby Atmos Certified</span>
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1000&q=80" alt="Home Theatre Setup" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 05. PREMIUM SOUND SYSTEMS -->
+            <div class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll border-b border-slate-800/80 pb-20">
+                <div class="md:col-span-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl infra-img-wrapper h-72 sm:h-80 bg-slate-900">
+                        <span class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full z-10">Multi-Zone Flow</span>
+                        <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=1000&q=80" alt="Premium Sound Systems" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:col-span-6 space-y-4 text-left">
+                    <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-amber-500 block">Audiophile Integration</span>
+                    <h3 class="font-luxury text-2xl sm:text-3xl font-bold text-white">Premium Sound Systems</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                        Architectural multi-room audio distribution networks that blend invisible in-ceiling transducers with high-fidelity floor-standing focal towers.
+                    </p>
+                    <div class="pt-2 space-y-2">
+                        <span class="text-amber-400 font-bold text-[10px] uppercase tracking-wider block">Technical Specifications</span>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Weatherproof outdoor rock and garden subwoofers</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Zero-latency centralized matrix digital amplification hubs</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Flawless iOS / Android smart-tablet zone partitioning</li>
+                        </ul>
+                    </div>
+                    <a href="consultation.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded transition-all shadow mt-2">
+                        Request Audio Vector
+                    </a>
+                </div>
+            </div>
+
+            <!-- 06. RECLINER INSTALLATIONS -->
+            <div class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll border-b border-slate-800/80 pb-20">
+                <div class="md:col-span-6 space-y-4 text-left md:order-1 order-2">
+                    <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-amber-500 block">Ergonomic Infrastructure</span>
+                    <h3 class="font-luxury text-2xl sm:text-3xl font-bold text-white">Recliner Installations</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                        Custom-built motorized seating rows upholstered in top-grain Italian nappa leather, engineered to maintain perfect spinal sightlines to the screen.
+                    </p>
+                    <div class="pt-2 space-y-2">
+                        <span class="text-amber-400 font-bold text-[10px] uppercase tracking-wider block">Technical Specifications</span>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Dual-motor independent headrest and footrest articulation</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Integrated thermoelectric chilled cupholders and USB docks</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Mathematical tiered riser construction for rear rows</li>
+                        </ul>
+                    </div>
+                    <a href="consultation.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded transition-all shadow mt-2">
+                        Request Seating Vector
+                    </a>
+                </div>
+                <div class="md:col-span-6 md:order-2 order-1">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl infra-img-wrapper h-72 sm:h-80 bg-slate-900">
+                        <span class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full z-10">Italian Nappa</span>
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80" alt="Recliner Installations" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 07. OPEN THEATRE SETUP -->
+            <div class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll border-b border-slate-800/80 pb-20">
+                <div class="md:col-span-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl infra-img-wrapper h-72 sm:h-80 bg-slate-900">
+                        <span class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full z-10">Lawn / Terrace Hub</span>
+                        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1000&q=80" alt="Open Theatre Setup" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:col-span-6 space-y-4 text-left">
+                    <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-amber-500 block">Landscape Cinema</span>
+                    <h3 class="font-luxury text-2xl sm:text-3xl font-bold text-white">Open Theatre Setup</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                        Weather-sealed al-fresco projection setups designed for high-end farmhouse lawns, rooftop penthouses, and private poolside gathering decks.
+                    </p>
+                    <div class="pt-2 space-y-2">
+                        <span class="text-amber-400 font-bold text-[10px] uppercase tracking-wider block">Technical Specifications</span>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> High-nit daylight-rejecting motorized outdoor screens</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> IP67 fully submerged weatherproof audio transducers</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Subterranean rodent-proof armored conduit runs</li>
+                        </ul>
+                    </div>
+                    <a href="consultation.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded transition-all shadow mt-2">
+                        Request Open Theatre Vector
+                    </a>
+                </div>
+            </div>
+
+            <!-- 08. HYDRAULIC LIFT INSTALLATION -->
+            <div class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll border-b border-slate-800/80 pb-20">
+                <div class="md:col-span-6 space-y-4 text-left md:order-1 order-2">
+                    <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-amber-500 block">Vertical Mobility</span>
+                    <h3 class="font-luxury text-2xl sm:text-3xl font-bold text-white">Hydraulic Lift Installation</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                        Ultra-quiet, pitless glass home elevators powered by imported Italian hydraulic drive units, requiring zero structural shaft modifications.
+                    </p>
+                    <div class="pt-2 space-y-2">
+                        <span class="text-amber-400 font-bold text-[10px] uppercase tracking-wider block">Technical Specifications</span>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> 360-Degree panoramic toughened laminated glass capsules</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Integrated Automatic Rescue Device (ARD) during failures</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Feather-touch brushed stainless steel operating panels</li>
+                        </ul>
+                    </div>
+                    <a href="consultation.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded transition-all shadow mt-2">
+                        Request Lift Vector
+                    </a>
+                </div>
+                <div class="md:col-span-6 md:order-2 order-1">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl infra-img-wrapper h-72 sm:h-80 bg-slate-900">
+                        <span class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full z-10">Italian Drive Unit</span>
+                        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80" alt="Hydraulic Lift Installation" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 09. COMMERCIAL LIFT INSTALLATION -->
+            <div class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll border-b border-slate-800/80 pb-20">
+                <div class="md:col-span-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl infra-img-wrapper h-72 sm:h-80 bg-slate-900">
+                        <span class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full z-10">High Payload</span>
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Commercial Lift Installation" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:col-span-6 space-y-4 text-left">
+                    <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-amber-500 block">Heavy Duty Hubs</span>
+                    <h3 class="font-luxury text-2xl sm:text-3xl font-bold text-white">Commercial Lift Installation</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                        High-speed, heavy-payload traction elevators engineered for multi-tenant commercial towers, corporate IT parks, and standalone retail showrooms.
+                    </p>
+                    <div class="pt-2 space-y-2">
+                        <span class="text-amber-400 font-bold text-[10px] uppercase tracking-wider block">Technical Specifications</span>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Regenerative permanent magnet synchronous gearless drives</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> AI-driven destination dispatch traffic group supervision</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Absolute statutory compliance with state fire safety codes</li>
+                        </ul>
+                    </div>
+                    <a href="consultation.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded transition-all shadow mt-2">
+                        Request Commercial Lift Vector
+                    </a>
+                </div>
+            </div>
+
+            <!-- 10. BAR COUNTER SETUP (NO BOTTOM BORDER) -->
+            <div class="grid md:grid-cols-12 gap-12 items-center reveal-on-scroll">
+                <div class="md:col-span-6 space-y-4 text-left md:order-1 order-2">
+                    <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-amber-500 block">Hospitality Infrastructure</span>
+                    <h3 class="font-luxury text-2xl sm:text-3xl font-bold text-white">Bar Counter Setup</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                        Custom entertainment wet-bars crafted from backlit translucent onyx and black granite, built specifically for elite home lounges.
+                    </p>
+                    <div class="pt-2 space-y-2">
+                        <span class="text-amber-400 font-bold text-[10px] uppercase tracking-wider block">Technical Specifications</span>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Commercial-grade under-counter clear ice makers</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Dual-zone argon gas automated wine preservation towers</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-500"></i> Custom fabricated brass and brushed SS footrail mounts</li>
+                        </ul>
+                    </div>
+                    <a href="consultation.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded transition-all shadow mt-2">
+                        Request Bar Vector
+                    </a>
+                </div>
+                <div class="md:col-span-6 md:order-2 order-1">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl infra-img-wrapper h-72 sm:h-80 bg-slate-900">
+                        <span class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full z-10">Backlit Onyx Hub</span>
+                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1000&q=80" alt="Bar Counter Setup" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= PRE-FOOTER CTA ================= -->
+    <section class="relative w-full py-28 flex items-center justify-center text-center bg-[#060915] border-t border-slate-900">
+        <div class="max-w-3xl mx-auto px-6 space-y-6 reveal-on-scroll">
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block">Initiate Overwatch</span>
+            <h2 class="font-luxury text-3xl sm:text-5xl font-bold text-white">Unrivaled Engineering Excellence</h2>
+            <p class="text-slate-400 text-xs sm:text-sm font-light max-w-xl mx-auto leading-relaxed">
+                Connect directly with our master engineering architects to evaluate your physical site dimensions and draft a preliminary structural blueprint.
+            </p>
+            <div class="pt-2">
+                <a href="consultation.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-widest px-9 py-4 rounded transition-all shadow-lg">
+                    Book Infrastructure Briefing
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MASTER FOOTER ================= -->
+    <footer class="bg-[#02050c] text-slate-400 text-xs pt-16 pb-10 border-t border-slate-900">
+        <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-10 mb-14 text-left">
+            
+            <div class="md:col-span-4 space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-amber-600 rounded flex items-center justify-center text-slate-950 font-bold font-luxury text-lg">S</div>
+                    <div>
+                        <span class="block font-luxury font-bold text-sm text-white tracking-wider leading-none">SWADES</span>
+                        <span class="text-[8px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                    </div>
+                </div>
+                <p class="text-slate-500 text-xs font-light leading-relaxed">
+                    Empowering property owners and international NRIs with absolute structural security, legal integrity, and elite preventative property maintenance across the greater Hyderabad region.
+                </p>
+                <div class="flex space-x-2.5 pt-1">
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 space-y-3">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Navigation</h4>
+                <nav class="flex flex-col space-y-1.5 text-slate-400 text-xs font-medium">
+                    <a href="index.html" class="hover:text-amber-500 transition-colors">Home Page</a>
+                    <a href="about.html" class="hover:text-amber-500 transition-colors">Corporate Story</a>
+                    <a href="services.html" class="hover:text-amber-500 transition-colors">Core Portfolios</a>
+                    <a href="luxury-outdoor.html" class="text-amber-500 transition-colors font-semibold">Luxury Showcase</a>
+                    <a href="gallery.html" class="hover:text-amber-500 transition-colors">Projects Gallery</a>
+                    <a href="careers.html" class="hover:text-amber-500 transition-colors">Careers & Recruitment</a>
+                </nav>
+            </div>
+
+            <div class="md:col-span-3 space-y-3 text-slate-400 text-xs">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Headquarters</h4>
+                <p class="leading-relaxed font-light text-slate-400">
+                    <strong>Swades Corporate Office</strong><br>
+                    Villa No. 546, Patancheru ORR Exit 3,<br>
+                    Hyderabad, Telangana – 502319
+                </p>
+                <div class="pt-1 space-y-1 text-xs">
+                    <p><strong class="text-slate-300">Swaroop:</strong> +91 70667 80736</p>
+                    <p><strong class="text-slate-300">Sasikanth:</strong> +91 81434 84202</p>
+                    <p><strong class="text-slate-300">Email:</strong> relations@swades.com</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-3 space-y-3">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Global Briefing</h4>
+                <p class="text-slate-400 text-xs font-light">Subscribe to market reports on Hyderabad real estate yields.</p>
+                <form class="flex w-full items-center shadow-lg" onsubmit="event.preventDefault(); alert('Briefing channel secured.');">
+                    <input type="email" placeholder="nri@estate.com" required class="bg-slate-900 border border-slate-800 rounded-l-lg p-2.5 text-xs w-full text-white focus:outline-none focus:border-amber-500">
+                    <button type="submit" class="bg-amber-600 hover:bg-amber-500 text-slate-950 px-3 py-2.5 rounded-r-lg font-bold transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="container mx-auto px-6 max-w-7xl border-t border-slate-900 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-3 sm:space-y-0 font-medium">
+            <p>&copy; 2026 Swades Property Management Services. All Rights Reserved.</p>
+            <div class="flex space-x-5">
+                <a href="#" class="hover:text-amber-500 transition-colors">Privacy</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">SLA Terms</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">NRI Vetting</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FIXED WHATSAPP BUTTON -->
+    <div class="fixed bottom-8 right-8 z-[99] flex items-center gap-3 bg-slate-950/90 border border-slate-800 p-2 pr-4 rounded-full shadow-2xl animate-bounce">
+        <a href="https://wa.me/917066780736" target="_blank" class="w-12 h-12 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center text-2xl transition-colors shadow-lg">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-300 hidden sm:inline">Live NRI Support</span>
+    </div>
+
+    <!-- NATIVE JS OBSERVER & SIDE MENU ENGINE -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Scroll Reveal
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(element => {
+                scrollObserver.observe(element);
+            });
+
+            // Menu Drawer Logic
+            const overlay = document.getElementById("sidebar-overlay");
+            const drawer = document.getElementById("sidebar-drawer");
+            const triggerBtn = document.querySelector(".menu-trigger-btn");
+            const closeBtn = document.getElementById("close-sidebar-btn");
+
+            if (triggerBtn && overlay && drawer) {
+                triggerBtn.addEventListener("click", () => {
+                    overlay.classList.remove("hidden");
+                    setTimeout(() => {
+                        overlay.classList.remove("opacity-0");
+                        drawer.classList.remove("translate-x-full");
+                    }, 10);
+                });
+            }
+
+            const closeDrawer = () => {
+                drawer.classList.add("translate-x-full");
+                overlay.classList.add("opacity-0");
+                setTimeout(() => overlay.classList.add("hidden"), 300);
+            };
+
+            if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+            if (overlay) overlay.addEventListener("click", closeDrawer);
+        });
+    </script>
+
+    <!-- ================= ELITE ORBITAL CURSOR ================= -->
+    <div id="luxury-aura" class="fixed top-0 left-0 -ml-[18px] -mt-[18px] w-9 h-9 rounded-full border border-amber-500/40 bg-amber-500/5 pointer-events-none z-[99999] hidden md:block transition-colors duration-300 will-change-transform"></div>
+    <div id="luxury-dot" class="fixed top-0 left-0 -ml-[4px] -mt-[4px] w-2 h-2 rounded-full bg-amber-400 pointer-events-none z-[99999] hidden md:block will-change-transform"></div>
+
+    <script>
+        (function() {
+            // 1. Safety Kill-Switch: Do not run on mobile touchscreens
+            if (window.matchMedia("(pointer: coarse)").matches) return;
+
+            const aura = document.getElementById('luxury-aura');
+            const dot = document.getElementById('luxury-dot');
+            
+            if (!aura || !dot) return;
+
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let auraX = mouseX;
+            let auraY = mouseY;
+            let isHovering = false;
+
+            // Track mouse instantly
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+            });
+
+            // LERP Engine: Smoothly drag the aura behind the dot
+            function renderAura() {
+                auraX += (mouseX - auraX) * 0.21; // 0.14 is the "weight" of the drag
+                auraY += (mouseY - auraY) * 0.21;
+
+                const scale = isHovering ? 'scale(1.6)' : 'scale(1)';
+                aura.style.transform = `translate3d(${auraX}px, ${auraY}px, 0) ${scale}`;
+
+                requestAnimationFrame(renderAura);
+            }
+            renderAura();
+
+            // Magnetic Expansion on clickable items
+            const attachMagneticSensors = () => {
+                const interactives = document.querySelectorAll('a, button, input, [onclick], .luxury-card, .job-card, .accordion-card');
+                
+                interactives.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        isHovering = true;
+                        aura.classList.add('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.add('opacity-30');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        isHovering = false;
+                        aura.classList.remove('border-amber-400', 'bg-amber-500/20');
+                        dot.classList.remove('opacity-30');
+                    });
+                });
+            };
+
+            attachMagneticSensors();
+
+            // If JavaScript opens a modal or new drawer, re-scan the page for new buttons
+            const domObserver = new MutationObserver(attachMagneticSensors);
+            domObserver.observe(document.body, { childList: true, subtree: true });
+        })();
+    </script>
+</body>
+</html>
