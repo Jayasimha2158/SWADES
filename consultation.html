@@ -80,35 +80,35 @@
                 <!-- FIELD 1: FULL NAME -->
                 <div class="space-y-2">
                     <label class="text-[11px] font-bold uppercase tracking-widest text-amber-500 block">Full Name *</label>
-                    <input type="text" required placeholder="E.g., Swaroop Chavali" 
+                          <input name="name" type="text" required placeholder="E.g., Swaroop Chavali" 
                            class="w-full bg-[#050812] border border-slate-800/80 rounded-xl p-4 text-xs sm:text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-amber-500 transition-colors shadow-inner">
                 </div>
 
                 <!-- FIELD 2: CONTACT NUMBER -->
                 <div class="space-y-2">
                     <label class="text-[11px] font-bold uppercase tracking-widest text-amber-500 block">Contact Number *</label>
-                    <input type="tel" required placeholder="E.g., +91 70667 80736" 
+                          <input name="phone" type="tel" required placeholder="E.g., +91 70667 80736" 
                            class="w-full bg-[#050812] border border-slate-800/80 rounded-xl p-4 text-xs sm:text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-amber-500 transition-colors shadow-inner">
                 </div>
 
                 <!-- FIELD 3: EMAIL ADDRESS -->
                 <div class="space-y-2">
                     <label class="text-[11px] font-bold uppercase tracking-widest text-amber-500 block">Email Address *</label>
-                    <input type="email" required placeholder="E.g., owner@sovereignvilla.com" 
+                          <input name="email" type="email" required placeholder="E.g., owner@sovereignvilla.com" 
                            class="w-full bg-[#050812] border border-slate-800/80 rounded-xl p-4 text-xs sm:text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-amber-500 transition-colors shadow-inner">
                 </div>
 
                 <!-- FIELD 4: ASSET LOCATION -->
                 <div class="space-y-2">
                     <label class="text-[11px] font-bold uppercase tracking-widest text-amber-500 block">Asset Location (City/Region) *</label>
-                    <input type="text" required placeholder="E.g., Jubilee Hills, Hyderabad" 
+                          <input name="location" type="text" required placeholder="E.g., Jubilee Hills, Hyderabad" 
                            class="w-full bg-[#050812] border border-slate-800/80 rounded-xl p-4 text-xs sm:text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-amber-500 transition-colors shadow-inner">
                 </div>
 
                 <!-- FIELD 5: REQUIRED PORTFOLIO SERVICE -->
                 <div class="space-y-2">
                     <label class="text-[11px] font-bold uppercase tracking-widest text-amber-500 block">Required Portfolio Service</label>
-                    <select class="w-full bg-[#050812] border border-slate-800/80 rounded-xl p-4 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-500 transition-colors appearance-none cursor-pointer shadow-inner">
+                    <select name="service" class="w-full bg-[#050812] border border-slate-800/80 rounded-xl p-4 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-500 transition-colors appearance-none cursor-pointer shadow-inner">
                         <option value="NRI Management">NRI Property Management</option>
                         <option value="Residential Upkeep">Residential Property Management</option>
                         <option value="Commercial Space">Commercial Space Management</option>
@@ -127,7 +127,7 @@
                 <!-- FIELD 6: ASSET ARCHITECTURE -->
                 <div class="space-y-2">
                     <label class="text-[11px] font-bold uppercase tracking-widest text-amber-500 block">Asset Architecture</label>
-                    <select class="w-full bg-[#050812] border border-slate-800/80 rounded-xl p-4 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-500 transition-colors appearance-none cursor-pointer shadow-inner">
+                    <select name="architecture" class="w-full bg-[#050812] border border-slate-800/80 rounded-xl p-4 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-amber-500 transition-colors appearance-none cursor-pointer shadow-inner">
                         <option value="Luxury Villa">Luxury Villa / Private Estate</option>
                         <option value="High-Rise Unit">High-Rise Condominium</option>
                         <option value="Commercial Park">Commercial Office Park</option>
@@ -142,7 +142,7 @@
             <!-- FIELD 7: BRIEF MESSAGE / REQUIREMENTS -->
             <div class="space-y-2 pt-1">
                 <label class="text-[11px] font-bold uppercase tracking-widest text-amber-500 block">Brief Message / Requirements</label>
-                <textarea rows="3" placeholder="Outline key requirements or schedules for asset inspection..." 
+                <textarea name="message" rows="3" placeholder="Outline key requirements or schedules for asset inspection..." 
                           class="w-full bg-[#050812] border border-slate-800/80 rounded-xl p-4 text-xs sm:text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-amber-500 transition-colors resize-y shadow-inner"></textarea>
             </div>
 
@@ -192,19 +192,41 @@
             }
         });
 
-        // 3. Mock Secure Dispatch Handler
+        // 3. WhatsApp dispatch handler (no backend, no storage)
         function handleFormSubmission(e) {
             e.preventDefault();
-            
-            // Re-style button to show verified state
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            submitBtn.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Briefing Secured Successfully`;
-            submitBtn.className = "w-full bg-emerald-500 text-slate-950 font-bold text-sm uppercase tracking-widest py-4 rounded-xl shadow-2xl transition-all";
-            
-            setTimeout(() => {
-                alert("STRICT CONFIDENTIALITY DISPATCH:\n\nYour asset coordinates have been securely logged. Founders Swaroop Chavali or Sasikanth Nelli will contact your secure line within 4 business hours.");
-                executePortalExit();
-            }, 600);
+
+            const form = e.target;
+            const fd = new FormData(form);
+            const name = fd.get('name') || '';
+            const phone = fd.get('phone') || '';
+            const email = fd.get('email') || '';
+            const location = fd.get('location') || '';
+            const service = fd.get('service') || '';
+            const architecture = fd.get('architecture') || '';
+            const message = fd.get('message') || '';
+
+            // WhatsApp number used by the floating button in index.html
+            const whatsappNumber = '917066780736';
+
+            const raw = `Private Consultation Request from website\n\nName: ${name}\nContact: ${phone}\nEmail: ${email}\nLocation: ${location}\nService: ${service}\nArchitecture: ${architecture}\n\nMessage: ${message}`;
+            const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(raw)}`;
+
+            // Open WhatsApp chat in a new tab (or app on mobile)
+            window.open(waUrl, '_blank');
+
+            // Replace form with a confirmation panel to show clear UI feedback
+            form.innerHTML = `
+                <div class="text-center py-12">
+                    <i class="fa-solid fa-circle-check text-5xl text-emerald-400 mb-4"></i>
+                    <h2 class="font-luxury text-2xl text-white font-bold mb-2">Request Sent</h2>
+                    <p class="text-slate-300 max-w-xl mx-auto mb-6">We've opened WhatsApp with your details. Our team will contact you. If WhatsApp didn't open, click below.</p>
+                    <div class="flex gap-3 justify-center">
+                        <a href="${waUrl}" target="_blank" class="bg-emerald-500 text-slate-950 px-4 py-3 rounded-xl font-bold">Open WhatsApp</a>
+                        <a href="index.html" class="bg-slate-800 text-slate-200 px-4 py-3 rounded-xl">Return Home</a>
+                    </div>
+                </div>
+            `;
         }
     </script>
 <!-- ================= ELITE ORBITAL CURSOR ================= -->
