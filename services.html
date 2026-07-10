@@ -94,11 +94,10 @@
         <div class="container mx-auto px-6 py-20 relative z-10 max-w-4xl reveal-on-scroll space-y-4">
             <span class="text-amber-500 text-xs md:text-sm font-bold uppercase tracking-[0.3em] block">Exclusive Solutions</span>
             <h1 class="font-luxury text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-wide leading-tight">
-                Elite Property & <span class="text-amber-500">Asset Custodian</span> Services
+               Swades Construction Contracts <span class="text-amber-500">Services</span> 
             </h1>
             <p class="text-slate-300 text-base md:text-lg font-light max-w-2xl mx-auto leading-relaxed">
-                Browse our 12 specialized property management and monitoring vectors. Curated for international standard assets.
-            </p>
+                We undertake a wide range of construction and finishing works</p>
         </div>
     </section>
 
@@ -110,7 +109,7 @@
                 </nav>
         </aside>
 
-        <section class="lg:col-span-8 bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200 reveal-on-scroll min-h-[800px]">
+        <section class="lg:col-span-8 bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200 reveal-on-scroll min-h-[520px]">
             <div id="service-card-render" class="transition-all duration-300">
                 </div>
         </section>
@@ -189,243 +188,138 @@
     <script>
         const servicesDatabase = [
             {
-                id: "nri",
-                title: "NRI Property Management",
-                tagImg: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80",
-                overview: "Our flagship service caters to non-resident Indians seeking absolute peace of mind. We act as your local physical custodians with biometric reports, property updates, and full compliance handling.",
+                id: "painting",
+                title: "Painting",
+                tagImg: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+                overview: "We deliver smooth, durable, and premium-quality painting solutions for homes, offices, villas, and commercial spaces with a neat finish that elevates the overall look.",
                 deliverables: [
-                    "Bi-weekly physical status check-ups", "Custom digital portal with real-time photographs",
-                    "Legal boundary audits and tax handling", "Exclusive virtual concierge point of contact"
+                    "Interior and exterior wall preparation", "Premium wall, ceiling, and texture finishing",
+                    "Color consultation and surface matching", "Clean and timely project execution"
                 ],
                 benefits: [
-                    "Absolute security against encroachments", "No stress of dealing with local property queries",
-                    "Seamless rental monetization", "Premium asset valuation preservation"
+                    "Fresh and elegant appearance", "Long-lasting surface protection",
+                    "Improved property value", "Low-maintenance finish"
                 ],
                 phases: [
-                    { p: "PHASE 01", t: "Initial physical", d: "Initial physical & legal audit" },
-                    { p: "PHASE 02", t: "Inventory documentation", d: "Inventory documentation & photo capture" },
-                    { p: "PHASE 03", t: "Digital portal activation", d: "Digital asset portal activation" },
-                    { p: "PHASE 04", t: "Routine inspections", d: "Routine inspections & maintenance reporting" }
+                    { p: "PHASE 01", t: "Surface Inspection", d: "Assessing walls, cracks, and paint condition" },
+                    { p: "PHASE 02", t: "Surface Prep", d: "Filling, sanding, and cleaning surfaces" },
+                    { p: "PHASE 03", t: "Application", d: "Applying primer, coats, and final finish" },
+                    { p: "PHASE 04", t: "Final Touch", d: "Removing debris and handing over a spotless result" }
                 ]
             },
             {
-                id: "residential",
-                title: "Residential Property Management",
-                tagImg: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-                overview: "Total environmental and structural supervision engineered for luxury independent villas, premium duplexes, and gated community residences across Western Hyderabad.",
+                id: "plumbing",
+                title: "Plumbing",
+                tagImg: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80",
+                overview: "Our plumbing service covers installations, leak repairs, water line work, sanitary fittings, and maintenance for reliable water flow and long-term performance.",
                 deliverables: [
-                    "Preventative MEP & AC deep-servicing", "24/7 plumbing & electrical taskforce access",
-                    "Overhead tank sanitization protocols", "On-site domestic staff identity verification"
+                    "Leak detection and repair", "Tap, sink, and sanitary fitting installation",
+                    "Water line and drainage solutions", "Routine plumbing maintenance"
                 ],
                 benefits: [
-                    "Zero sudden breakdown panics", "Extended lifespan of luxury HVAC units",
-                    "Pristine exterior facade preservation", "Optimized monthly utility billing"
+                    "Reliable water supply", "Prevention of water damage",
+                    "Efficient drainage systems", "Improved hygiene and convenience"
                 ],
                 phases: [
-                    { p: "PHASE 01", t: "MEP Baseline Audit", d: "Testing electrical loads & water pressures" },
-                    { p: "PHASE 02", t: "Vendor Calibration", d: "Assigning dedicated ground technicians" },
-                    { p: "PHASE 03", t: "SLA Calendar Sync", d: "Automated quarterly servicing scheduling" },
-                    { p: "PHASE 04", t: "Active Custodianship", d: "Monthly living-comfort status check-ins" }
+                    { p: "PHASE 01", t: "Site Assessment", d: "Inspecting existing plumbing layout and issues" },
+                    { p: "PHASE 02", t: "Repair or Installation", d: "Fixing faults or installing new systems" },
+                    { p: "PHASE 03", t: "Testing", d: "Checking pressure, flow, and leak-free operation" },
+                    { p: "PHASE 04", t: "Handover", d: "Delivering a fully functional plumbing setup" }
                 ]
             },
             {
-                id: "commercial",
-                title: "Commercial Space Management",
-                tagImg: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-                overview: "Maximizing commercial yields while insulating corporate landowners from tenant disputes, statutory municipal defaults, and infrastructural degradation.",
+                id: "flooring",
+                title: "Flooring",
+                tagImg: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+                overview: "We provide durable flooring options with precise installation for homes, offices, and commercial spaces, combining strength, style, and comfort.",
                 deliverables: [
-                    "Corporate lease draft auditing", "Monthly CAM billings & rental collections",
-                    "Annual municipal fire safety certifications", "Common-area security & CCTV health checks"
+                    "Flooring material selection", "Tile, marble, or cementitious flooring installation",
+                    "Leveling and finishing work", "Clean and polished final surface"
                 ],
                 benefits: [
-                    "Uninterrupted passive yield flow", "Strict corporate tenant compliance",
-                    "Zero municipal penalty liabilities", "High-tier commercial capital appreciation"
+                    "Elegant interior finish", "High durability", "Easy maintenance", "Improved comfort and usability"
                 ],
                 phases: [
-                    { p: "PHASE 01", t: "Lease Vetting", d: "Auditing existing tenant agreements" },
-                    { p: "PHASE 02", t: "CAM Restructuring", d: "Standardizing utility billing loops" },
-                    { p: "PHASE 03", t: "Safety Compliance", d: "Securing municipal fire & lift approvals" },
-                    { p: "PHASE 04", t: "Yield Custody", d: "Real-time monthly rent remittance logs" }
+                    { p: "PHASE 01", t: "Surface Preparation", d: "Preparing the base and leveling the floor" },
+                    { p: "PHASE 02", t: "Material Laying", d: "Installing the selected flooring material" },
+                    { p: "PHASE 03", t: "Finishing", d: "Grouting, sealing, and polishing" },
+                    { p: "PHASE 04", t: "Quality Check", d: "Inspecting finish quality and durability" }
                 ]
             },
             {
-                id: "rental",
-                title: "Rental Property Management",
-                tagImg: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
-                overview: "An uncompromised end-to-end leasing vector. We transition your empty holdings into steady, high-yielding financial assets occupied by elite corporate citizens.",
+                id: "electrical-works",
+                title: "Electrical Works",
+                tagImg: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+                overview: "Our electrical team handles wiring, point installation, lighting solutions, and power upgrades with safety-focused workmanship and dependable results.",
                 deliverables: [
-                    "Professional wide-angle staging photography", "Executive corporate tenant matchmaking",
-                    "Move-in / Move-out structural damage audits", "Escrow-backed security deposit management"
+                    "Switch and socket installation", "Lighting design and fixture fitting",
+                    "Wiring and circuit work", "Safety checks and testing"
                 ],
                 benefits: [
-                    "Minimizing inter-lease vacancy windows", "Strict background-vetted occupants",
-                    "Zero late-night tenant repair calls", "Guaranteed asset return condition"
+                    "Safe electrical systems", "Efficient power distribution", "Modern lighting upgrades", "Reduced maintenance issues"
                 ],
                 phases: [
-                    { p: "PHASE 01", t: "Asset Staging", d: "Deep cleaning & premium visual capture" },
-                    { p: "PHASE 02", t: "Corporate Listing", d: "Broadcasting to top MNC relocation desks" },
-                    { p: "PHASE 03", t: "Tenant Vetting", d: "Financial & criminal background screening" },
-                    { p: "PHASE 04", t: "Key Handover", d: "Executing registered lease & inventory sign-off" }
+                    { p: "PHASE 01", t: "Planning", d: "Mapping electrical points and load requirements" },
+                    { p: "PHASE 02", t: "Installation", d: "Laying wiring and fitting components" },
+                    { p: "PHASE 03", t: "Testing", d: "Checking circuits, switches, and safety" },
+                    { p: "PHASE 04", t: "Completion", d: "Final inspection and handover" }
                 ]
             },
             {
-                id: "tenant-search",
-                title: "Tenant Search & Verification",
-                tagImg: "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=1200&q=80",
-                overview: "Protecting your asset's structural dignity by applying rigorous, bank-grade forensic background screening to all prospective residential or commercial applicants.",
+                id: "woodwork-carpentry",
+                title: "Woodwork and Carpentry",
+                tagImg: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+                overview: "We create custom woodwork solutions such as wardrobes, kitchens, doors, and furniture with strong craftsmanship and elegant detailing.",
                 deliverables: [
-                    "Employer HR verification checks", "Equifax / CIBIL credit score screening",
-                    "Previous landlord behavioral references", "Official state police verification filing"
+                    "Custom cabinets and wardrobes", "Door and window carpentry",
+                    "Kitchen and storage solutions", "Polishing and finishing work"
                 ],
                 benefits: [
-                    "Eliminating squatting & eviction risks", "Guaranteed timely rental capacity",
-                    "Peaceful neighborhood integration", "Full statutory legal compliance"
+                    "Custom-made functionality", "Premium aesthetics", "Long-lasting woodwork", "Optimized space usage"
                 ],
                 phases: [
-                    { p: "PHASE 01", t: "Application Intake", d: "Collecting standardized identity dossiers" },
-                    { p: "PHASE 02", t: "Forensic Check", d: "Running financial & criminal data checks" },
-                    { p: "PHASE 03", t: "Police Protocol", d: "Submitting local law enforcement dossiers" },
-                    { p: "PHASE 04", t: "Greenlight Report", d: "Issuing formal risk-assessment clearance" }
+                    { p: "PHASE 01", t: "Design Review", d: "Understanding layout and client preferences" },
+                    { p: "PHASE 02", t: "Fabrication", d: "Cutting, shaping, and assembling woodwork" },
+                    { p: "PHASE 03", t: "Installation", d: "Fitting and fixing the final pieces" },
+                    { p: "PHASE 04", t: "Finishing", d: "Polishing and quality inspection" }
                 ]
             },
             {
-                id: "vacant-monitoring",
-                title: "Vacant Property Monitoring",
-                tagImg: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
-                overview: "A specialized defensive protocol for unoccupied luxury homes and locked apartments, preventing the rapid onset of mold, pest colonization, and structural decay.",
+                id: "interior-exterior-finishing",
+                title: "Interior and Exterior Finishing",
+                tagImg: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80",
+                overview: "From polished interiors to weather-resistant exteriors, we manage the finishing touches that make spaces look complete, refined, and built to last.",
                 deliverables: [
-                    "Bi-weekly physical interior airing sessions", "Monsoon seepage & micro-leak mapping",
-                    "Pest & termite colony perimeter checks", "Post-storm structural integrity audits"
+                    "Interior trim and detail work", "Exterior facade finishing",
+                    "Decorative and protective finishing", "Coordinated final appearance upgrades"
                 ],
                 benefits: [
-                    "Preventing expensive stale-air wood rot", "Immediate detection of pipe bursts",
-                    "Ready-to-live freshness at all times", "Insulating against illegal subletting"
+                    "Refined visual appeal", "Better weather resistance", "Improved durability", "Complete architectural polish"
                 ],
                 phases: [
-                    { p: "PHASE 01", t: "Lockdown Audit", d: "Checking all exterior latches & window seals" },
-                    { p: "PHASE 02", t: "Schedule Airing", d: "Deploying staff for bi-weekly ventilation" },
-                    { p: "PHASE 03", t: "Monsoon Defense", d: "Applying preventative sealant check-ups" },
-                    { p: "PHASE 04", t: "Portal Updates", d: "Uploading wide-angle room photo logs" }
+                    { p: "PHASE 01", t: "Detail Planning", d: "Reviewing finishing requirements and scope" },
+                    { p: "PHASE 02", t: "Execution", d: "Applying the selected interior and exterior finishes" },
+                    { p: "PHASE 03", t: "Protection", d: "Sealing and safeguarding exposed surfaces" },
+                    { p: "PHASE 04", t: "Final Review", d: "Inspecting the completed look and quality" }
                 ]
             },
             {
-                id: "open-land",
-                title: "Open Land Maintenance",
-                tagImg: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
-                overview: "Deploying heavy ground taskforces to secure, demarcate, and clear open plots and agricultural acreage against the severe threat of urban land grabbing.",
+                id: "civil-allied-services",
+                title: "Other Civil and Allied Construction Services",
+                tagImg: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+                overview: "We also support broader construction needs with civil works, site support, and allied services that keep projects moving smoothly from start to finish.",
                 deliverables: [
-                    "Physical boundary stone geocoding", "Quarterly heavy brush & weed clearing",
-                    "Barbed wire or precast compound fencing", "Prominent legal 'No Trespassing' signage"
+                    "Civil construction support", "Site preparation and finishing support",
+                    "Allied construction coordination", "Reliable on-site execution support"
                 ],
                 benefits: [
-                    "Absolute legal boundary insulation", "Clear aerial satellite visibility",
-                    "Eliminating snake & pest breeding grounds", "High-liquidity sales presentation"
+                    "Single-window construction support", "Efficient project coordination", "Better site readiness", "Flexible scope management"
                 ],
                 phases: [
-                    { p: "PHASE 01", t: "Surveyor Sync", d: "Matching physical bounds to title maps" },
-                    { p: "PHASE 02", t: "JCB Clearance", d: "Clearing dense wild brush & debris" },
-                    { p: "PHASE 03", t: "Perimeter Lock", d: "Erecting robust precast concrete pillars" },
-                    { p: "PHASE 04", t: "Drone Audit", d: "Capturing quarterly aerial proof video" }
-                ]
-            },
-            {
-                id: "security",
-                title: "Property Security & Surveillance",
-                tagImg: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1200&q=80",
-                overview: "Deploying enterprise-tier electronic overwatch arrays and physical security personnel to maintain absolute situational awareness across your perimeter.",
-                deliverables: [
-                    "Solar-powered IP CCTV cloud arrays", "Motion-activated perimeter floodlighting",
-                    "Deployment of licensed day/night guards", "24/7 central dispatch breach alerts"
-                ],
-                benefits: [
-                    "Real-time visual feed on your mobile", "Total deterrence of unauthorized entry",
-                    "Encrypted cloud off-site video backup", "Immediate physical response taskforce"
-                ],
-                phases: [
-                    { p: "PHASE 01", t: "Vulnerability Map", d: "Identifying blind spots along perimeter" },
-                    { p: "PHASE 02", t: "Hardware Setup", d: "Installing weather-proof 4K night cameras" },
-                    { p: "PHASE 03", t: "Network Secure", d: "Connecting encrypted cellular data streams" },
-                    { p: "PHASE 04", t: "Command Active", d: "Initiating 24/7 automated motion logging" }
-                ]
-            },
-            {
-                id: "sales-reg",
-                title: "Property Sales & Registrations",
-                tagImg: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
-                overview: "A highly discreet, elite brokerage vector for liquidating premium real estate holdings at peak market valuations without public listing fatigue.",
-                deliverables: [
-                    "Certified architectural valuation reports", "Targeted marketing to HNWI buyer networks",
-                    "Complete negotiation & term structuring", "End-to-end local sub-registrar representation"
-                ],
-                benefits: [
-                    "Realizing top-percentile market rates", "Total shielding from unsolicited broker calls",
-                    "Secure, white-money escrow routing", "Zero physical travel required by owner"
-                ],
-                phases: [
-                    { p: "PHASE 01", t: "Valuation Benchmark", d: "Analyzing hyper-local transaction registries" },
-                    { p: "PHASE 02", t: "Private Dossier", d: "Creating high-end digital sales memorandums" },
-                    { p: "PHASE 03", t: "Bidding Lock", d: "Vetting buyer financial liquidity loops" },
-                    { p: "PHASE 04", t: "Deed Execution", d: "Completing biometric registration sign-offs" }
-                ]
-            },
-            {
-                id: "documentation",
-                title: "Documentation & Registration Support",
-                tagImg: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80",
-                overview: "Untangling complex municipal red tape. Our specialized legal taskforce secures, updates, and rectifies vital land ownership records across Telangana.",
-                deliverables: [
-                    "Dharani portal mutation corrections", "Encumbrance Certificate (EC) extraction",
-                    "Certified copy retrieval of lost sale deeds", "Legal heir & succession certificate filing"
-                ],
-                benefits: [
-                    "Flawless, marketable title ownership", "Insulation against bureaucratic delays",
-                    "Resolved legacy paperwork discrepancies", "Absolute legal peace of mind"
-                ],
-                phases: [
-                    { p: "PHASE 01", t: "Archive Audit", d: "Cross-referencing 30-year link documents" },
-                    { p: "PHASE 02", t: "Dossier Prep", d: "Drafting sworn affidavits & stamp papers" },
-                    { p: "PHASE 03", t: "Municipal Filing", d: "Navigating local MRO & collectorate desks" },
-                    { p: "PHASE 04", t: "Secure Delivery", d: "Handing over physical laminated clean titles" }
-                ]
-            },
-            {
-                id: "high-rise",
-                title: "High-Rise Apartment Management",
-                tagImg: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
-                overview: "Bespoke interior and structural management designed specifically for ultra-luxury high-rise condominiums in the Financial District and Kokapet corridors.",
-                deliverables: [
-                    "Automated smart-home automation check-ups", "Centralized VRV / AC duct sanitization",
-                    "Balcony glass & high-altitude seal checks", "Direct representation in society meetings"
-                ],
-                benefits: [
-                    "Pristine luxury living standards maintained", "Protection against high-floor wind seepage",
-                    "Zero missed maintenance bill penalties", "Complete alignment with society bylaws"
-                ],
-                phases: [
-                    { p: "PHASE 01", t: "Unit Onboarding", d: "Logging all internal premium appliances" },
-                    { p: "PHASE 02", t: "MEP Calibration", d: "Testing high-pressure water & gas valves" },
-                    { p: "PHASE 03", t: "Society Sync", d: "Establishing direct billing & proxy authority" },
-                    { p: "PHASE 04", t: "Quarterly Audit", d: "Executing deep interior preventative care" }
-                ]
-            },
-            {
-                id: "turnkey",
-                title: "Turnkey Asset Restoration",
-                tagImg: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1200&q=80",
-                overview: "Complete structural rehabilitation and premium cosmetic upgrading for aging properties, transforming dated structures into modern, high-value luxury spaces.",
-                deliverables: [
-                    "Structural civil engineering reinforcement", "Complete bathroom & kitchen modernization",
-                    "Premium vitrified flooring replacement", "Exterior weather-shield elastomeric painting"
-                ],
-                benefits: [
-                    "Massive immediate valuation spike", "Modernized plumbing & electrical safety",
-                    "High-end contemporary market appeal", "Zero headache of managing local laborers"
-                ],
-                phases: [
-                    { p: "PHASE 01", t: "3D CAD Blueprint", d: "Designing modern spatial workflows" },
-                    { p: "PHASE 02", t: "Civil Strip-Down", d: "Safely dismantling obsolete structural core" },
-                    { p: "PHASE 03", t: "Premium Build", d: "Deploying master carpenters & masons" },
-                    { p: "PHASE 04", t: "Pristine Handover", d: "Executing final deep-clean & quality sign-off" }
+                    { p: "PHASE 01", t: "Scope Review", d: "Assessing the civil and allied requirements" },
+                    { p: "PHASE 02", t: "Execution Support", d: "Coordinating labor, materials, and site tasks" },
+                    { p: "PHASE 03", t: "Quality Control", d: "Monitoring progress and workmanship" },
+                    { p: "PHASE 04", t: "Project Handover", d: "Delivering completed support work on schedule" }
                 ]
             }
         ];
@@ -463,26 +357,26 @@
             renderBox.classList.add('fade-panel');
 
             renderBox.innerHTML = `
-                <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
+                <div class="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-950">
                     <img src="${data.tagImg}" alt="${data.title}" class="w-full h-full object-cover opacity-55 transform scale-105 transition-transform duration-1000">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                    <div class="absolute bottom-8 left-8 sm:left-12 z-10 space-y-1">
+                    <div class="absolute bottom-6 left-6 sm:left-8 z-10 space-y-1">
                         <span class="text-amber-400 text-[10px] font-bold tracking-[0.25em] uppercase block">Elite Standard</span>
-                        <h2 class="font-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-wide">${data.title}</h2>
+                        <h2 class="font-luxury text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-wide">${data.title}</h2>
                     </div>
                 </div>
 
-                <div class="p-8 sm:p-12 space-y-12 text-left">
-                    <div class="space-y-3">
+                <div class="p-5 sm:p-7 space-y-4 text-left">
+                    <div class="space-y-2">
                         <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Strategic Overview</h4>
-                        <p class="text-slate-700 font-normal leading-relaxed text-base sm:text-lg">${data.overview}</p>
+                        <p class="text-slate-700 font-normal leading-relaxed text-sm">${data.overview}</p>
                     </div>
 
-                    <div class="space-y-4">
+                    <div class="space-y-3">
                         <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Core Deliverables</h4>
-                        <div class="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm font-semibold text-slate-800">
+                        <div class="grid sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-800">
                             ${data.deliverables.map(item => `
-                                <div class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-50 border border-slate-100">
+                                <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-100">
                                     <i class="fa-solid fa-check text-amber-600 shrink-0"></i>
                                     <span>${item}</span>
                                 </div>
@@ -490,25 +384,25 @@
                         </div>
                     </div>
 
-                    <div class="space-y-4">
+                    <div class="space-y-3">
                         <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Investor Benefits</h4>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
                             ${data.benefits.map((ben, i) => `
-                                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex flex-col justify-between space-y-2 shadow-sm hover:border-amber-500 transition-colors">
-                                    <div class="w-8 h-8 rounded-lg bg-amber-700 text-white font-bold text-xs flex items-center justify-center shadow">
+                                <div class="bg-slate-50 border border-slate-200 rounded-xl p-2.5 flex flex-col justify-between space-y-1.5 shadow-sm hover:border-amber-500 transition-colors">
+                                    <div class="w-7 h-7 rounded-lg bg-amber-700 text-white font-bold text-[10px] flex items-center justify-center shadow">
                                         0${i+1}
                                     </div>
-                                    <p class="text-xs font-semibold text-slate-800 leading-snug">${ben}</p>
+                                    <p class="text-[11px] font-semibold text-slate-800 leading-snug">${ben}</p>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
 
-                    <div class="space-y-6">
+                    <div class="space-y-3">
                         <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Deployment Timeline</h4>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-2 border-t border-slate-100">
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1 border-t border-slate-100">
                             ${data.phases.map((ph, i) => `
-                                <div class="space-y-1.5 relative border-l-2 border-amber-500/30 pl-3 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-3">
+                                <div class="space-y-1 relative border-l-2 border-amber-500/30 pl-3 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-2">
                                     <span class="text-[10px] font-bold tracking-widest uppercase text-amber-600 block">${ph.p}</span>
                                     <h5 class="font-bold text-slate-950 text-xs sm:text-sm leading-tight">${ph.t}</h5>
                                     <p class="text-xs text-slate-500 font-light leading-snug">${ph.d}</p>
@@ -517,11 +411,11 @@
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-br from-amber-500/10 to-amber-600/5 border border-amber-500/20 rounded-2xl p-8 text-center space-y-4 shadow-inner">
-                        <h4 class="font-luxury text-xl sm:text-2xl font-bold text-amber-900">Request Strategy for this Asset Type</h4>
+                    <div class="bg-gradient-to-br from-amber-500/10 to-amber-600/5 border border-amber-500/20 rounded-2xl p-4 text-center space-y-2 shadow-inner">
+                        <h4 class="font-luxury text-lg sm:text-xl font-bold text-amber-900">Request Strategy for this Asset Type</h4>
                         <p class="text-slate-700 text-xs sm:text-sm max-w-md mx-auto font-normal">Consult Swaroop Chavali and Sasikanth Nelli to tailor an SLA deployment plan for your property.</p>
-                        <div class="pt-2">
-                            <a href="consultation.html" class="inline-block bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-full shadow-xl transition-all transform hover:scale-105">
+                        <div class="pt-1">
+                            <a href="consultation.html" class="inline-block bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold text-xs uppercase tracking-widest px-5 py-2.5 rounded-full shadow-xl transition-all transform hover:scale-105">
                                 Deploy Strategy Framework
                             </a>
                         </div>
