@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,8 +24,8 @@
         }
 
         .tab-active {
-            background-color: #fef3c7 !important; /* Amber 100 */
-            color: #b45309 !important;          /* Amber 700 */
+            background-color: #fef3c7 !important; 
+            color: #b45309 !important;          
             font-weight: 700 !important;
             border-right: 3px solid #d97706 !important;
         }
@@ -36,10 +36,17 @@
         aside::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
     </style>
 </head>
-<body class="antialiased flex flex-col justify-between min-h-screen">
+<body class="antialiased flex flex-col justify-between min-h-screen selection:bg-amber-500 selection:text-slate-950 cursor-default">
 
-    <header class="sticky top-0 z-50 bg-[#030712]/95 backdrop-blur-md border-b border-amber-500/10">
-        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+    <div class="bg-amber-500 text-slate-950 px-6 py-2.5 w-full text-center z-[60] relative flex items-center justify-center gap-3 shadow-md">
+        <span class="w-2 h-2 rounded-full bg-slate-900 animate-pulse"></span>
+        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest">
+            For Immediate Queries & Support, Contact Our Front Desk: <a href="tel:+910000000000" class="font-black underline ml-1 hover:text-white transition-colors">+91 7066780736</a>
+        </span>
+    </div>
+
+    <header id="global-header" class="fixed top-0 left-0 w-full z-50 bg-transparent border-b border-transparent py-5 transition-all duration-300 mt-9">
+        <div class="container mx-auto px-6 flex justify-between items-center max-w-7xl">
             <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
                 <img src="LOGO.jpeg" alt="Swades Property & Lifestyle logo" class="h-20 w-auto max-w-[260px] object-contain rounded-lg bg-white/10 p-1 shadow-sm">
             </div>
@@ -47,12 +54,12 @@
             <nav class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-[0.2em] text-slate-300 ml-6">
                 <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
                 <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
-                <a href="services.html" class="text-amber-500 transition-colors">Services</a>
+                <a href="services.html" class="text-amber-500 font-bold transition-colors">Services</a>
             </nav>
             
             <div class="flex items-center gap-4">
                 <a href="consultation.html" class="hidden sm:block bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-slate-950 text-sm font-bold uppercase tracking-wider px-6 py-3 rounded transition-all shadow-lg text-center">Consultation</a>
-                <button class="menu-trigger-btn text-white hover:text-amber-500 flex items-center gap-2 bg-slate-900 px-3 py-2 rounded border border-slate-800 cursor-pointer">
+                <button class="menu-trigger-btn text-white hover:text-amber-500 flex items-center gap-2 bg-slate-900 px-3 py-2 rounded border border-slate-800 cursor-pointer transition-colors shadow">
                     <span class="text-[11px] uppercase tracking-widest font-bold text-slate-400 hidden sm:inline">Menu</span>
                     <i class="fa-solid fa-bars-staggered text-lg"></i>
                 </button>
@@ -60,31 +67,35 @@
         </div>
     </header>
 
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden"></div>
-    <div id="sidebar-drawer" class="fixed top-0 right-0 h-full w-full max-w-sm bg-slate-900 text-white z-50 shadow-2xl translate-x-full transition-transform duration-300 p-8 flex flex-col justify-between border-l border-slate-800">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[70] hidden transition-opacity duration-300 opacity-0"></div>
+    <div id="sidebar-drawer" class="fixed top-0 right-0 h-full w-full max-w-sm bg-[#090D1A] text-white z-[70] shadow-2xl translate-x-full transition-transform duration-300 p-8 flex flex-col justify-between border-l border-slate-800">
         <div>
-            <div class="flex justify-between items-center mb-12">
+            <div class="flex justify-between items-center mb-10 pb-4">
                 <div class="flex items-center gap-3">
                     <img src="LOGO.jpeg" alt="Swades Property & Lifestyle logo" class="h-14 w-auto max-w-[200px] object-contain rounded-lg bg-white/10 p-1 shadow-sm">
                 </div>
-                <button id="close-sidebar-btn" class="text-slate-400 hover:text-white text-2xl cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+                <button id="close-sidebar-btn" class="text-slate-500 hover:text-white text-xl cursor-pointer p-1 transition-colors"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <nav class="space-y-5 text-sm font-bold tracking-widest uppercase font-luxury flex flex-col">
-                <a href="index.html" class="text-slate-400 hover:text-amber-500 transition-colors">Home</a>
-                <a href="about.html" class="text-slate-400 hover:text-amber-500 transition-colors">About</a>
-                <a href="services.html" class="text-amber-500 transition-colors">Services</a>
-                <a href="maintenance.html" class="text-slate-400 hover:text-amber-500 pt-4 border-t border-slate-800 transition-colors">Maintenance</a>
-                <a href="luxury-outdoor.html" class="text-slate-400 hover:text-amber-500 transition-colors">Luxury Outdoor</a>
-                <a href="gallery.html" class="text-slate-400 hover:text-amber-500 transition-colors">Gallery</a>
-                <a href="reviews.html" class="text-slate-400 hover:text-amber-500 transition-colors">Client Reviews</a>
-                <a href="faq.html" class="text-slate-400 hover:text-amber-500 transition-colors">FAQ</a>
-                <a href="careers.html" class="text-slate-400 hover:text-amber-500 transition-colors">Careers</a>
+            
+            <nav class="space-y-4 text-xs font-semibold tracking-[0.18em] uppercase flex flex-col text-slate-300">
+                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="services.html" class="text-amber-500 font-bold transition-colors">Services</a>
+                <div class="border-b border-slate-800/80 my-2"></div>
+                <a href="maintenance.html" class="hover:text-amber-500 transition-colors">Maintenance</a>
+                <a href="luxury-outdoor.html" class="hover:text-amber-500 transition-colors">Luxury Outdoor</a>
+                <a href="plot-commercial.html" class="hover:text-amber-500 transition-colors">Plot & Commercial</a>
+                <a href="gallery.html" class="hover:text-amber-500 transition-colors">Gallery</a>
+                <a href="reviews.html" class="hover:text-amber-500 transition-colors">Client Reviews</a>
+                <a href="faq.html" class="hover:text-amber-500 transition-colors">FAQ</a>
             </nav>
         </div>
-        <a href="consultation.html" class="w-full bg-amber-600 hover:bg-amber-500 text-slate-950 text-center font-bold text-xs uppercase tracking-widest py-4 rounded transition-colors shadow-lg">Schedule Consultation</a>
+        <div class="pt-6">
+            <a href="consultation.html" class="block w-full bg-amber-500 hover:bg-amber-400 text-slate-950 text-center font-bold text-xs uppercase tracking-widest py-4 rounded transition-all shadow-lg">Schedule Consultation</a>
+        </div>
     </div>
 
-    <section class="relative w-full min-h-[500px] flex items-center justify-center text-center bg-cover bg-center bg-no-repeat border-b border-slate-900 overflow-hidden" 
+    <section class="relative w-full min-h-[500px] flex items-center justify-center text-center bg-cover bg-center bg-no-repeat border-b border-slate-900 overflow-hidden pt-24" 
              style="background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.95)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80');">
         <div class="container mx-auto px-6 py-20 relative z-10 max-w-4xl reveal-on-scroll space-y-4">
             <span class="text-amber-500 text-xs md:text-sm font-bold uppercase tracking-[0.3em] block">Exclusive Solutions</span>
@@ -97,73 +108,78 @@
     </section>
 
     <main class="container mx-auto px-6 py-20 max-w-7xl grid lg:grid-cols-12 gap-10 items-start relative">
-        
         <aside class="lg:col-span-4 bg-white rounded-3xl p-7 shadow-2xl border border-slate-200 lg:sticky lg:top-28 self-start max-h-[calc(100vh-7rem)] overflow-y-auto reveal-on-scroll z-30">
             <h3 class="font-luxury text-2xl font-bold text-amber-700 mb-6 px-3">Portfolio Index</h3>
-            <nav id="index-list" class="space-y-1.5 text-slate-700 text-xs md:text-sm font-medium">
-                </nav>
+            <nav id="index-list" class="space-y-1.5 text-slate-700 text-xs md:text-sm font-medium"></nav>
         </aside>
 
         <section class="lg:col-span-8 bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200 reveal-on-scroll min-h-[520px]">
-            <div id="service-card-render" class="transition-all duration-300">
-                </div>
+            <div id="service-card-render" class="transition-all duration-300"></div>
         </section>
-
     </main>
 
-    <footer class="bg-[#02050c] text-slate-400 text-xs pt-20 pb-10 border-t border-slate-900 mt-16">
-        <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-            
-            <div class="md:col-span-4 space-y-4 text-left">
+    <footer class="bg-[#02050c] text-slate-400 text-xs pt-16 pb-10 border-t border-slate-900 mt-16">
+        <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-10 mb-14 text-left">
+            <div class="md:col-span-4 space-y-3">
                 <div class="flex items-center gap-3">
                     <img src="LOGO.jpeg" alt="Swades Property & Lifestyle logo" class="h-11 w-auto max-w-[150px] object-contain rounded-lg bg-white/10 p-1 shadow-sm">
                     <div>
-                        <span class="block font-luxury font-bold text-base text-white tracking-wider leading-none">SWADES</span>
+                        <span class="block font-luxury font-bold text-sm text-white tracking-wider leading-none">SWADES</span>
                         <span class="text-[8px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
                     </div>
                 </div>
                 <p class="text-slate-500 text-xs font-light leading-relaxed">
                     Empowering property owners and international NRIs with absolute structural security, legal integrity, and elite preventative property maintenance across the greater Hyderabad region.
                 </p>
+                <div class="flex space-x-2.5 pt-1">
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                </div>
             </div>
 
-            <div class="md:col-span-2 space-y-4 text-left">
+            <div class="md:col-span-2 space-y-3">
                 <h4 class="text-white font-bold uppercase tracking-wider text-xs">Navigation</h4>
-                <nav class="flex flex-col space-y-2 text-slate-400 text-xs font-medium">
+                <nav class="flex flex-col space-y-1.5 text-slate-400 text-xs font-medium">
                     <a href="index.html" class="hover:text-amber-500 transition-colors">Home Page</a>
                     <a href="about.html" class="hover:text-amber-500 transition-colors">Corporate Story</a>
-                    <a href="services.html" class="text-amber-500 transition-colors">Core Portfolios</a>
+                    <a href="services.html" class="text-amber-500 font-semibold transition-colors">Core Portfolios</a>
+                    <a href="luxury-outdoor.html" class="hover:text-amber-500 transition-colors">Luxury Showcase</a>
                     <a href="gallery.html" class="hover:text-amber-500 transition-colors">Projects Gallery</a>
-                    <a href="consultation.html" class="hover:text-amber-500 transition-colors">Consultation</a>
+                    <a href="plot-commercial.html" class="hover:text-amber-500 transition-colors">Plot & Commercial</a>
                 </nav>
             </div>
 
-            <div class="md:col-span-3 space-y-4 text-left text-slate-400 text-xs">
-                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Head Office</h4>
+            <div class="md:col-span-3 space-y-3 text-slate-400 text-xs">
+                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Headquarters</h4>
                 <p class="leading-relaxed font-light text-slate-400">
                     <strong>Swades Corporate Office</strong><br>
                     Villa No. 546, Patancheru ORR Exit 3,<br>
                     Hyderabad, Telangana – 502319
                 </p>
-                <div class="pt-2 space-y-1 text-xs">
-                    <p><strong class="text-slate-300">Email:</strong> support@swadesproperty.com</p>
+                <div class="pt-1 space-y-1 text-xs">
+                    <p><strong class="text-slate-300">Swaroop:</strong> +91 70667 80736</p>
+                    <p><strong class="text-slate-300">Sasikanth:</strong> +91 81434 84202</p>
+                    <p><strong class="text-slate-300">Email:</strong> relations@swadespm.com</p>
                 </div>
             </div>
 
-            <div class="md:col-span-3 space-y-4 text-left">
-                <h4 class="text-white font-bold uppercase tracking-wider text-xs">Global Briefing</h4>
-                <p class="text-slate-400 text-xs font-light">Subscribe to seasonal market reports on Hyderabad yields.</p>
-                <form class="flex w-full items-center shadow-lg" onsubmit="event.preventDefault(); alert('Briefing channel secured.');">
-                    <input type="email" placeholder="nri@estate.com" required class="bg-slate-900 border border-slate-800 rounded-l-lg p-3 text-xs w-full text-white focus:outline-none focus:border-amber-500">
-                    <button type="submit" class="bg-amber-600 hover:bg-amber-500 text-slate-950 px-4 py-3 rounded-r-lg font-bold transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
-                </form>
+            <div class="md:col-span-3 space-y-3">
+                <div class="flex items-center justify-between text-white font-bold text-xs uppercase tracking-wider">
+                    <span>Head Office Location</span>
+                    <span class="text-[9px] text-amber-500 font-mono flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Live GPS
+                    </span>
+                </div>
+                <div class="w-full h-32 sm:h-40 rounded-xl overflow-hidden border border-slate-800 shadow-2xl relative z-10 bg-slate-950 mt-2">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.31604069815!2d78.2679586111165!3d17.41215307568289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" class="w-full h-full border-0 invert grayscale contrast-150 opacity-80 hover:opacity-100 transition-all duration-500" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
-
         </div>
 
-        <div class="container mx-auto px-6 max-w-7xl border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-4 sm:space-y-0 font-medium">
-            <p>&copy; 2026 Swades Property Management Services. All Rights Reserved.</p>
-            <div class="flex space-x-6">
+        <div class="container mx-auto px-6 max-w-7xl border-t border-slate-900 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-3 sm:space-y-0 font-medium">
+            <p>© 2026 Swades Property Management Services. All Rights Reserved.</p>
+            <div class="flex space-x-5">
                 <a href="#" class="hover:text-amber-500 transition-colors">Privacy Protocol</a>
                 <a href="#" class="hover:text-amber-500 transition-colors">SLA Terms</a>
                 <a href="#" class="hover:text-amber-500 transition-colors">NRI Vetting</a>
@@ -171,28 +187,20 @@
         </div>
     </footer>
 
-    <div class="fixed bottom-8 right-8 z-[99] flex items-center gap-3 bg-slate-950/95 border border-slate-800 p-2 pr-4 rounded-full shadow-2xl animate-bounce">
+    <div id="whatsapp-widget" class="fixed bottom-8 right-8 z-40 flex items-center gap-3 bg-slate-950/90 border border-slate-800 p-2 pr-4 rounded-full shadow-2xl animate-bounce transition-opacity duration-200">
         <a href="https://wa.me/917066780736" target="_blank" class="w-12 h-12 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center text-2xl transition-colors shadow-lg">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <span class="text-xs font-bold uppercase tracking-wider text-white hidden sm:inline">Elite Concierge Online</span>
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-300 hidden sm:inline">LIVE SUPPORT</span>
     </div>
 
     <script>
         const servicesDatabase = [
             {
-                id: "painting",
-                title: "Painting",
-                tagImg: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+                id: "painting", title: "Painting", tagImg: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
                 overview: "We deliver smooth, durable, and premium-quality painting solutions for homes, offices, villas, and commercial spaces with a neat finish that elevates the overall look.",
-                deliverables: [
-                    "Interior and exterior wall preparation", "Premium wall, ceiling, and texture finishing",
-                    "Color consultation and surface matching", "Clean and timely project execution"
-                ],
-                benefits: [
-                    "Fresh and elegant appearance", "Long-lasting surface protection",
-                    "Improved property value", "Low-maintenance finish"
-                ],
+                deliverables: ["Interior and exterior wall preparation", "Premium wall, ceiling, and texture finishing", "Color consultation and surface matching", "Clean and timely project execution"],
+                benefits: ["Fresh and elegant appearance", "Long-lasting surface protection", "Improved property value", "Low-maintenance finish"],
                 phases: [
                     { p: "PHASE 01", t: "Surface Inspection", d: "Assessing walls, cracks, and paint condition" },
                     { p: "PHASE 02", t: "Surface Prep", d: "Filling, sanding, and cleaning surfaces" },
@@ -201,18 +209,10 @@
                 ]
             },
             {
-                id: "plumbing",
-                title: "Plumbing",
-                tagImg: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80",
+                id: "plumbing", title: "Plumbing", tagImg: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80",
                 overview: "Our plumbing service covers installations, leak repairs, water line work, sanitary fittings, and maintenance for reliable water flow and long-term performance.",
-                deliverables: [
-                    "Leak detection and repair", "Tap, sink, and sanitary fitting installation",
-                    "Water line and drainage solutions", "Routine plumbing maintenance"
-                ],
-                benefits: [
-                    "Reliable water supply", "Prevention of water damage",
-                    "Efficient drainage systems", "Improved hygiene and convenience"
-                ],
+                deliverables: ["Leak detection and repair", "Tap, sink, and sanitary fitting installation", "Water line and drainage solutions", "Routine plumbing maintenance"],
+                benefits: ["Reliable water supply", "Prevention of water damage", "Efficient drainage systems", "Improved hygiene and convenience"],
                 phases: [
                     { p: "PHASE 01", t: "Site Assessment", d: "Inspecting existing plumbing layout and issues" },
                     { p: "PHASE 02", t: "Repair or Installation", d: "Fixing faults or installing new systems" },
@@ -221,17 +221,10 @@
                 ]
             },
             {
-                id: "flooring",
-                title: "Flooring",
-                tagImg: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+                id: "flooring", title: "Flooring", tagImg: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
                 overview: "We provide durable flooring options with precise installation for homes, offices, and commercial spaces, combining strength, style, and comfort.",
-                deliverables: [
-                    "Flooring material selection", "Tile, marble, or cementitious flooring installation",
-                    "Leveling and finishing work", "Clean and polished final surface"
-                ],
-                benefits: [
-                    "Elegant interior finish", "High durability", "Easy maintenance", "Improved comfort and usability"
-                ],
+                deliverables: ["Flooring material selection", "Tile, marble, or cementitious flooring installation", "Leveling and finishing work", "Clean and polished final surface"],
+                benefits: ["Elegant interior finish", "High durability", "Easy maintenance", "Improved comfort and usability"],
                 phases: [
                     { p: "PHASE 01", t: "Surface Preparation", d: "Preparing the base and leveling the floor" },
                     { p: "PHASE 02", t: "Material Laying", d: "Installing the selected flooring material" },
@@ -240,17 +233,10 @@
                 ]
             },
             {
-                id: "electrical-works",
-                title: "Electrical Works",
-                tagImg: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+                id: "electrical-works", title: "Electrical Works", tagImg: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
                 overview: "Our electrical team handles wiring, point installation, lighting solutions, and power upgrades with safety-focused workmanship and dependable results.",
-                deliverables: [
-                    "Switch and socket installation", "Lighting design and fixture fitting",
-                    "Wiring and circuit work", "Safety checks and testing"
-                ],
-                benefits: [
-                    "Safe electrical systems", "Efficient power distribution", "Modern lighting upgrades", "Reduced maintenance issues"
-                ],
+                deliverables: ["Switch and socket installation", "Lighting design and fixture fitting", "Wiring and circuit work", "Safety checks and testing"],
+                benefits: ["Safe electrical systems", "Efficient power distribution", "Modern lighting upgrades", "Reduced maintenance issues"],
                 phases: [
                     { p: "PHASE 01", t: "Planning", d: "Mapping electrical points and load requirements" },
                     { p: "PHASE 02", t: "Installation", d: "Laying wiring and fitting components" },
@@ -259,17 +245,10 @@
                 ]
             },
             {
-                id: "woodwork-carpentry",
-                title: "Woodwork and Carpentry",
-                tagImg: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+                id: "woodwork-carpentry", title: "Woodwork and Carpentry", tagImg: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
                 overview: "We create custom woodwork solutions such as wardrobes, kitchens, doors, and furniture with strong craftsmanship and elegant detailing.",
-                deliverables: [
-                    "Custom cabinets and wardrobes", "Door and window carpentry",
-                    "Kitchen and storage solutions", "Polishing and finishing work"
-                ],
-                benefits: [
-                    "Custom-made functionality", "Premium aesthetics", "Long-lasting woodwork", "Optimized space usage"
-                ],
+                deliverables: ["Custom cabinets and wardrobes", "Door and window carpentry", "Kitchen and storage solutions", "Polishing and finishing work"],
+                benefits: ["Custom-made functionality", "Premium aesthetics", "Long-lasting woodwork", "Optimized space usage"],
                 phases: [
                     { p: "PHASE 01", t: "Design Review", d: "Understanding layout and client preferences" },
                     { p: "PHASE 02", t: "Fabrication", d: "Cutting, shaping, and assembling woodwork" },
@@ -278,17 +257,10 @@
                 ]
             },
             {
-                id: "interior-exterior-finishing",
-                title: "Interior and Exterior Finishing",
-                tagImg: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80",
+                id: "interior-exterior-finishing", title: "Interior and Exterior Finishing", tagImg: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80",
                 overview: "From polished interiors to weather-resistant exteriors, we manage the finishing touches that make spaces look complete, refined, and built to last.",
-                deliverables: [
-                    "Interior trim and detail work", "Exterior facade finishing",
-                    "Decorative and protective finishing", "Coordinated final appearance upgrades"
-                ],
-                benefits: [
-                    "Refined visual appeal", "Better weather resistance", "Improved durability", "Complete architectural polish"
-                ],
+                deliverables: ["Interior trim and detail work", "Exterior facade finishing", "Decorative and protective finishing", "Coordinated final appearance upgrades"],
+                benefits: ["Refined visual appeal", "Better weather resistance", "Improved durability", "Complete architectural polish"],
                 phases: [
                     { p: "PHASE 01", t: "Detail Planning", d: "Reviewing finishing requirements and scope" },
                     { p: "PHASE 02", t: "Execution", d: "Applying the selected interior and exterior finishes" },
@@ -297,17 +269,10 @@
                 ]
             },
             {
-                id: "civil-allied-services",
-                title: "Other Civil and Allied Construction Services",
-                tagImg: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+                id: "civil-allied-services", title: "Other Civil and Allied Construction Services", tagImg: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
                 overview: "We also support broader construction needs with civil works, site support, and allied services that keep projects moving smoothly from start to finish.",
-                deliverables: [
-                    "Civil construction support", "Site preparation and finishing support",
-                    "Allied construction coordination", "Reliable on-site execution support"
-                ],
-                benefits: [
-                    "Single-window construction support", "Efficient project coordination", "Better site readiness", "Flexible scope management"
-                ],
+                deliverables: ["Civil construction support", "Site preparation and finishing support", "Allied construction coordination", "Reliable on-site execution support"],
+                benefits: ["Single-window construction support", "Efficient project coordination", "Better site readiness", "Flexible scope management"],
                 phases: [
                     { p: "PHASE 01", t: "Scope Review", d: "Assessing the civil and allied requirements" },
                     { p: "PHASE 02", t: "Execution Support", d: "Coordinating labor, materials, and site tasks" },
@@ -320,22 +285,14 @@
         function renderIndexNavigation(activeIndex) {
             const container = document.getElementById('index-list');
             container.innerHTML = ''; 
-
             servicesDatabase.forEach((srv, index) => {
                 const isCurrent = index === activeIndex;
                 const navItem = document.createElement('a');
                 navItem.href = `javascript:void(0);`;
                 navItem.className = `block px-5 py-3.5 rounded-xl transition-all duration-200 flex justify-between items-center cursor-pointer ${
-                    isCurrent 
-                    ? 'tab-active shadow-md' 
-                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950 font-semibold'
+                    isCurrent ? 'tab-active shadow-md' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950 font-semibold'
                 }`;
-
-                navItem.innerHTML = `
-                    <span class="truncate pr-2">${srv.title}</span>
-                    <i class="fa-solid ${isCurrent ? 'fa-arrow-right text-amber-700' : 'fa-chevron-right text-slate-400 text-xs'}"></i>
-                `;
-
+                navItem.innerHTML = `<span class="truncate pr-2">${srv.title}</span><i class="fa-solid ${isCurrent ? 'fa-arrow-right text-amber-700' : 'fa-chevron-right text-slate-400 text-xs'}"></i>`;
                 navItem.onclick = () => activateServiceVector(index);
                 container.appendChild(navItem);
             });
@@ -344,11 +301,9 @@
         function activateServiceVector(index) {
             const data = servicesDatabase[index];
             const renderBox = document.getElementById('service-card-render');
-
             renderBox.classList.remove('fade-panel');
             void renderBox.offsetWidth; 
             renderBox.classList.add('fade-panel');
-
             renderBox.innerHTML = `
                 <div class="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-950">
                     <img src="${data.tagImg}" alt="${data.title}" class="w-full h-full object-cover opacity-55 transform scale-105 transition-transform duration-1000">
@@ -358,43 +313,36 @@
                         <h2 class="font-luxury text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-wide">${data.title}</h2>
                     </div>
                 </div>
-
                 <div class="p-5 sm:p-7 space-y-4 text-left">
                     <div class="space-y-2">
                         <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Strategic Overview</h4>
                         <p class="text-slate-700 font-normal leading-relaxed text-sm">${data.overview}</p>
                     </div>
-
                     <div class="space-y-3">
                         <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Core Deliverables</h4>
                         <div class="grid sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-800">
                             ${data.deliverables.map(item => `
                                 <div class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-100">
-                                    <i class="fa-solid fa-check text-amber-600 shrink-0"></i>
-                                    <span>${item}</span>
+                                    <i class="fa-solid fa-check text-amber-600 shrink-0"></i><span>${item}</span>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
-
                     <div class="space-y-3">
                         <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Investor Benefits</h4>
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
                             ${data.benefits.map((ben, i) => `
                                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-2.5 flex flex-col justify-between space-y-1.5 shadow-sm hover:border-amber-500 transition-colors">
-                                    <div class="w-7 h-7 rounded-lg bg-amber-700 text-white font-bold text-[10px] flex items-center justify-center shadow">
-                                        0${i+1}
-                                    </div>
+                                    <div class="w-7 h-7 rounded-lg bg-amber-700 text-white font-bold text-[10px] flex items-center justify-center shadow">0${i+1}</div>
                                     <p class="text-[11px] font-semibold text-slate-800 leading-snug">${ben}</p>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
-
                     <div class="space-y-3">
                         <h4 class="font-luxury font-bold text-lg text-amber-700 uppercase tracking-widest">Deployment Timeline</h4>
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1 border-t border-slate-100">
-                            ${data.phases.map((ph, i) => `
+                            ${data.phases.map((ph) => `
                                 <div class="space-y-1 relative border-l-2 border-amber-500/30 pl-3 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-2">
                                     <span class="text-[10px] font-bold tracking-widest uppercase text-amber-600 block">${ph.p}</span>
                                     <h5 class="font-bold text-slate-950 text-xs sm:text-sm leading-tight">${ph.t}</h5>
@@ -403,59 +351,69 @@
                             `).join('')}
                         </div>
                     </div>
-
                     <div class="bg-gradient-to-br from-amber-500/10 to-amber-600/5 border border-amber-500/20 rounded-2xl p-4 text-center space-y-2 shadow-inner">
                         <h4 class="font-luxury text-lg sm:text-xl font-bold text-amber-900">Request Strategy for this Asset Type</h4>
-                        <p class="text-slate-700 text-xs sm:text-sm max-w-md mx-auto font-normal">Consult Swaroop Chavali and Sasikanth Nelli to tailor an SLA deployment plan for your property.</p>
+                        <p class="text-slate-700 text-xs sm:text-sm max-w-md mx-auto font-normal">Consult our experts to tailor an SLA deployment plan for your property.</p>
                         <div class="pt-1">
                             <a href="consultation.html" class="inline-block bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold text-xs uppercase tracking-widest px-5 py-2.5 rounded-full shadow-xl transition-all transform hover:scale-105">
                                 Deploy Strategy Framework
                             </a>
                         </div>
                     </div>
-
                 </div>
             `;
-
             renderIndexNavigation(index);
-
             if (window.innerWidth < 1024) {
                 const targetEl = document.querySelector('main');
-                const headerOffset = 80;
-                const elementPosition = targetEl.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                const offsetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
                 window.scrollTo({ top: offsetPosition, behavior: "smooth" });
             }
         }
 
         document.addEventListener("DOMContentLoaded", () => {
             const scrollObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('is-revealed');
-                });
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-revealed'); });
             }, { threshold: 0.12 });
-
             document.querySelectorAll('.reveal-on-scroll').forEach(el => scrollObserver.observe(el));
+            
             activateServiceVector(0);
 
-            // ====================================================================
-            // BULLETPROOF NATIVE SIDEBAR TRIGGER ENGINE (Immune to broken scripts)
-            // ====================================================================
+            // Dynamic Morphing Header Sensor
+            const headerEl = document.getElementById("global-header");
+            if (headerEl) {
+                window.addEventListener("scroll", () => {
+                    if (window.scrollY > 50) {
+                        headerEl.classList.remove("bg-transparent", "border-transparent", "py-5", "mt-9");
+                        headerEl.classList.add("bg-[#030712]", "border-amber-500/20", "py-3.5", "shadow-2xl");
+                    } else {
+                        headerEl.classList.add("bg-transparent", "border-transparent", "py-5", "mt-9");
+                        headerEl.classList.remove("bg-[#030712]", "border-amber-500/20", "py-3.5", "shadow-2xl");
+                    }
+                });
+            }
+
+            // Mobile Drawer Engine & WhatsApp Auto-Hide
             const overlay = document.getElementById("sidebar-overlay");
             const drawer = document.getElementById("sidebar-drawer");
             const triggerBtn = document.querySelector(".menu-trigger-btn");
             const closeBtn = document.getElementById("close-sidebar-btn");
+            const waWidget = document.getElementById("whatsapp-widget");
 
             if (triggerBtn && overlay && drawer) {
                 triggerBtn.addEventListener("click", () => {
                     overlay.classList.remove("hidden");
+                    if (waWidget) waWidget.classList.add("opacity-0", "pointer-events-none");
                     setTimeout(() => drawer.classList.remove("translate-x-full"), 10);
                 });
             }
 
             const closeDrawer = () => {
                 drawer.classList.add("translate-x-full");
-                setTimeout(() => overlay.classList.add("hidden"), 300);
+                overlay.classList.add("opacity-0");
+                setTimeout(() => {
+                    overlay.classList.add("hidden");
+                    if (waWidget) waWidget.classList.remove("opacity-0", "pointer-events-none");
+                }, 300);
             };
 
             if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
@@ -463,51 +421,34 @@
         });
     </script>
     
-    <script src="script.js"></script>
-
-    <!-- ================= ELITE ORBITAL CURSOR ================= -->
     <div id="luxury-aura" class="fixed top-0 left-0 -ml-[18px] -mt-[18px] w-9 h-9 rounded-full border border-amber-500/40 bg-amber-500/5 pointer-events-none z-[99999] hidden md:block transition-colors duration-300 will-change-transform"></div>
     <div id="luxury-dot" class="fixed top-0 left-0 -ml-[4px] -mt-[4px] w-2 h-2 rounded-full bg-amber-400 pointer-events-none z-[99999] hidden md:block will-change-transform"></div>
 
     <script>
         (function() {
-            // 1. Safety Kill-Switch: Do not run on mobile touchscreens
             if (window.matchMedia("(pointer: coarse)").matches) return;
-
             const aura = document.getElementById('luxury-aura');
             const dot = document.getElementById('luxury-dot');
-            
             if (!aura || !dot) return;
-
-            let mouseX = window.innerWidth / 2;
-            let mouseY = window.innerHeight / 2;
-            let auraX = mouseX;
-            let auraY = mouseY;
+            let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+            let auraX = mouseX, auraY = mouseY;
             let isHovering = false;
 
-            // Track mouse instantly
             window.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
+                mouseX = e.clientX; mouseY = e.clientY;
                 dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
             });
 
-            // LERP Engine: Smoothly drag the aura behind the dot
             function renderAura() {
-                auraX += (mouseX - auraX) * 0.21; // 0.14 is the "weight" of the drag
-                auraY += (mouseY - auraY) * 0.14;
-
+                auraX += (mouseX - auraX) * 0.21; auraY += (mouseY - auraY) * 0.21;
                 const scale = isHovering ? 'scale(1.6)' : 'scale(1)';
                 aura.style.transform = `translate3d(${auraX}px, ${auraY}px, 0) ${scale}`;
-
                 requestAnimationFrame(renderAura);
             }
             renderAura();
 
-            // Magnetic Expansion on clickable items
             const attachMagneticSensors = () => {
                 const interactives = document.querySelectorAll('a, button, input, [onclick], .luxury-card, .job-card, .accordion-card');
-                
                 interactives.forEach(el => {
                     el.addEventListener('mouseenter', () => {
                         isHovering = true;
@@ -523,8 +464,6 @@
             };
 
             attachMagneticSensors();
-
-            // If JavaScript opens a modal or new drawer, re-scan the page for new buttons
             const domObserver = new MutationObserver(attachMagneticSensors);
             domObserver.observe(document.body, { childList: true, subtree: true });
         })();
