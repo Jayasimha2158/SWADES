@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,52 +12,104 @@
     <!-- Google Fonts: Inter & Playfair Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #030712; color: #cbd5e1; overflow-x: hidden; }
-        .font-luxury { font-family: 'Playfair Display', serif; }
-        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712;
+            color: #cbd5e1;
+            overflow-x: hidden;
+        }
+
+        .font-luxury {
+            font-family: 'Playfair Display', serif;
+        }
+
         /* Advanced Animations & Hover Transformations */
-        .reveal-on-scroll { opacity: 0; transform: translateY(35px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .reveal-on-scroll.is-revealed { opacity: 1; transform: translateY(0); }
-        
-        .interactive-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid rgba(245, 158, 11, 0.1); }
-        .interactive-card:hover { transform: translateY(-8px); border-color: rgba(245, 158, 11, 0.8); background-color: #0b0f19; box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5); }
-        
-        .timeline-node { transition: all 0.3s ease; }
-        .timeline-card:hover .timeline-node { transform: scale(1.3); background-color: #f59e0b; }
-        .timeline-card { transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05); }
-        .timeline-card:hover { transform: translateX(8px); border-color: rgba(245, 158, 11, 0.5); background-color: rgba(15, 23, 42, 0.8); }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal-on-scroll.is-revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .interactive-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(245, 158, 11, 0.1);
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(245, 158, 11, 0.8);
+            background-color: #0b0f19;
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .timeline-node {
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover .timeline-node {
+            transform: scale(1.3);
+            background-color: #f59e0b;
+        }
+
+        .timeline-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .timeline-card:hover {
+            transform: translateX(8px);
+            border-color: rgba(245, 158, 11, 0.5);
+            background-color: rgba(15, 23, 42, 0.8);
+        }
     </style>
 </head>
-<body class="antialiased flex flex-col justify-between min-h-screen selection:bg-amber-500 selection:text-slate-950 cursor-default">
+
+<body
+    class="antialiased flex flex-col justify-between min-h-screen selection:bg-amber-500 selection:text-slate-950 cursor-default">
 
     <!-- TOP QUERY CONTACT BAR -->
-    <div class="bg-amber-500 text-slate-950 px-6 py-2.5 w-full text-center z-[60] relative flex items-center justify-center gap-3 shadow-md">
-        <span class="w-2 h-2 rounded-full bg-slate-900 animate-pulse"></span>
-        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest">
-            For Immediate Queries & Support, Contact Our Front Desk: <a href="tel:+917066780736" class="font-black underline ml-1 hover:text-white transition-colors">+91 7066780736</a>
+    <div
+        class="bg-amber-500 text-slate-950 px-4 sm:px-6 py-2.5 w-full text-center z-[60] relative flex items-center justify-center gap-2 sm:gap-3 shadow-md">
+        <span class="w-2 h-2 rounded-full bg-slate-900 animate-pulse shrink-0"></span>
+        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest leading-normal">
+            To Reach Managing Director (WhatsApp Call Only): <a href="https://wa.me/917066780736" target="_blank"
+                class="font-black underline ml-1 hover:text-white transition-colors"><i
+                    class="fa-brands fa-whatsapp text-xs sm:text-sm mr-1"></i>+91 7066780736</a>
         </span>
     </div>
 
     <!-- GLOBAL MORPHING NAVBAR HEADER -->
-    <header id="global-header" class="fixed top-0 left-0 w-full z-50 bg-transparent border-b border-transparent py-5 transition-all duration-300 mt-9">
+    <header id="global-header"
+        class="fixed top-0 left-0 w-full z-50 bg-transparent border-b border-transparent py-5 transition-all duration-300 mt-9">
         <div class="container mx-auto px-6 flex justify-between items-center max-w-7xl">
             <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
-                <img src="LOGO.jpeg" alt="Swades Property & Lifestyle logo" class="h-20 w-auto max-w-[260px] object-contain rounded-lg bg-white/10 p-1 shadow-sm">
+                <img src="LOGO.jpeg" alt="Swades Property & Lifestyle logo"
+                    class="h-20 w-auto max-w-[260px] object-contain rounded-lg bg-white/10 p-1 shadow-sm">
             </div>
-            
+
             <nav class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-[0.2em] text-slate-300 ml-6">
                 <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
                 <a href="about.html" class="text-amber-500 font-bold transition-colors">About</a>
                 <a href="services.html" class="hover:text-amber-500 transition-colors">Services</a>
             </nav>
-            
+
             <div class="flex items-center gap-4">
-                <a href="consultation.html" class="hidden sm:block bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-slate-950 text-sm font-bold uppercase tracking-wider px-6 py-3 rounded transition-all shadow-lg text-center">Consultation</a>
-                <button class="menu-trigger-btn text-white hover:text-amber-500 flex items-center gap-2 bg-slate-900 px-3 py-2 rounded border border-slate-800 cursor-pointer transition-colors shadow">
-                    <span class="text-[11px] uppercase tracking-widest font-bold text-slate-400 hidden sm:inline">Menu</span>
+                <a href="consultation.html"
+                    class="hidden sm:block bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-slate-950 text-sm font-bold uppercase tracking-wider px-6 py-3 rounded transition-all shadow-lg text-center">Consultation</a>
+                <button
+                    class="menu-trigger-btn text-white hover:text-amber-500 flex items-center gap-2 bg-slate-900 px-3 py-2 rounded border border-slate-800 cursor-pointer transition-colors shadow">
+                    <span
+                        class="text-[11px] uppercase tracking-widest font-bold text-slate-400 hidden sm:inline">Menu</span>
                     <i class="fa-solid fa-bars-staggered text-lg"></i>
                 </button>
             </div>
@@ -64,64 +117,80 @@
     </header>
 
     <!-- UPDATED: MASTER SIDEBAR NAVIGATION DRAWER -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[70] hidden transition-opacity duration-300 opacity-0"></div>
-    <div id="sidebar-drawer" class="fixed top-0 right-0 h-full w-full max-w-sm bg-[#090D1A] text-white z-[70] shadow-2xl translate-x-full transition-transform duration-300 p-8 flex flex-col justify-between border-l border-slate-800">
+    <div id="sidebar-overlay"
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[70] hidden transition-opacity duration-300 opacity-0">
+    </div>
+    <div id="sidebar-drawer"
+        class="fixed top-0 right-0 h-full w-full max-w-sm bg-[#090D1A] text-white z-[70] shadow-2xl translate-x-full transition-transform duration-300 p-8 flex flex-col justify-between border-l border-slate-800">
         <div>
             <!-- Drawer Header -->
             <div class="flex justify-between items-center mb-10 pb-4">
                 <div class="flex items-center gap-3">
-                    <img src="LOGO.jpeg" alt="Swades Property & Lifestyle logo" class="h-14 w-auto max-w-[200px] object-contain rounded-lg bg-white/10 p-1 shadow-sm">
+                    <img src="LOGO.jpeg" alt="Swades Property & Lifestyle logo"
+                        class="h-14 w-auto max-w-[200px] object-contain rounded-lg bg-white/10 p-1 shadow-sm">
                 </div>
-                <button id="close-sidebar-btn" class="text-slate-500 hover:text-white text-xl cursor-pointer p-1 transition-colors"><i class="fa-solid fa-xmark"></i></button>
+                <button id="close-sidebar-btn"
+                    class="text-slate-500 hover:text-white text-xl cursor-pointer p-1 transition-colors"><i
+                        class="fa-solid fa-xmark"></i></button>
             </div>
-            
+
             <!-- Complete Sitemap List -->
             <nav class="space-y-4 text-xs font-semibold tracking-[0.18em] uppercase flex flex-col text-slate-300">
                 <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
                 <a href="about.html" class="text-amber-500 font-bold transition-colors">About</a>
                 <a href="services.html" class="hover:text-amber-500 transition-colors">Services</a>
-                
+
                 <!-- Divider Line -->
                 <div class="border-b border-slate-800/80 my-2"></div>
-                
+
                 <a href="maintenance.html" class="hover:text-amber-500 transition-colors">Maintenance</a>
                 <a href="luxury-outdoor.html" class="hover:text-amber-500 transition-colors">Luxury Outdoor</a>
-                <a href="plot-commercial.html" class="hover:text-amber-500 transition-colors">Plot & Commercial Management</a>
+                <a href="plot-commercial.html" class="hover:text-amber-500 transition-colors">Plot & Commercial
+                    Management</a>
                 <a href="gallery.html" class="hover:text-amber-500 transition-colors">Gallery</a>
                 <a href="specialization.html" class="hover:text-amber-500 transition-colors">Specialization</a>
                 <!-- <a href="reviews.html" class="hover:text-amber-500 transition-colors">Client Reviews</a> -->
                 <a href="faq.html" class="hover:text-amber-500 transition-colors">FAQ</a>
             </nav>
         </div>
-        
+
         <!-- Bottom Solid Button -->
         <div class="pt-6">
-            <a href="consultation.html" class="block w-full bg-amber-500 hover:bg-amber-400 text-slate-950 text-center font-bold text-xs uppercase tracking-widest py-4 rounded transition-all shadow-lg">
+            <a href="consultation.html"
+                class="block w-full bg-amber-500 hover:bg-amber-400 text-slate-950 text-center font-bold text-xs uppercase tracking-widest py-4 rounded transition-all shadow-lg">
                 Schedule Consultation
             </a>
         </div>
     </div>
 
     <!-- ABOUT HERO WITH PARTNERSHIP HIGHLIGHT -->
-    <section class="relative w-full min-h-[500px] flex items-center justify-center text-center bg-cover bg-center bg-no-repeat border-b border-slate-900 pt-16" 
-             style="background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.75), rgba(3, 7, 18, 0.95)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');">
-        <div class="w-full max-w-5xl mx-auto px-6 py-24 flex flex-col items-center justify-center relative z-10 reveal-on-scroll">
-            <span class="text-amber-500 text-xs md:text-sm font-bold uppercase tracking-[0.3em] block mb-4">Corporate Heritage</span>
-            <h1 class="font-luxury text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-wide leading-tight mb-6">
+    <section
+        class="relative w-full min-h-[500px] flex items-center justify-center text-center bg-cover bg-center bg-no-repeat border-b border-slate-900 pt-16"
+        style="background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.75), rgba(3, 7, 18, 0.95)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');">
+        <div
+            class="w-full max-w-5xl mx-auto px-6 py-24 flex flex-col items-center justify-center relative z-10 reveal-on-scroll">
+            <span class="text-amber-500 text-xs md:text-sm font-bold uppercase tracking-[0.3em] block mb-4">Corporate
+                Heritage</span>
+            <h1
+                class="font-luxury text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-wide leading-tight mb-6">
                 Executive Custodians of<br><span class="text-amber-500">Luxury Property Holdings</span>
             </h1>
             <p class="text-slate-400 text-base md:text-lg font-light max-w-3xl leading-relaxed">
-                Providing direct accountability, risk mitigation parameters, and real-time visibility loops across your Indian real estate assets.
+                Providing direct accountability, risk mitigation parameters, and real-time visibility loops across your
+                Indian real estate assets.
             </p>
 
             <!-- GLOWING HIGHLIGHTED PARTNERSHIP BADGE -->
             <div class="mt-12 inline-block">
-                <div class="bg-[#0b0f19]/80 border border-amber-500/50 backdrop-blur-md px-6 py-4 rounded-full shadow-[0_0_20px_rgba(245,158,11,0.2)] flex items-center gap-4 mx-auto max-w-fit transition-transform hover:scale-105 duration-300">
+                <div
+                    class="bg-[#0b0f19]/80 border border-amber-500/50 backdrop-blur-md px-6 py-4 rounded-full shadow-[0_0_20px_rgba(245,158,11,0.2)] flex items-center gap-4 mx-auto max-w-fit transition-transform hover:scale-105 duration-300">
                     <div class="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
                         <i class="fa-solid fa-handshake text-amber-500 text-sm"></i>
                     </div>
-                    <span class="text-slate-200 text-[10px] sm:text-xs uppercase tracking-[0.15em] font-medium text-left leading-relaxed">
-                        Operating in proud association with <strong class="text-amber-500 font-bold tracking-widest ml-1">Vijaya Realty & Infra</strong>
+                    <span
+                        class="text-slate-200 text-[10px] sm:text-xs uppercase tracking-[0.15em] font-medium text-left leading-relaxed">
+                        Operating in proud association with <strong
+                            class="text-amber-500 font-bold tracking-widest ml-1">Vijaya Realty & Infra</strong>
                     </span>
                 </div>
             </div>
@@ -133,23 +202,33 @@
     <section class="py-28 px-6 container mx-auto max-w-7xl grid md:grid-cols-12 gap-16 items-center overflow-hidden">
         <div class="md:col-span-7 space-y-6 reveal-on-scroll text-left">
             <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block">Our Heritage</span>
-            <h2 class="font-luxury text-4xl sm:text-5xl font-bold text-white leading-tight">Building Trust Across Oceans</h2>
+            <h2 class="font-luxury text-4xl sm:text-5xl font-bold text-white leading-tight">Building Trust Across Oceans
+            </h2>
             <p class="text-slate-400 text-base md:text-lg font-light leading-relaxed">
-                Swades Property Management Services was formed out of a dedication to resolve the tracking challenges experienced by non-resident property investors. Real estate transparency shouldn't degrade across distance. We act as local physical proxies using secure software architectures and certified surveyor networks.
+                Swades Property Management Services was formed out of a dedication to resolve the tracking challenges
+                experienced by non-resident property investors. Real estate transparency shouldn't degrade across
+                distance. We act as local physical proxies using secure software architectures and certified surveyor
+                networks.
             </p>
-            
+
             <div class="bg-[#0f172a]/80 border-l-4 border-amber-500 p-6 rounded-r-2xl shadow-xl space-y-2 mt-8">
-                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest block">Our Vision & Mission</span>
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest block">Our Vision &
+                    Mission</span>
                 <p class="text-slate-300 text-sm md:text-base font-light leading-relaxed">
-                    To institutionalize individual land asset defense matrices, enabling absolute verification visibility loops regardless of owner coordinates.
+                    To institutionalize individual land asset defense matrices, enabling absolute verification
+                    visibility loops regardless of owner coordinates.
                 </p>
             </div>
         </div>
-        
+
         <div class="md:col-span-5 reveal-on-scroll flex justify-center">
             <div class="relative mx-auto max-w-md w-full">
-                <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-amber-600 rounded-3xl blur opacity-30 animate-pulse"></div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkI9zxxJhzZQUi90Nmy-v3OsGhXCHNAA5nWfv_8ysl8q2NuILyh9wKUn00&s=10" alt="Corporate Architecture Skyscrapers" class="relative rounded-3xl shadow-2xl border border-slate-800 w-full object-cover z-10 transform hover:scale-[1.02] transition-transform duration-500">
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-amber-600 rounded-3xl blur opacity-30 animate-pulse">
+                </div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkI9zxxJhzZQUi90Nmy-v3OsGhXCHNAA5nWfv_8ysl8q2NuILyh9wKUn00&s=10"
+                    alt="Corporate Architecture Skyscrapers"
+                    class="relative rounded-3xl shadow-2xl border border-slate-800 w-full object-cover z-10 transform hover:scale-[1.02] transition-transform duration-500">
             </div>
         </div>
     </section>
@@ -157,41 +236,61 @@
     <!-- SECTION 3: OPERATIONAL PILLARS -->
     <section class="py-28 bg-[#0b0f19] border-y border-slate-900 px-6">
         <div class="container mx-auto max-w-7xl text-center mb-20 reveal-on-scroll">
-            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block mb-3">Our Execution Foundations</span>
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block mb-3">Our Execution
+                Foundations</span>
             <h2 class="font-luxury text-4xl sm:text-5xl font-bold text-white">Our Operational Pillars</h2>
-            <p class="text-slate-400 text-base font-light max-w-xl mx-auto mt-4">Meticulously integrated asset monitoring modules engineered for institutional performance.</p>
+            <p class="text-slate-400 text-base font-light max-w-xl mx-auto mt-4">Meticulously integrated asset
+                monitoring modules engineered for institutional performance.</p>
         </div>
-        
+
         <div class="container mx-auto max-w-7xl grid md:grid-cols-3 gap-10 text-left">
-            <div class="interactive-card bg-[#030712] p-10 rounded-3xl shadow-2xl flex flex-col justify-between reveal-on-scroll">
+            <div
+                class="interactive-card bg-[#030712] p-10 rounded-3xl shadow-2xl flex flex-col justify-between reveal-on-scroll">
                 <div>
-                    <div class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-500 font-luxury font-bold text-2xl mb-8">01</div>
+                    <div
+                        class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-500 font-luxury font-bold text-2xl mb-8">
+                        01</div>
                     <h4 class="text-white font-bold text-xl mb-4">Absolute Transparency</h4>
-                    <p class="text-slate-400 text-sm md:text-base font-light leading-relaxed">Every verification event and structural data pass includes photographic timestamp logs uploaded immediately to client portals.</p>
+                    <p class="text-slate-400 text-sm md:text-base font-light leading-relaxed">Every verification event
+                        and structural data pass includes photographic timestamp logs uploaded immediately to client
+                        portals.</p>
                 </div>
-                <div class="mt-8 pt-4 border-t border-slate-900 flex items-center text-amber-500/80 text-xs uppercase tracking-wider font-semibold">
+                <div
+                    class="mt-8 pt-4 border-t border-slate-900 flex items-center text-amber-500/80 text-xs uppercase tracking-wider font-semibold">
                     <span>Verified Protocol</span> <i class="fa-solid fa-check ml-2"></i>
                 </div>
             </div>
-            
-            <div class="interactive-card bg-[#030712] p-10 rounded-3xl shadow-2xl flex flex-col justify-between reveal-on-scroll" style="transition-delay: 100ms;">
+
+            <div class="interactive-card bg-[#030712] p-10 rounded-3xl shadow-2xl flex flex-col justify-between reveal-on-scroll"
+                style="transition-delay: 100ms;">
                 <div>
-                    <div class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-500 font-luxury font-bold text-2xl mb-8">02</div>
+                    <div
+                        class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-500 font-luxury font-bold text-2xl mb-8">
+                        02</div>
                     <h4 class="text-white font-bold text-xl mb-4">Biometric Verification</h4>
-                    <p class="text-slate-400 text-sm md:text-base font-light leading-relaxed">We match coordinates directly at your property line to avoid proxy estimation errors or missing structural details.</p>
+                    <p class="text-slate-400 text-sm md:text-base font-light leading-relaxed">We match coordinates
+                        directly at your property line to avoid proxy estimation errors or missing structural details.
+                    </p>
                 </div>
-                <div class="mt-8 pt-4 border-t border-slate-900 flex items-center text-amber-500/80 text-xs uppercase tracking-wider font-semibold">
+                <div
+                    class="mt-8 pt-4 border-t border-slate-900 flex items-center text-amber-500/80 text-xs uppercase tracking-wider font-semibold">
                     <span>Geo-Fenced Audits</span> <i class="fa-solid fa-check ml-2"></i>
                 </div>
             </div>
-            
-            <div class="interactive-card bg-[#030712] p-10 rounded-3xl shadow-2xl flex flex-col justify-between reveal-on-scroll" style="transition-delay: 200ms;">
+
+            <div class="interactive-card bg-[#030712] p-10 rounded-3xl shadow-2xl flex flex-col justify-between reveal-on-scroll"
+                style="transition-delay: 200ms;">
                 <div>
-                    <div class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-500 font-luxury font-bold text-2xl mb-8">03</div>
+                    <div
+                        class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-500 font-luxury font-bold text-2xl mb-8">
+                        03</div>
                     <h4 class="text-white font-bold text-xl mb-4">Legal Accountability</h4>
-                    <p class="text-slate-400 text-sm md:text-base font-light leading-relaxed">Our legal experts monitor municipal updates and tracking mutations to keep title chains fully protected against third-party threats.</p>
+                    <p class="text-slate-400 text-sm md:text-base font-light leading-relaxed">Our legal experts monitor
+                        municipal updates and tracking mutations to keep title chains fully protected against
+                        third-party threats.</p>
                 </div>
-                <div class="mt-8 pt-4 border-t border-slate-900 flex items-center text-amber-500/80 text-xs uppercase tracking-wider font-semibold">
+                <div
+                    class="mt-8 pt-4 border-t border-slate-900 flex items-center text-amber-500/80 text-xs uppercase tracking-wider font-semibold">
                     <span>Title Mutation Defense</span> <i class="fa-solid fa-check ml-2"></i>
                 </div>
             </div>
@@ -201,36 +300,45 @@
     <!-- SECTION 4: CORPORATE LEADERSHIP -->
     <section class="py-28 px-6 max-w-5xl mx-auto space-y-16">
         <div class="text-center mb-16 reveal-on-scroll">
-            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block mb-3">Executive Officers</span>
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block mb-3">Executive
+                Officers</span>
             <h2 class="font-luxury text-4xl sm:text-5xl font-bold text-white">Corporate Leadership</h2>
-            <p class="text-slate-400 text-base font-light max-w-xl mx-auto mt-4">Direct access to operational command loops for personalized portfolio supervision.</p>
+            <p class="text-slate-400 text-base font-light max-w-xl mx-auto mt-4">Direct access to operational command
+                loops for personalized portfolio supervision.</p>
         </div>
-        
+
         <!-- Leader 1: Swaroop Chavali -->
-        <div class="interactive-card bg-[#0b0f19] p-8 md:p-12 rounded-3xl shadow-2xl grid md:grid-cols-12 gap-8 items-center reveal-on-scroll">
+        <div
+            class="interactive-card bg-[#0b0f19] p-8 md:p-12 rounded-3xl shadow-2xl grid md:grid-cols-12 gap-8 items-center reveal-on-scroll">
             <div class="md:col-span-4 flex justify-center">
                 <div class="relative">
                     <div class="absolute -inset-1 bg-amber-500/20 rounded-full blur"></div>
-                    <div class="w-40 h-40 bg-slate-900 rounded-full border-2 border-amber-500/40 overflow-hidden flex items-center justify-center text-slate-500 relative z-10 shadow-2xl">
-                        <img src="swaroop chavali.jpeg" alt="Swaroop Chavali" class="w-full h-full object-cover object-top">
+                    <div
+                        class="w-40 h-40 bg-slate-900 rounded-full border-2 border-amber-500/40 overflow-hidden flex items-center justify-center text-slate-500 relative z-10 shadow-2xl">
+                        <img src="swaroop chavali.jpeg" alt="Swaroop Chavali"
+                            class="w-full h-full object-cover object-top">
                     </div>
                 </div>
             </div>
             <div class="md:col-span-8 text-center md:text-left space-y-3">
-                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest block">Founder and Managing Director</span>
+                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest block">Founder and Managing
+                    Director</span>
                 <h3 class="font-luxury text-3xl font-bold text-white">Swaroop Chavali</h3>
                 <p class="text-slate-300 text-sm md:text-base font-light leading-relaxed pt-2">
-                    Directs corporate asset strategy, portfolio verification workflows, and premium client SLA deployment matrices across our NRI investment channels globally.
+                    Directs corporate asset strategy, portfolio verification workflows, and premium client SLA
+                    deployment matrices across our NRI investment channels globally.
                 </p>
             </div>
         </div>
 
         <!-- Leader 2: Songa Vijaya -->
-        <div class="interactive-card bg-[#0b0f19] p-8 md:p-12 rounded-3xl shadow-2xl grid md:grid-cols-12 gap-8 items-center reveal-on-scroll">
+        <div
+            class="interactive-card bg-[#0b0f19] p-8 md:p-12 rounded-3xl shadow-2xl grid md:grid-cols-12 gap-8 items-center reveal-on-scroll">
             <div class="md:col-span-4 flex justify-center">
                 <div class="relative">
                     <div class="absolute -inset-1 bg-amber-500/20 rounded-full blur"></div>
-                    <div class="w-40 h-40 bg-slate-900 rounded-full border-2 border-amber-500/40 overflow-hidden flex items-center justify-center text-slate-500 relative z-10 shadow-2xl">
+                    <div
+                        class="w-40 h-40 bg-slate-900 rounded-full border-2 border-amber-500/40 overflow-hidden flex items-center justify-center text-slate-500 relative z-10 shadow-2xl">
                         <img src="songa vijaya.jpeg" alt="Songa Vijaya" class="w-full h-full object-cover object-top">
                     </div>
                 </div>
@@ -239,18 +347,22 @@
                 <span class="text-amber-500 text-xs font-bold uppercase tracking-widest block">Chairwoman</span>
                 <h3 class="font-luxury text-3xl font-bold text-white">Songa Vijaya</h3>
                 <p class="text-slate-300 text-sm md:text-base font-light leading-relaxed pt-2">
-                    Directs corporate asset strategy, portfolio verification workflows, and premium client SLA deployment matrices across our NRI investment channels globally.
+                    Directs corporate asset strategy, portfolio verification workflows, and premium client SLA
+                    deployment matrices across our NRI investment channels globally.
                 </p>
             </div>
         </div>
 
         <!-- Leader 3: Masapalli Pravalika -->
-        <div class="interactive-card bg-[#0b0f19] p-8 md:p-12 rounded-3xl shadow-2xl grid md:grid-cols-12 gap-8 items-center reveal-on-scroll">
+        <div
+            class="interactive-card bg-[#0b0f19] p-8 md:p-12 rounded-3xl shadow-2xl grid md:grid-cols-12 gap-8 items-center reveal-on-scroll">
             <div class="md:col-span-4 flex justify-center">
                 <div class="relative">
                     <div class="absolute -inset-1 bg-amber-500/20 rounded-full blur"></div>
-                    <div class="w-40 h-40 bg-slate-900 rounded-full border-2 border-amber-500/40 overflow-hidden flex items-center justify-center text-slate-500 relative z-10 shadow-2xl">
-                        <img src="masapalli pravalika.jpeg" alt="Masapalli Pravalika" class="w-full h-full object-cover object-top">
+                    <div
+                        class="w-40 h-40 bg-slate-900 rounded-full border-2 border-amber-500/40 overflow-hidden flex items-center justify-center text-slate-500 relative z-10 shadow-2xl">
+                        <img src="masapalli pravalika.jpeg" alt="Masapalli Pravalika"
+                            class="w-full h-full object-cover object-top">
                     </div>
                 </div>
             </div>
@@ -258,8 +370,61 @@
                 <span class="text-amber-500 text-xs font-bold uppercase tracking-widest block">CEO</span>
                 <h3 class="font-luxury text-3xl font-bold text-white">Masapalli Pravallika</h3>
                 <p class="text-slate-300 text-sm md:text-base font-light leading-relaxed pt-2">
-                    Manages ground surveyor field operations, physical utility tracking updates, preventative maintenance taskforces, and local municipal registration support loops.
+                    Manages ground surveyor field operations, physical utility tracking updates, preventative
+                    maintenance taskforces, and local municipal registration support loops.
                 </p>
+            </div>
+        </div>
+
+        <!-- Leader 4: M. Chandrakiran -->
+        <div
+            class="interactive-card bg-[#0b0f19] p-8 md:p-12 rounded-3xl shadow-2xl grid md:grid-cols-12 gap-8 items-center reveal-on-scroll">
+            <div class="md:col-span-4 flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-amber-500/20 rounded-full blur"></div>
+                    <div
+                        class="w-40 h-40 bg-slate-900 rounded-full border-2 border-amber-500/40 overflow-hidden flex items-center justify-center text-slate-500 relative z-10 shadow-2xl">
+                        <img src="chandrakiran.png" alt="M. Chandrakiran" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-8 text-center md:text-left space-y-3">
+                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest block">Business Development
+                    Manager ( BDM)</span>
+                <h3 class="font-luxury text-3xl font-bold text-white">M. Chandra kiran</h3>
+                <div class="text-slate-300 text-sm md:text-base font-light leading-relaxed pt-2 space-y-1">
+                    <p><strong class="text-amber-400 font-medium">Mobile number:</strong> <a href="tel:9392188133"
+                            class="text-white hover:text-amber-500 underline font-semibold transition-colors">9392188133</a>
+                    </p>
+                    <p class="text-slate-400 text-sm">For any queries and information, contact to this number (only
+                        call).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leader 5: Sk. Ansar -->
+        <div
+            class="interactive-card bg-[#0b0f19] p-8 md:p-12 rounded-3xl shadow-2xl grid md:grid-cols-12 gap-8 items-center reveal-on-scroll">
+            <div class="md:col-span-4 flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-amber-500/20 rounded-full blur"></div>
+                    <div
+                        class="w-40 h-40 bg-slate-900 rounded-full border-2 border-amber-500/40 overflow-hidden flex items-center justify-center text-slate-500 relative z-10 shadow-2xl">
+                        <img src="sk ansar.jpg" alt="Sk. Ansar" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-8 text-center md:text-left space-y-3">
+                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest block">Business Development
+                    Manager ( BDM)</span>
+                <h3 class="font-luxury text-3xl font-bold text-white">Sk. Ansar</h3>
+                <div class="text-slate-300 text-sm md:text-base font-light leading-relaxed pt-2 space-y-1">
+                    <p><strong class="text-amber-400 font-medium">Mobile Number:</strong> <a href="tel:8074434589"
+                            class="text-white hover:text-amber-500 underline font-semibold transition-colors">8074434589</a>
+                    </p>
+                    <p class="text-slate-400 text-sm">For any queries and information, contact to this number (only
+                        call).</p>
+                </div>
             </div>
         </div>
     </section>
@@ -270,49 +435,71 @@
             <div class="text-center mb-20 reveal-on-scroll">
                 <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.25em] block mb-3">Chronology</span>
                 <h2 class="font-luxury text-4xl sm:text-5xl font-bold text-white">Our Professional Evolution</h2>
-                <p class="text-slate-400 text-base font-light max-w-md mx-auto mt-4">A documented operational track record defined by execution milestones.</p>
+                <p class="text-slate-400 text-base font-light max-w-md mx-auto mt-4">A documented operational track
+                    record defined by execution milestones.</p>
             </div>
-            
+
             <div class="relative border-l-2 border-amber-500/30 pl-8 ml-4 md:ml-28 space-y-12">
-                
+
                 <div class="timeline-card bg-[#0b0f19] p-8 rounded-3xl shadow-xl relative reveal-on-scroll">
-                    <div class="timeline-node absolute -left-[41px] top-8 w-5 h-5 rounded-full bg-slate-950 border-4 border-amber-500 shadow-lg"></div>
+                    <div
+                        class="timeline-node absolute -left-[41px] top-8 w-5 h-5 rounded-full bg-slate-950 border-4 border-amber-500 shadow-lg">
+                    </div>
                     <span class="text-amber-500 font-luxury font-bold text-2xl block mb-2">2021</span>
-                    <h4 class="text-white text-lg font-bold uppercase tracking-wider mb-2">Founding & Core Infrastructure Vetting</h4>
-                    <p class="text-slate-400 text-base font-light leading-relaxed">Established local operations across West Hyderabad, designing biometric verification blueprints for vacant plots and estate bounds.</p>
+                    <h4 class="text-white text-lg font-bold uppercase tracking-wider mb-2">Founding & Core
+                        Infrastructure Vetting</h4>
+                    <p class="text-slate-400 text-base font-light leading-relaxed">Established local operations across
+                        West Hyderabad, designing biometric verification blueprints for vacant plots and estate bounds.
+                    </p>
                 </div>
-                
+
                 <div class="timeline-card bg-[#0b0f19] p-8 rounded-3xl shadow-xl relative reveal-on-scroll">
-                    <div class="timeline-node absolute -left-[41px] top-8 w-5 h-5 rounded-full bg-slate-950 border-4 border-amber-500 shadow-lg"></div>
+                    <div
+                        class="timeline-node absolute -left-[41px] top-8 w-5 h-5 rounded-full bg-slate-950 border-4 border-amber-500 shadow-lg">
+                    </div>
                     <span class="text-amber-500 font-luxury font-bold text-2xl block mb-2">2023</span>
                     <h4 class="text-white text-lg font-bold uppercase tracking-wider mb-2">SLA Asset Expansion Loop</h4>
-                    <p class="text-slate-400 text-base font-light leading-relaxed">Surpassed 250+ private residential community villas and corporate high-value holdings under ongoing preventative management vectors.</p>
+                    <p class="text-slate-400 text-base font-light leading-relaxed">Surpassed 250+ private residential
+                        community villas and corporate high-value holdings under ongoing preventative management
+                        vectors.</p>
                 </div>
-                
+
                 <div class="timeline-card bg-[#0b0f19] p-8 rounded-3xl shadow-xl relative reveal-on-scroll">
-                    <div class="timeline-node absolute -left-[41px] top-8 w-5 h-5 rounded-full bg-slate-950 border-4 border-amber-500 shadow-lg"></div>
+                    <div
+                        class="timeline-node absolute -left-[41px] top-8 w-5 h-5 rounded-full bg-slate-950 border-4 border-amber-500 shadow-lg">
+                    </div>
                     <span class="text-amber-500 font-luxury font-bold text-2xl block mb-2">2025</span>
-                    <h4 class="text-white text-lg font-bold uppercase tracking-wider mb-2">Corporate Client Digital Sync</h4>
-                    <p class="text-slate-400 text-base font-light leading-relaxed">Launched end-to-end encrypted real-time client dashboards for instant data monitoring and automated compliance updates from overseas.</p>
+                    <h4 class="text-white text-lg font-bold uppercase tracking-wider mb-2">Corporate Client Digital Sync
+                    </h4>
+                    <p class="text-slate-400 text-base font-light leading-relaxed">Launched end-to-end encrypted
+                        real-time client dashboards for instant data monitoring and automated compliance updates from
+                        overseas.</p>
                 </div>
-                
+
             </div>
         </div>
     </section>
 
     <!-- SECTION 6: PRE-FOOTER CTA BANNER -->
-    <section class="relative w-full min-h-[420px] flex items-center justify-center text-center bg-cover bg-center bg-no-repeat border-t border-slate-900" 
-             style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95), rgba(11, 15, 25, 0.8)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80');">
-        <div class="w-full max-w-4xl mx-auto px-6 py-20 flex flex-col items-center justify-center relative z-10 reveal-on-scroll">
-            <span class="text-amber-500 text-xs md:text-sm font-bold uppercase tracking-[0.3em] block mb-4">Uncompromising Commitment</span>
-            <h2 class="font-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-wide leading-tight max-w-3xl mb-6 italic">
+    <section
+        class="relative w-full min-h-[420px] flex items-center justify-center text-center bg-cover bg-center bg-no-repeat border-t border-slate-900"
+        style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95), rgba(11, 15, 25, 0.8)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80');">
+        <div
+            class="w-full max-w-4xl mx-auto px-6 py-20 flex flex-col items-center justify-center relative z-10 reveal-on-scroll">
+            <span
+                class="text-amber-500 text-xs md:text-sm font-bold uppercase tracking-[0.3em] block mb-4">Uncompromising
+                Commitment</span>
+            <h2
+                class="font-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-wide leading-tight max-w-3xl mb-6 italic">
                 "Your Property is our Ultimate Responsibility."
             </h2>
             <p class="text-slate-300 text-base md:text-lg font-light max-w-2xl mx-auto leading-relaxed mb-8">
-                Schedule a secure SLA consultation with our executive founders to design a custom physical custody blueprint for your holdings.
+                Schedule a secure SLA consultation with our executive founders to design a custom physical custody
+                blueprint for your holdings.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="consultation.html" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs md:text-sm uppercase tracking-widest px-8 py-4 rounded-full transition-all shadow-2xl transform hover:scale-105">
+                <a href="consultation.html"
+                    class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs md:text-sm uppercase tracking-widest px-8 py-4 rounded-full transition-all shadow-2xl transform hover:scale-105">
                     Schedule Direct Vetting Session
                 </a>
             </div>
@@ -322,22 +509,32 @@
     <!-- MASTER FOOTER WITH GOOGLE MAPS DARK EMBED -->
     <footer class="bg-[#02050c] text-slate-400 text-xs pt-16 pb-10 border-t border-slate-900 mt-auto">
         <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-10 mb-14 text-left">
-            
+
             <div class="md:col-span-4 space-y-3">
                 <div class="flex items-center gap-3">
-                    <img src="LOGO.jpeg" alt="Swades Property & Lifestyle logo" class="h-11 w-auto max-w-[150px] object-contain rounded-lg bg-white/10 p-1 shadow-sm">
+                    <img src="LOGO.jpeg" alt="Swades Property & Lifestyle logo"
+                        class="h-11 w-auto max-w-[150px] object-contain rounded-lg bg-white/10 p-1 shadow-sm">
                     <div>
-                        <span class="block font-luxury font-bold text-sm text-white tracking-wider leading-none">SWADES</span>
-                        <span class="text-[8px] text-amber-500 tracking-widest uppercase font-bold">Property & Lifestyle</span>
+                        <span
+                            class="block font-luxury font-bold text-sm text-white tracking-wider leading-none">SWADES</span>
+                        <span class="text-[8px] text-amber-500 tracking-widest uppercase font-bold">Property &
+                            Lifestyle</span>
                     </div>
                 </div>
                 <p class="text-slate-500 text-xs font-light leading-relaxed">
-                    Empowering property owners and international NRIs with absolute structural security, legal integrity, and elite preventative property maintenance across the greater Hyderabad region.
+                    Empowering property owners and international NRIs with absolute structural security, legal
+                    integrity, and elite preventative property maintenance across the greater Hyderabad region.
                 </p>
                 <div class="flex space-x-2.5 pt-1">
-                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
-                    <a href="#" class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                    <a href="#"
+                        class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i
+                            class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#"
+                        class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i
+                            class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#"
+                        class="w-7 h-7 bg-slate-900 hover:bg-amber-600 hover:text-slate-950 rounded-full flex items-center justify-center text-slate-400 transition-colors"><i
+                            class="fa-brands fa-linkedin-in text-xs"></i></a>
                 </div>
             </div>
 
@@ -349,7 +546,8 @@
                     <a href="services.html" class="hover:text-amber-500 transition-colors">Core Portfolios</a>
                     <a href="luxury-outdoor.html" class="hover:text-amber-500 transition-colors">Luxury Showcase</a>
                     <a href="gallery.html" class="hover:text-amber-500 transition-colors">Projects Gallery</a>
-                    <a href="plot-commercial.html" class="hover:text-amber-500 transition-colors">Plot & Commercial Management</a>
+                    <a href="plot-commercial.html" class="hover:text-amber-500 transition-colors">Plot & Commercial
+                        Management</a>
                 </nav>
             </div>
 
@@ -372,16 +570,21 @@
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Live GPS
                     </span>
                 </div>
-                
+
                 <!-- The Map Container -->
-                <div class="w-full h-32 sm:h-40 rounded-xl overflow-hidden border border-slate-800 shadow-2xl relative z-10 bg-slate-950 mt-2">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4443.221729678218!2d78.2721574!3d17.5442341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbf30070656b73%3A0x1faf0bf82e65bc78!2sVilla%2038%20APR%20PRAVEEN%E2%80%99s%20Nature%20phase%202!5e1!3m2!1sen!2sin!4v1784455217487!5m2!1sen!2sin" class="w-full h-full border-0 invert grayscale contrast-150 opacity-80 hover:opacity-100 transition-all duration-500" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                <div
+                    class="w-full h-32 sm:h-40 rounded-xl overflow-hidden border border-slate-800 shadow-2xl relative z-10 bg-slate-950 mt-2">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4443.221729678218!2d78.2721574!3d17.5442341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbf30070656b73%3A0x1faf0bf82e65bc78!2sVilla%2038%20APR%20PRAVEEN%E2%80%99s%20Nature%20phase%202!5e1!3m2!1sen!2sin!4v1784455217487!5m2!1sen!2sin"
+                        class="w-full h-full border-0 invert grayscale contrast-150 opacity-80 hover:opacity-100 transition-all duration-500"
+                        allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                 </div>
             </div>
 
         </div>
 
-        <div class="container mx-auto px-6 max-w-7xl border-t border-slate-900 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-3 sm:space-y-0 font-medium">
+        <div
+            class="container mx-auto px-6 max-w-7xl border-t border-slate-900 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-3 sm:space-y-0 font-medium">
             <p>&copy; 2026 Swades Property Management Services. All Rights Reserved.</p>
             <div class="flex space-x-5">
                 <a href="#" class="hover:text-amber-500 transition-colors">Privacy Protocol</a>
@@ -392,11 +595,16 @@
     </footer>
 
     <!-- AUTO-HIDING WHATSAPP BUTTON (z-40) -->
-    <div id="whatsapp-widget" class="fixed bottom-8 right-8 z-40 flex items-center gap-3 bg-slate-950/90 border border-slate-800 p-2 pr-4 rounded-full shadow-2xl animate-bounce transition-opacity duration-200">
-        <a href="https://wa.me/917066780736" target="_blank" class="w-12 h-12 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center text-2xl transition-colors shadow-lg">
+    <div id="whatsapp-widget"
+        class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-40 flex items-center gap-2 sm:gap-3 bg-slate-950/90 border border-amber-500/30 p-2 pr-3.5 sm:pr-4 rounded-full shadow-2xl animate-bounce transition-opacity duration-200 max-w-[calc(100vw-2rem)]">
+        <a href="https://wa.me/917066780736" target="_blank"
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center text-xl sm:text-2xl transition-colors shadow-lg shrink-0">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <span class="text-xs font-bold uppercase tracking-wider text-slate-300 hidden sm:inline">LIVE SUPPORT</span>
+        <a href="https://wa.me/917066780736" target="_blank"
+            class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-200 hover:text-emerald-400 transition-colors">
+            Chat with Managing Director
+        </a>
     </div>
 
     <!-- COMBINED JAVASCRIPT OBSERVER & DRAWER CONTROLLER -->
@@ -434,12 +642,12 @@
             const drawer = document.getElementById("sidebar-drawer");
             const triggerBtn = document.querySelector(".menu-trigger-btn");
             const closeBtn = document.getElementById("close-sidebar-btn");
-            const waWidget = document.getElementById("whatsapp-widget"); 
+            const waWidget = document.getElementById("whatsapp-widget");
 
             if (triggerBtn && overlay && drawer) {
                 triggerBtn.addEventListener("click", () => {
                     overlay.classList.remove("hidden");
-                    if (waWidget) waWidget.classList.add("opacity-0", "pointer-events-none"); 
+                    if (waWidget) waWidget.classList.add("opacity-0", "pointer-events-none");
                     setTimeout(() => {
                         overlay.classList.remove("opacity-0");
                         drawer.classList.remove("translate-x-full");
@@ -452,7 +660,7 @@
                 overlay.classList.add("opacity-0");
                 setTimeout(() => {
                     overlay.classList.add("hidden");
-                    if (waWidget) waWidget.classList.remove("opacity-0", "pointer-events-none"); 
+                    if (waWidget) waWidget.classList.remove("opacity-0", "pointer-events-none");
                 }, 300);
             };
 
@@ -460,19 +668,23 @@
             if (overlay) overlay.addEventListener("click", closeDrawer);
         });
     </script>
-    
+
     <!-- ELITE ORBITAL CURSOR -->
-    <div id="luxury-aura" class="fixed top-0 left-0 -ml-[18px] -mt-[18px] w-9 h-9 rounded-full border border-amber-500/40 bg-amber-500/5 pointer-events-none z-[99999] hidden md:block transition-colors duration-300 will-change-transform"></div>
-    <div id="luxury-dot" class="fixed top-0 left-0 -ml-[4px] -mt-[4px] w-2 h-2 rounded-full bg-amber-400 pointer-events-none z-[99999] hidden md:block will-change-transform"></div>
+    <div id="luxury-aura"
+        class="fixed top-0 left-0 -ml-[18px] -mt-[18px] w-9 h-9 rounded-full border border-amber-500/40 bg-amber-500/5 pointer-events-none z-[99999] hidden md:block transition-colors duration-300 will-change-transform">
+    </div>
+    <div id="luxury-dot"
+        class="fixed top-0 left-0 -ml-[4px] -mt-[4px] w-2 h-2 rounded-full bg-amber-400 pointer-events-none z-[99999] hidden md:block will-change-transform">
+    </div>
 
     <script>
-        (function() {
+        (function () {
             // Safety Kill-Switch: Do not run on mobile touchscreens
             if (window.matchMedia("(pointer: coarse)").matches) return;
 
             const aura = document.getElementById('luxury-aura');
             const dot = document.getElementById('luxury-dot');
-            
+
             if (!aura || !dot) return;
 
             let mouseX = window.innerWidth / 2;
@@ -490,7 +702,7 @@
 
             // LERP Engine: Smoothly drag the aura behind the dot
             function renderAura() {
-                auraX += (mouseX - auraX) * 0.21; 
+                auraX += (mouseX - auraX) * 0.21;
                 auraY += (mouseY - auraY) * 0.21;
 
                 const scale = isHovering ? 'scale(1.6)' : 'scale(1)';
@@ -503,7 +715,7 @@
             // Magnetic Expansion on clickable items
             const attachMagneticSensors = () => {
                 const interactives = document.querySelectorAll('a, button, input, [onclick], .luxury-card, .job-card, .accordion-card, .interactive-card, .timeline-card');
-                
+
                 interactives.forEach(el => {
                     el.addEventListener('mouseenter', () => {
                         isHovering = true;
@@ -526,4 +738,5 @@
         })();
     </script>
 </body>
+
 </html>
